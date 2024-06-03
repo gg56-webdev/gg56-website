@@ -1,0 +1,19 @@
+---
+import HeadMeta from "@/components/HeadMeta.astro";
+import "@/style.css";
+import type { ComponentProps } from "astro/types";
+
+type Props = ComponentProps<typeof HeadMeta>;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <HeadMeta {...Astro.props} />
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

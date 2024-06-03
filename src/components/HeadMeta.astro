@@ -1,0 +1,42 @@
+---
+import { SEO } from "astro-seo";
+
+export type Props = {
+  title?: string;
+  ogTitle?: string;
+  description?: string;
+  ogDescription?: string;
+  image?: { src: string | URL; alt: string };
+  noIndex?: boolean;
+};
+
+const {
+  title,
+  description,
+  noIndex = false,
+  ogTitle,
+  ogDescription,
+  image,
+} = Astro.props;
+---
+
+<SEO
+  title={title}
+  titleDefault="GG56"
+  description={description}
+  noindex={noIndex}
+  nofollow={noIndex}
+  charset="utf-8"
+  extend={{
+    meta: [
+      {
+        name: "viewport",
+        content: "width=device-width, initial-scale=1",
+      },
+      {
+        name: "generator",
+        content: Astro.generator,
+      },
+    ],
+  }}
+/>
