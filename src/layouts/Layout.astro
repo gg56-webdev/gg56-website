@@ -2,17 +2,21 @@
 import HeadMeta from "@/components/HeadMeta.astro";
 import "@/style.css";
 import type { ComponentProps } from "astro/types";
+import * as m from "@/paraglide/messages.js";
 
 type Props = ComponentProps<typeof HeadMeta>;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={Astro.currentLocale}>
   <head>
     <HeadMeta {...Astro.props} />
   </head>
   <body>
     <main>
+      <header>
+        <strong>{m.name()}</strong>
+      </header>
       <slot />
     </main>
   </body>
