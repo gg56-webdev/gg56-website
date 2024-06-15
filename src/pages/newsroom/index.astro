@@ -1,0 +1,61 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import client from "@/lib/gql-client";
+
+export const prerender = false;
+
+const { slug } = Astro.params;
+
+type Post = {
+  title: string;
+  excerpt: string | null;
+  createdAt: string;
+  publishedAt: string | null;
+};
+
+const { posts }: { posts: Post[] } = await client.request(
+  `query Posts {
+    posts {
+      title,
+      excerpt,
+      createdAt,
+      publishedAt,
+    }
+  }`,
+  { slug }
+);
+
+// Astro.response.headers.set(
+//   "Cache-Control",
+//   "public, max-age=0, must-revalidate"
+// );
+// Astro.response.headers.set(
+//   "Netlify-CDN-Cache-Control",
+//   "public, s-maxage=300, stale-while-revalidate=604800"
+// );
+// Astro.response.headers.set("Netlify-Cache-Tag", slug);
+---
+
+<Layout>
+  <h1>News</h1>
+  <ul>
+    {
+      posts.map((post) => {
+        const publishDate = new Date(post.publishedAt ?? post.createdAt);
+        return (
+          <li>
+            <article class="card">
+              <h2 set:html={post.title} />
+              <p set:html={post.excerpt} />
+              <footer>
+                <time datetime={publishDate.toDateString()}>
+                  {publishDate.toLocaleDateString()}
+                </time>
+              </footer>
+            </article>
+          </li>
+        );
+      })
+    }
+  </ul>
+</Layout>

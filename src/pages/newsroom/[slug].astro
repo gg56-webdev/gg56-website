@@ -1,0 +1,62 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import client from "@/lib/gql-client";
+
+export const prerender = false;
+
+const { slug } = Astro.params;
+
+type Post = {
+  title: string;
+  excerpt: string | null;
+  createdAt: string;
+  publishedAt: string | null;
+  categories: Array<{ name: string }>;
+  body: {
+    html: string;
+  };
+};
+
+const { post }: { post: Post | null } = await client.request(
+  `
+  query Post($slug:String!) {
+    post(where: {slug: $slug}) {
+      title,
+      excerpt,
+      createdAt,
+      publishedAt,
+      categories {
+        name
+      },
+      body {
+        html
+      }
+    }
+  }
+`,
+  { slug }
+);
+if (!post) return Astro.redirect("/newsroom");
+
+const publishDate = new Date(post.publishedAt ?? post.createdAt);
+
+// Astro.response.headers.set(
+//   "Cache-Control",
+//   "public, max-age=0, must-revalidate"
+// );
+// Astro.response.headers.set(
+//   "Netlify-CDN-Cache-Control",
+//   "public, s-maxage=300, stale-while-revalidate=604800"
+// );
+// Astro.response.headers.set("Netlify-Cache-Tag", slug);
+---
+
+<Layout>
+  <article class="prose">
+    <h1 set:html={post.title} />
+    <time datetime={publishDate.toDateString()}
+      >{publishDate.toLocaleDateString()}</time
+    >
+    <Fragment set:html={post.body.html} />
+  </article>
+</Layout>
