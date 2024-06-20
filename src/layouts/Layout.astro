@@ -10,6 +10,7 @@ type Props = ComponentProps<typeof HeadMeta>;
 <html lang="en">
   <head>
     <HeadMeta {...Astro.props} />
+    <slot name="head" />
   </head>
   <body>
     <main>
