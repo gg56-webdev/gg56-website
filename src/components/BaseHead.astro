@@ -28,7 +28,9 @@ const {
 } = Astro.props;
 
 const COMPANY_NAME = "GG56";
-const titleTemplate = title ? `${title} | ${COMPANY_NAME}` : COMPANY_NAME;
+const titleTemplate = title
+  ? `${title} | ${COMPANY_NAME}`
+  : `${COMPANY_NAME} Korea`;
 ---
 
 <meta charset="utf-8" />
