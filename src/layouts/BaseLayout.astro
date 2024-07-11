@@ -1,15 +1,15 @@
 ---
-import HeadMeta from "@/components/HeadMeta.astro";
+import BaseHead from "@/components/BaseHead.astro";
 import "@/style.css";
 import type { ComponentProps } from "astro/types";
 
-type Props = ComponentProps<typeof HeadMeta>;
+type Props = ComponentProps<typeof BaseHead>;
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <HeadMeta {...Astro.props} />
+    <BaseHead {...Astro.props} />
     <slot name="head" />
   </head>
   <body>
