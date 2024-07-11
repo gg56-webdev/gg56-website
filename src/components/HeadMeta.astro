@@ -1,42 +1,62 @@
 ---
-import { SEO } from "astro-seo";
-
 export type Props = {
   title?: string;
   ogTitle?: string;
   description?: string;
   ogDescription?: string;
-  image?: { src: string | URL; alt: string };
+  ogImage?: { src: string | URL; alt: string };
   noIndex?: boolean;
+  noFollow?: boolean;
+  canonical?: string | URL;
+  pageType?: "website" | "article";
 };
+
+// TODO: add languageAlternates
+// TODO: add openGraph.optional.locale
+// TODO: add openGraph.optional.localeAlternate
 
 const {
   title,
-  description,
+  description = "GG56 is dedicated to advancing global progress through innovative technology solutions! GG56 Limited - For a Global Good.",
   noIndex = false,
+  noFollow = false,
   ogTitle,
   ogDescription,
-  image,
+  ogImage = { src: "/og/default.jpg", alt: "GG56 logo" },
+  canonical = Astro.url.href,
+  pageType = "website",
 } = Astro.props;
+
+const COMPANY_NAME = "GG56";
+const titleTemplate = title ? `${title} | ${COMPANY_NAME}` : COMPANY_NAME;
 ---
 
-<SEO
-  title={title}
-  titleDefault="GG56"
-  description={description}
-  noindex={noIndex}
-  nofollow={noIndex}
-  charset="utf-8"
-  extend={{
-    meta: [
-      {
-        name: "viewport",
-        content: "width=device-width, initial-scale=1",
-      },
-      {
-        name: "generator",
-        content: Astro.generator,
-      },
-    ],
-  }}
-/>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>{titleTemplate}</title>
+
+<meta name="description" content={description} />
+
+{noIndex && <meta name="robots" content="noindex" />}
+{noFollow && <meta name="robots" content="nofollow" />}
+
+<link rel="canonical" href={canonical} />
+
+<meta property="og:url" content={canonical} />
+<meta property="og:type" content={pageType} />
+<meta property="og:title" content={ogTitle || title || COMPANY_NAME} />
+<meta property="og:image" content={ogImage.src} />
+<meta property="og:image:alt" content={ogImage.alt} />
+<meta property="og:description" content={ogDescription || description} />
+<meta property="og:site_name" content={COMPANY_NAME} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonical} />
+<meta name="twitter:title" content={ogTitle || title || COMPANY_NAME} />
+<meta name="twitter:description" content={ogDescription || description} />
+<meta name="twitter:image" content={ogImage.src} />
+<meta name="twitter:image:alt" content={ogImage.alt} />
+
+<link rel="author" href="humans.txt" />
+<meta name="generator" content={Astro.generator} />
