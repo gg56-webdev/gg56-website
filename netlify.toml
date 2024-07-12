@@ -1,0 +1,19 @@
+[[plugins]]
+package = "netlify-plugin-csp-generator"
+
+  [plugins.inputs]
+  buildDir = "dist"
+
+  [plugins.inputs.policies]
+    defaultSrc = "'none'"
+    frameAncestors = "'none'"
+    baseUri = "'none'"
+    imgSrc = "'self'"
+    styleSrc = "'self'"
+    scriptSrc = "'self'"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Content-Type-Options = "nosniff"
