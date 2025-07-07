@@ -1,0 +1,12 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getLocaleParams } from "@/utils";
+
+export function getStaticPaths() {
+  return getLocaleParams();
+}
+---
+
+<Layout>
+  <h1 class="text-4xl text-red-500">GG56</h1>
+</Layout>
