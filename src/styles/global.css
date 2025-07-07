@@ -2,3 +2,21 @@
 @plugin "daisyui" {
   themes: light --default;
 }
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-balance;
+  }
+
+  p,
+  li {
+    @apply text-pretty;
+  }
+
+  :lang(ko) {
+    @apply break-keep;
+  }
+}
