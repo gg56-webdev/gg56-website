@@ -1,0 +1,30 @@
+---
+import { LOCALES } from "@/constants";
+
+const languages: Record<(typeof LOCALES)[number], string> = {
+  en: "English",
+  ko: "한국어",
+};
+---
+
+<select
+  aria-label="Select Language"
+  id="language-select"
+  class="select select-sm w-auto"
+>
+  {
+    Object.entries(languages).map(([lang, label]) => (
+      <option selected={Astro.currentLocale === lang} value={lang}>
+        {label}
+      </option>
+    ))
+  }
+</select>
+
+<script>
+  document
+    .getElementById("language-select")
+    ?.addEventListener("change", ({ target }) => {
+      window.location.href = `/${(target as HTMLSelectElement).value}`;
+    });
+</script>
