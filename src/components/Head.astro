@@ -1,0 +1,15 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = "GG56",
+  description = "GG56 is driving global change with innovative tech solutions. Partner with us to make a difference. GG56 Limited - For a Global Good.",
+} = Astro.props;
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{title}</title>
+<meta name="description" content={description} />

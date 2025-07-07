@@ -1,0 +1,19 @@
+---
+import Head from "@/components/Head.astro";
+import "@/styles/global.css";
+import type { ComponentProps } from "astro/types";
+type Props = ComponentProps<typeof Head>;
+---
+
+<!doctype html>
+<html lang={Astro.currentLocale}>
+  <head>
+    <Head {...Astro.props} />
+    <slot name="head" />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <main class="grow">
+      <slot />
+    </main>
+  </body>
+</html>
