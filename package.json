@@ -9,12 +9,14 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.4",
     "@iconify-json/lucide": "^1.2.56",
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.11.0",
     "astro-icon": "^1.1.5",
     "daisyui": "^5.0.46",
-    "tailwindcss": "^4.1.11"
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.8.3"
   },
   "devDependencies": {
     "prettier": "^3.6.2",
