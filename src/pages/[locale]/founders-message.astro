@@ -1,0 +1,47 @@
+---
+import * as translations from "@/i18n";
+import Layout from "@/layouts/Layout.astro";
+import messageImg from "@images/founders-message/message.webp";
+import { getLocaleParams } from "@/utils";
+import { Image } from "astro:assets";
+import { getEntry } from "astro:content";
+
+export function getStaticPaths() {
+  return getLocaleParams();
+}
+
+const locale = Astro.currentLocale!;
+const t = translations[locale as keyof typeof translations] || translations.en;
+
+let founder = await getEntry("people", `${locale}/han-seung-soo`);
+if (!founder) {
+  founder = await getEntry("people", `en/han-seung-soo`)!;
+}
+---
+
+<Layout title={t.page["founders-message"]}>
+  <div class="grid gap-24 py-12 md:gap-32 md:py-24">
+    <section
+      id="message"
+      aria-labelledby="message-title"
+      class="mx-auto grid w-full max-w-(--breakpoint-lg) items-center gap-12 px-4 md:grid-cols-2"
+    >
+      <Image
+        src={messageImg}
+        loading="eager"
+        alt={`${founder.data.name}, founder of GG56 giving a speech.`}
+      />
+      <div class="prose prose-lg prose-ul:text-sm">
+        <h2 id="message-title">
+          {t["founders-message"].message.overview.h2}
+        </h2>
+        <ul>
+          {founder.data.positions?.map((position) => <li>{position}</li>)}
+        </ul>
+        <blockquote>
+          <p>{t["founders-message"].message.overview.p}</p>
+        </blockquote>
+      </div>
+    </section>
+  </div>
+</Layout>
