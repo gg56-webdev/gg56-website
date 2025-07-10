@@ -2,6 +2,7 @@
 import * as translations from "@/i18n";
 import Layout from "@/layouts/Layout.astro";
 import { getLocaleParams } from "@/utils";
+import DefaultHero from "@/components/DefaultHero.astro";
 
 export function getStaticPaths() {
   return getLocaleParams();
@@ -13,6 +14,7 @@ const t =
 ---
 
 <Layout title={t.page["mission-vision"]}>
+  <DefaultHero title={t["mission-vision"].h1} />
   <div class="grid gap-24 py-12 md:gap-32 md:py-24">
     <section
       id="intro"

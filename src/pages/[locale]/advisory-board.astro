@@ -7,6 +7,7 @@ import { getCollection } from "astro:content";
 import { internationalOrder, localOrder } from "@/content/people";
 import { getIconNameFromUrl } from "@/utils";
 import { Icon } from "astro-icon/components";
+import DefaultHero from "@/components/DefaultHero.astro";
 
 export function getStaticPaths() {
   return getLocaleParams();
@@ -57,7 +58,7 @@ const t =
 ---
 
 <Layout title={t.page["advisory-board"]}>
-  <h1 class="sr-only">{t["advisory-board"].h1}</h1>
+  <DefaultHero title={t["advisory-board"].h1} />
   <div class="grid gap-24 py-12 md:gap-32 md:py-24">
     <section
       id="about"

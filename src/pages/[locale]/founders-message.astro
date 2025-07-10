@@ -5,6 +5,7 @@ import messageImg from "@images/founders-message/message.webp";
 import { getLocaleParams } from "@/utils";
 import { Image } from "astro:assets";
 import { getEntry } from "astro:content";
+import DefaultHero from "@/components/DefaultHero.astro";
 
 export function getStaticPaths() {
   return getLocaleParams();
@@ -20,6 +21,7 @@ if (!founder) {
 ---
 
 <Layout title={t.page["founders-message"]}>
+  <DefaultHero title={t["founders-message"].h1} />
   <div class="grid gap-24 py-12 md:gap-32 md:py-24">
     <section
       id="message"

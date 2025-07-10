@@ -7,6 +7,7 @@ import signisImg from "@images/it/signis.webp";
 import Layout from "@/layouts/Layout.astro";
 import { getLocaleParams } from "@/utils";
 import { Image } from "astro:assets";
+import DefaultHero from "@/components/DefaultHero.astro";
 
 export function getStaticPaths() {
   return getLocaleParams();
@@ -18,7 +19,7 @@ const t =
 ---
 
 <Layout title={t.page.it}>
-  <h1 class="sr-only">{t.it.h1}</h1>
+  <DefaultHero title={t.it.h1} />
   <div class="grid gap-24 py-18 md:gap-32 md:py-24">
     <section
       id="app"
