@@ -1,0 +1,74 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import * as translations from "@/i18n";
+import { Icon } from "astro-icon/components";
+
+const locale = Astro.currentLocale!;
+const t = translations[locale as keyof typeof translations] || translations.en;
+
+type DropdownLinks = Array<keyof typeof t.page>;
+
+const businessLinks: DropdownLinks = [
+  "it",
+  "fintech",
+  "blockchain",
+  "exchange",
+  "digital-bank",
+  "bio",
+  "culture-real-estate",
+];
+
+const aboutLinks: DropdownLinks = ["about", "mission-vision", "advisory-board"];
+---
+
+<nav>
+  <ul class="flex items-center gap-4">
+    <li>
+      <a href={getRelativeLocaleUrl(locale, "/")} class="btn btn-ghost"
+        >{t.nav.home}</a
+      >
+    </li>
+    <li>
+      <div class="dropdown dropdown-hover dropdown-end">
+        <div tabindex="0" role="button" class="btn btn-ghost">
+          {t.nav.business}
+          <Icon size={20} name="lucide:chevron-down" />
+        </div>
+        <ul
+          tabindex="0"
+          role="menu"
+          class="menu dropdown-content rounded-box bg-base-100 z-[1] w-max p-2 shadow-md"
+        >
+          {
+            businessLinks.map((link) => (
+              <li>
+                <a href={getRelativeLocaleUrl(locale, link)}>{t.page[link]}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </li>
+    <li>
+      <div class="dropdown dropdown-hover dropdown-end">
+        <div tabindex="0" role="button" class="btn btn-ghost">
+          {t.nav.about}
+          <Icon size={20} name="lucide:chevron-down" />
+        </div>
+        <ul
+          tabindex="0"
+          role="menu"
+          class="menu dropdown-content rounded-box bg-base-100 z-[1] w-max p-2 shadow-md"
+        >
+          {
+            aboutLinks.map((link) => (
+              <li>
+                <a href={getRelativeLocaleUrl(locale, link)}>{t.page[link]}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </li>
+  </ul>
+</nav>
