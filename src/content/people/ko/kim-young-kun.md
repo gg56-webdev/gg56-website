@@ -10,3 +10,5 @@ positions:
 socials:
   - https://www.linkedin.com/in/%EC%98%81%EA%B5%B0-%EA%B9%80-36349343/
 ---
+
+Kim Young-kun has more than twenty years of experience in the IT area. His first company, GN corporation, was established almost twenty years ago, and has participated in about 100 national projects.
