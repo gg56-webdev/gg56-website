@@ -2,14 +2,51 @@
 interface Props {
   title?: string;
   description?: string;
+  noIndex?: boolean;
+  noFollow?: boolean;
+  pageType?: "website" | "article";
 }
 const {
   title = "GG56",
   description = "GG56 is driving global change with innovative tech solutions. Partner with us to make a difference. GG56 Limited - For a Global Good.",
+  noIndex = false,
+  noFollow = false,
+  pageType = "website",
 } = Astro.props;
+
+const canonical = Astro.url.href;
+const { currentLocale } = Astro;
+const ogImage = {
+  src: "/og/default.jpg",
+  alt: "GG56 Logo",
+};
+
+const robotsContent = [
+  noIndex ? "noindex" : "index",
+  noFollow ? "nofollow" : "follow",
+].join(", ");
 ---
 
-<meta charset="UTF-8" />
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <title>{title}</title>
 <meta name="description" content={description} />
+<meta name="robots" content={robotsContent} />
+<link rel="canonical" href={canonical} />
+
+<meta property="og:url" content={canonical} />
+<meta property="og:type" content={pageType} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage.src} />
+<meta property="og:image:alt" content={ogImage.alt} />
+<meta property="og:site_name" content="GG56" />
+<meta property="og:locale" content={currentLocale} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonical} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage.src} />
+<meta name="twitter:image:alt" content={ogImage.alt} />
