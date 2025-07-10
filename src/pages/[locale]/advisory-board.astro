@@ -1,0 +1,247 @@
+---
+import * as translations from "@/i18n";
+import Layout from "@/layouts/Layout.astro";
+import { getLocaleParams } from "@/utils";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import { internationalOrder, localOrder } from "@/content/people";
+import { getIconNameFromUrl } from "@/utils";
+import { Icon } from "astro-icon/components";
+
+export function getStaticPaths() {
+  return getLocaleParams();
+}
+
+const { currentLocale } = Astro;
+
+const people = (await getCollection("people")).filter(({ id }, _, arr) => {
+  const [locale, name] = id.split("/");
+  // Only include the document if:
+  // - It's 'en' (fallback) and there is no translation for current locale
+  // - Or it's the current locale
+  if (locale === currentLocale) return true;
+  if (locale === "en") {
+    // Check if a translation exists for this name in the current locale
+    return !arr.some(({ id: otherId }) => {
+      const [otherLocale, otherName] = otherId.split("/");
+      return otherLocale === currentLocale && otherName === name;
+    });
+  }
+  return false;
+});
+
+const international = people
+  .filter(({ data: { groups } }) => groups.includes("international"))
+  .sort((a, b) => {
+    const nameA = a.id.split("/")[1];
+    const nameB = b.id.split("/")[1];
+    return (
+      internationalOrder[nameA as keyof typeof internationalOrder] -
+      internationalOrder[nameB as keyof typeof internationalOrder]
+    );
+  });
+
+const local = people
+  .filter(({ data: { groups } }) => groups.includes("local"))
+  .sort((a, b) => {
+    const nameA = a.id.split("/")[1];
+    const nameB = b.id.split("/")[1];
+    return (
+      localOrder[nameA as keyof typeof localOrder] -
+      localOrder[nameB as keyof typeof localOrder]
+    );
+  });
+
+const t =
+  translations[currentLocale as keyof typeof translations] || translations.en;
+---
+
+<Layout title={t.page["advisory-board"]}>
+  <h1 class="sr-only">{t["advisory-board"].h1}</h1>
+  <div class="grid gap-24 py-12 md:gap-32 md:py-24">
+    <section
+      id="about"
+      aria-labelledby="about-title"
+      class="prose md:prose-lg mx-auto max-w-(--breakpoint-md) px-4 md:text-center"
+    >
+      <h2 id="about-title">
+        {t["advisory-board"].about.h2}
+      </h2>
+      <p>
+        {t["advisory-board"].about.p}
+      </p>
+    </section>
+    <section
+      id="international"
+      aria-labelledby="international-title"
+      class="mx-auto w-full max-w-(--breakpoint-lg) px-4"
+    >
+      <h2
+        id="international-title"
+        class="border-primary border-b pb-2 text-xl font-bold"
+      >
+        {t["advisory-board"].international.h2}
+      </h2>
+      <ul id="international-list" class="mt-4 grid gap-8 md:grid-cols-2">
+        {
+          international.map(({ data, rendered }, i) => (
+            <li>
+              <button
+                aria-haspopup="dialog"
+                title={`Learn more about ${data.name}`}
+                aria-controls="details-dialog"
+                class="rounded-box hover:bg-base-200 grid h-full w-full appearance-none grid-cols-[auto_1fr] items-center gap-4 p-6 text-left shadow-md transition-colors hover:cursor-pointer"
+              >
+                <Image
+                  loading={i <= 3 ? "eager" : "lazy"}
+                  src={data.photo}
+                  alt=""
+                  class="w-[100px] rounded-full shadow-md"
+                />
+                <div>
+                  <h3 class="text-lg font-bold">{data.name}</h3>
+                  <p>{data.country}</p>
+                  {data.socials && data.socials.length > 0 && (
+                    <div class="mt-2 flex gap-2">
+                      {data.socials.map((href) => (
+                        <a
+                          {href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="btn btn-sm btn-info btn-circle btn-outline"
+                        >
+                          <span class="sr-only">
+                            Learn more about {data.name}
+                          </span>
+                          <Icon name={getIconNameFromUrl(href)} size={16} />
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+                <template>
+                  <div class="grid gap-4 md:grid-cols-[1fr_3fr]">
+                    <div class="md:border-base-300 px-4 text-center md:border-e">
+                      <Image
+                        src={data.photo}
+                        alt=""
+                        class="mx-auto rounded-full shadow-md"
+                      />
+                      <div class="mt-2 font-bold">{data.name}</div>
+                      {data.socials && data.socials.length > 0 && (
+                        <div class="mt-2 flex justify-center gap-2">
+                          {data.socials.map((href) => (
+                            <a
+                              {href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              class="btn btn-sm btn-info btn-circle btn-outline"
+                              aria-label={`Learn more about ${data.name}`}
+                            >
+                              <Icon name={getIconNameFromUrl(href)} size={16} />
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    <div
+                      class="prose prose-sm max-w-none"
+                      set:html={rendered?.html}
+                    />
+                  </div>
+                </template>
+              </button>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+    <section
+      id="local"
+      aria-labelledby="local-title"
+      class="mx-auto w-full max-w-(--breakpoint-lg) px-4"
+    >
+      <h2
+        id="local-title"
+        class="border-primary border-b pb-2 text-xl font-bold"
+      >
+        {t["advisory-board"].local.h2}
+      </h2>
+      <ul id="local-list" class="mt-4 grid gap-8 md:grid-cols-2">
+        {
+          local.map(({ data }) => (
+            <li class="rounded-box grid grid-cols-[auto_1fr] items-center gap-4 p-6 shadow-md">
+              <Image
+                src={data.photo}
+                alt=""
+                class="w-[100px] rounded-full shadow-md"
+              />
+              <div>
+                <h3 class="text-lg font-bold">{data.name}</h3>
+                <p>{data.subtitle}</p>
+                {data.socials && data.socials.length > 0 && (
+                  <div class="mt-2 flex gap-2">
+                    {data.socials.map((href) => (
+                      <a
+                        {href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-sm btn-info btn-circle btn-outline"
+                      >
+                        <span class="sr-only">
+                          Learn more about {data.name}
+                        </span>
+                        <Icon name={getIconNameFromUrl(href)} size={16} />
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+    <dialog id="details-dialog" class="modal">
+      <div class="modal-box w-11/12 max-w-5xl">
+        <form method="dialog">
+          <button class="btn btn-sm btn-circle btn-ghost absolute top-2 right-2"
+            >✕</button
+          >
+        </form>
+        <div id="details-content"></div>
+      </div>
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
+  </div>
+</Layout>
+
+<script>
+  const $internationalList = document.querySelectorAll<HTMLButtonElement>(
+    "#international-list > li > button",
+  );
+  const $detailsDialog = document.getElementById(
+    "details-dialog",
+  ) as HTMLDialogElement;
+  const $detailsContent = $detailsDialog.querySelector(
+    "#details-content",
+  ) as HTMLDivElement;
+
+  $internationalList.forEach(($item) => {
+    const $template = $item.querySelector("template");
+    if ($template) {
+      $item.addEventListener("click", () => {
+        $detailsContent.replaceChildren($template.content.cloneNode(true));
+        $detailsDialog.showModal();
+      });
+    }
+
+    $item.querySelectorAll("a").forEach(($link) => {
+      $link.addEventListener("click", (event) => {
+        event.stopPropagation();
+      });
+    });
+  });
+</script>

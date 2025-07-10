@@ -1,0 +1,146 @@
+---
+import { ADVISORY_BOARD_LINK } from "@/constants";
+import { foundersOrder } from "@/content/people";
+import * as translations from "@/i18n";
+import Layout from "@/layouts/Layout.astro";
+import { getIconNameFromUrl, getLocaleParams } from "@/utils";
+import overviewImg from "@images/about/overview.webp";
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+export function getStaticPaths() {
+  return getLocaleParams();
+}
+const t =
+  translations[Astro.currentLocale as keyof typeof translations] ||
+  translations.en;
+const locale = Astro.currentLocale!;
+
+const founders = (
+  await getCollection("people", ({ data: { groups } }) =>
+    groups.includes("founders"),
+  )
+)
+  .filter(({ id }, _, arr) => {
+    const [locale, name] = id.split("/");
+    // Only include the document if:
+    // - It's 'en' (fallback) and there is no translation for current locale
+    // - Or it's the current locale
+    if (locale === Astro.currentLocale) return true;
+    if (locale === "en") {
+      // Check if a translation exists for this name in the current locale
+      return !arr.some(({ id: otherId }) => {
+        const [otherLocale, otherName] = otherId.split("/");
+        return otherLocale === Astro.currentLocale && otherName === name;
+      });
+    }
+    return false;
+  })
+  .sort((a, b) => {
+    const nameA = a.id.split("/")[1];
+    const nameB = b.id.split("/")[1];
+    return (
+      foundersOrder[nameA as keyof typeof foundersOrder] -
+      foundersOrder[nameB as keyof typeof foundersOrder]
+    );
+  });
+---
+
+<Layout title={t.page.about}>
+  <div class="grid gap-24 py-12 md:gap-32 md:py-24">
+    <section
+      id="overview"
+      aria-labelledby="overview-title"
+      class="mx-auto grid w-full max-w-(--breakpoint-lg) items-center gap-12 px-4 md:grid-cols-2"
+    >
+      <Image
+        src={overviewImg}
+        alt="Female showing a gesture towards Fingerate bot"
+        class="rounded-box shadow-md max-md:hidden"
+      />
+      <div class="prose prose-lg">
+        <h2 id="overview-title">
+          {t.about.overview.h2}
+        </h2>
+        <p>{t.about.overview.p1}</p>
+        <p>{t.about.overview.p2}</p>
+        <a
+          href={getRelativeLocaleUrl(locale, ADVISORY_BOARD_LINK)}
+          class="btn btn-primary md:btn-wide not-prose max-md:w-full"
+          >{t.about.overview.cta}</a
+        >
+      </div>
+    </section>
+    <section
+      id="founders"
+      aria-labelledby="founders-title"
+      class="md:clip-wave to-primary/5 bg-radial-[at_60%_60%] from-indigo-800/20 from-20% to-50% py-18 md:py-36"
+    >
+      <div class="mx-auto w-full max-w-(--breakpoint-md) px-4">
+        <h2 id="founders-title" class="text-center text-3xl font-bold">
+          {t.about.founders.h2}
+        </h2>
+        <ol class="mt-12 grid w-full gap-8">
+          {
+            founders.map(({ data }) => (
+              <li class="rounded-box bg-base-100 grid gap-6 p-6 shadow-md md:grid-cols-[auto_1fr]">
+                <Image
+                  src={data.photo}
+                  alt=""
+                  class="w-[180px] rounded-full shadow-md"
+                />
+                <div>
+                  <h3 class="text-xl font-bold">{data.name}</h3>
+                  <p class="mt-1 font-medium">{data.subtitle}</p>
+                  {data.positions && data.positions.length > 0 && (
+                    <ul class="text-base-content/75 mt-2 space-y-1 text-sm">
+                      {data.positions.map((position) => (
+                        <li>{position}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {data.socials && data.socials.length > 0 && (
+                    <div class="mt-3 flex gap-2">
+                      {data.socials.map((href) => (
+                        <a
+                          {href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="btn btn-sm btn-info btn-circle btn-outline"
+                        >
+                          <span class="sr-only">
+                            Learn more about {data.name}
+                          </span>
+                          <Icon name={getIconNameFromUrl(href)} size={16} />
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+    <section
+      id="values"
+      class="prose md:prose-lg mx-auto grid w-full max-w-(--breakpoint-xl) gap-12 px-4 sm:text-center lg:grid-cols-2"
+    >
+      <div>
+        <h2 class="text-green-500">
+          {t.about.values.value1.h2}
+        </h2>
+        <p>{t.about.values.value1.p}</p>
+      </div>
+      <div>
+        <h2 class="text-blue-500">
+          {t.about.values.value2.h2}
+        </h2>
+        <p>{t.about.values.value2.p}</p>
+      </div>
+    </section>
+  </div>
+</Layout>
