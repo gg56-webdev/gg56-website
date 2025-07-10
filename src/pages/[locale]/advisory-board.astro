@@ -144,10 +144,14 @@ const t =
                         </div>
                       )}
                     </div>
-                    <div
-                      class="prose prose-sm max-w-none"
-                      set:html={rendered?.html}
-                    />
+                    <div class="prose prose-sm max-w-none">
+                      <ul class="text-base-content font-medium">
+                        {data.positions?.map((position) => (
+                          <li>{position}</li>
+                        ))}
+                      </ul>
+                      <Fragment set:html={rendered?.html} />
+                    </div>
                   </div>
                 </template>
               </button>

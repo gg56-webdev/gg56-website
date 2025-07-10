@@ -4,14 +4,14 @@ groups:
 name: Suh Nam Pyo
 country: United States of America
 photo: "@images/people/suh-nam-pyo.png"
+positions:
+  - Inventor, OLEV(On-line Electric Vehicle)
+  - Former Head of Mechanical Engineering, MIT
+  - Founding Director, MIT Laboratory of Manufacturing and Production
+  - Former President, KAIST
 socials:
   - https://en.wikipedia.org/wiki/Suh_Nam-pyo
 ---
-
-- **Inventor, OLEV(On-line Electric Vehicle)**
-- **Former Head of Mechanical Engineering, MIT**
-- **Founding Director, MIT Laboratory of Manufacturing and Production**
-- **Former President, KAIST**
 
 Dr. Suh Nam Pyo is a world-renowned scientist and the former President of KAIST (Korea Advanced Institute of Science and Technology) from 2006 until 2013. He is also the founder director of the Laboratory of Manufacturing and Production at MIT and served as the Head of the Mechanical Engineering Department at MIT.
 
