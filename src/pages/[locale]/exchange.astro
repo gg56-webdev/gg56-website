@@ -1,0 +1,17 @@
+---
+import * as translations from "@/i18n";
+import Layout from "@/layouts/Layout.astro";
+import { getLocaleParams } from "@/utils";
+
+export function getStaticPaths() {
+  return getLocaleParams();
+}
+
+const t =
+  translations[Astro.currentLocale as keyof typeof translations] ||
+  translations.en;
+---
+
+<Layout title={t.page.exchange}>
+  <h1>{t.page.exchange}</h1>
+</Layout>
