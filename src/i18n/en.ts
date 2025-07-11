@@ -1,4 +1,4 @@
-export default {
+const translations = {
   seo: {
     defaultDescription:
       "GG56 is driving global change with innovative tech solutions. Partner with us to make a difference. GG56 Limited - For a Global Good.",
@@ -104,8 +104,8 @@ export default {
   "advisory-board": {
     h1: "Advisory Board",
     about: {
-      h2: "One Mission: Supporting our Mission",
-      p: "The advisory board of GG56 is a group of experienced and knowledgeable individuals who provide guidance and counsel to the organization. Comprised of experts from diverse backgrounds, this board is responsible for reviewing and offering input on GG56’s strategies, operations, and initiatives.",
+      h2: "Guiding Our Vision",
+      p: "The advisory board of GG56 is composed of experienced and knowledgeable individuals who offer strategic guidance and insights to the organization. With diverse expertise, the board plays a key role in reviewing and advising on GG56’s direction, operations, and initiatives.",
     },
     international: {
       h2: "International Advisory Board",
@@ -115,3 +115,5 @@ export default {
     },
   },
 } as const;
+
+export default translations;
