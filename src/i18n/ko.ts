@@ -1,4 +1,8 @@
 export default {
+  seo: {
+    defaultDescription:
+      "GG56는 혁신적인 기술 솔루션으로 글로벌 변화를 주도하고 있습니다. 함께 변화를 만들어 갑시다. GG56 Limited - 글로벌 선을 위하여.",
+  },
   page: {
     it: "IT",
     fintech: "FIN-Tech",

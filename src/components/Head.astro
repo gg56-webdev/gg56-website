@@ -1,4 +1,6 @@
 ---
+import * as translations from "@/i18n";
+
 interface Props {
   title?: string;
   description?: string;
@@ -6,9 +8,14 @@ interface Props {
   noFollow?: boolean;
   pageType?: "website" | "article";
 }
+
+const { seo } =
+  translations[Astro.currentLocale as keyof typeof translations] ||
+  translations.en;
+
 const {
   title = "GG56",
-  description = "GG56 is driving global change with innovative tech solutions. Partner with us to make a difference. GG56 Limited - For a Global Good.",
+  description = seo.defaultDescription,
   noIndex = false,
   noFollow = false,
   pageType = "website",

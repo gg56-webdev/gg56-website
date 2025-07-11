@@ -1,4 +1,8 @@
 export default {
+  seo: {
+    defaultDescription:
+      "GG56 is driving global change with innovative tech solutions. Partner with us to make a difference. GG56 Limited - For a Global Good.",
+  },
   page: {
     it: "IT",
     fintech: "FIN-Tech",
