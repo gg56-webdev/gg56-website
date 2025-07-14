@@ -1,0 +1,13 @@
+---
+import Layout from "./Layout.astro";
+import type { MarkdownLayoutProps } from "astro";
+import type { ComponentProps } from "astro/types";
+
+type Props = MarkdownLayoutProps<ComponentProps<typeof Layout>>;
+---
+
+<Layout {...Astro.props.frontmatter}>
+  <div class="prose md:prose-lg mx-auto px-4 py-12">
+    <slot />
+  </div>
+</Layout>
