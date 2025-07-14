@@ -15,6 +15,7 @@ const translations = {
     about: "About",
     "mission-vision": "Mission & Vision",
     "founders-message": "Founders' Message",
+    contact: "Contact",
   },
   nav: {
     home: "Home",
@@ -112,6 +113,13 @@ const translations = {
     },
     local: {
       h2: "Local Advisory Board",
+    },
+  },
+  contact: {
+    h1: "Get in Touch with Us",
+    info: {
+      h2: "We would love to hear from you!",
+      p: "There are several ways to contact us. You may reach us via email or phone, or you could pay a visit to our office situated in the center of Seoul.",
     },
   },
 } as const;

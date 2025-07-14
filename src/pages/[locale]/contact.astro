@@ -1,0 +1,85 @@
+---
+import DefaultHero from "@/components/DefaultHero.astro";
+import { LINKEDIN_URL } from "@/constants";
+import { FACEBOOK_URL } from "@/constants";
+import { CONTACT_EMAIL, CONTACT_PHONE, COMPANY_ADDRESS } from "@/constants";
+import * as translations from "@/i18n";
+import Layout from "@/layouts/Layout.astro";
+import { getIconNameFromUrl, getLocaleParams } from "@/utils";
+import { Icon } from "astro-icon/components";
+
+export function getStaticPaths() {
+  return getLocaleParams();
+}
+
+const t =
+  translations[Astro.currentLocale as keyof typeof translations] ||
+  translations.en;
+---
+
+<Layout title={t.page.contact}>
+  <DefaultHero title={t.contact.h1} />
+  <div class="grid gap-24 py-12 md:gap-32 md:py-24">
+    <section
+      id="info"
+      aria-labelledby="info-title"
+      class="prose md:prose-lg mx-auto max-w-(--breakpoint-md) px-4 md:text-center"
+    >
+      <h2 id="info-title">
+        {t.contact.info.h2}
+      </h2>
+      <p>
+        {t.contact.info.p}
+      </p>
+      <div class="not-prose mt-8 grid gap-4 sm:grid-cols-2">
+        <div class="rounded-box bg-info/5 flex items-center gap-6 p-6">
+          <Icon size={24} class="text-info shrink-0" name="lucide:mail" />
+          <a class="hover:link" href={`mailto:${CONTACT_EMAIL}`}
+            >{CONTACT_EMAIL}</a
+          >
+        </div>
+        <div class="rounded-box bg-info/5 flex items-center gap-6 p-6">
+          <Icon size={24} class="text-info shrink-0" name="lucide:phone" />
+          <a class="hover:link" href={`tel:${CONTACT_PHONE}`}>{CONTACT_PHONE}</a
+          >
+        </div>
+        <div class="rounded-box bg-info/5 flex items-center gap-6 p-6">
+          <Icon
+            size={24}
+            class="text-info shrink-0"
+            name="lucide:external-link"
+          />
+
+          <a
+            href={FACEBOOK_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-circle btn-outline"
+          >
+            <span class="sr-only">Facebook</span>
+            <Icon size={20} name={getIconNameFromUrl(FACEBOOK_URL)} />
+          </a>
+          <a
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-circle btn-outline"
+          >
+            <span class="sr-only">LinkedIn</span>
+            <Icon size={20} name={getIconNameFromUrl(LINKEDIN_URL)} />
+          </a>
+        </div>
+        <div class="rounded-box bg-info/5 flex items-center gap-6 p-6">
+          <Icon size={24} class="text-info shrink-0" name="lucide:map-pin" />
+          <address class="text-left text-balance">
+            {
+              COMPANY_ADDRESS[
+                Astro.currentLocale as keyof typeof COMPANY_ADDRESS
+              ] ?? COMPANY_ADDRESS.en
+            }
+          </address>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

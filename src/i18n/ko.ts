@@ -15,6 +15,7 @@ const translations = {
     about: "회사개요",
     "mission-vision": "미션 & 비전",
     "founders-message": "창립자 인사말",
+    contact: "연락처",
   },
   nav: {
     home: "홈",
@@ -107,6 +108,13 @@ const translations = {
     },
     local: {
       h2: "지역 자문 위원회",
+    },
+  },
+  contact: {
+    h1: "연락처",
+    info: {
+      h2: "우리는 여러분의 의견을 기다리고 있습니다!",
+      p: "우리 회사에 연락할 수 있는 방법은 여러 가지가 있습니다. 이메일이나 전화로 문의하시거나 서울 중심부에 위치한 사무실을 방문하셔도 됩니다.",
     },
   },
 } as const;
