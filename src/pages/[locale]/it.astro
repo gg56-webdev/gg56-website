@@ -8,6 +8,7 @@ import Layout from "@/layouts/Layout.astro";
 import { getLocaleParams } from "@/utils";
 import { Image } from "astro:assets";
 import DefaultHero from "@/components/DefaultHero.astro";
+import { Icon } from "astro-icon/components";
 
 export function getStaticPaths() {
   return getLocaleParams();
@@ -29,7 +30,7 @@ const t =
       <Image
         src={appImg}
         alt="Phone with Fingerate app"
-        class="rounded-box h-full object-cover shadow-md md:order-last"
+        class="rounded-box object-cover shadow-md md:order-last md:h-full"
         loading="eager"
       />
       <div class="prose md:prose-lg max-w-none">
@@ -38,9 +39,16 @@ const t =
         </h2>
         <p>{t.it.app.p}</p>
         <ul
-          class="not-prose grid gap-x-6 gap-y-2 ps-5 font-medium marker:content-['✔️'] sm:grid-cols-2 md:gap-x-12"
+          class="not-prose grid gap-x-6 gap-y-2 font-medium sm:grid-cols-2 md:gap-x-12"
         >
-          {t.it.app.ul.map((item) => <li>{item}</li>)}
+          {
+            t.it.app.ul.map((item) => (
+              <li class="flex items-center gap-2">
+                <Icon name="lucide:check" size={20} class="text-primary" />
+                {item}
+              </li>
+            ))
+          }
         </ul>
         <a
           href="http://fingerate.world/app"
