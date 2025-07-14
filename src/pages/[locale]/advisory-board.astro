@@ -210,9 +210,12 @@ const t =
     <dialog id="details-dialog" class="modal">
       <div class="modal-box w-11/12 max-w-5xl">
         <form method="dialog">
-          <button class="btn btn-sm btn-circle btn-ghost absolute top-2 right-2"
-            >✕</button
+          <button
+            class="btn btn-sm btn-circle btn-ghost absolute top-2 right-2"
           >
+            <span class="sr-only">close</span>
+            <Icon size={20} name="lucide:x" />
+          </button>
         </form>
         <div id="details-content"></div>
       </div>
