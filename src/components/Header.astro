@@ -1,11 +1,15 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
 import MainNav from "./MainNav.astro";
 import Logo from "@/assets/svgs/gg56.svg";
+const locale = Astro.currentLocale!;
 ---
 
 <header class="bg-base-100 sticky top-0 z-40 shadow-sm">
   <div class="container mx-auto flex items-center justify-between px-4 py-2">
-    <Logo class="size-8 md:size-10" />
+    <a href={getRelativeLocaleUrl(locale, "/")} aria-label="Home">
+      <Logo class="size-8 md:size-10" />
+    </a>
     <MainNav />
   </div>
 </header>
