@@ -1,13 +1,18 @@
 ---
+import heroBgImg from "@images/default-hero.webp";
 export interface Props {
   title: string;
 }
-
 const { title } = Astro.props;
 ---
 
-<section class="bg-gray-50 py-16 md:py-24">
-  <div class="prose md:prose-xl mx-auto max-w-(--breakpoint-lg) px-4">
-    <h1>{title}</h1>
+<section
+  class="hero min-h-[50vh] bg-cover [clip-path:shape(from_0_0,line_to_100%_0,line_to_100%_85%,curve_to_0%_85%_with_20%_110%)] md:min-h-[70vh]"
+  style={`background-image: url(${heroBgImg.src})`}
+>
+  <div class="hero-content text-center text-white text-shadow-lg">
+    <div class="max-w-md">
+      <h1 class="text-2xl font-bold md:text-5xl">{title}</h1>
+    </div>
   </div>
 </section>
