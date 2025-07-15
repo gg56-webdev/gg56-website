@@ -1,30 +1,31 @@
 ---
 import { LOCALES } from "@/constants";
+import { languages } from "@/i18n/common";
+import { Icon } from "astro-icon/components";
 
-const languages: Record<(typeof LOCALES)[number], string> = {
-  en: "English",
-  ko: "한국어",
-};
+const { pathname } = Astro.url;
+const currentLocale = Astro.currentLocale as (typeof LOCALES)[number];
+const pathWithoutLocale =
+  pathname.replace(new RegExp(`^/${currentLocale}`), "") || "/";
 ---
 
-<select
-  aria-label="Select Language"
-  id="language-select"
-  class="select select-sm w-auto"
->
-  {
-    Object.entries(languages).map(([lang, label]) => (
-      <option selected={Astro.currentLocale === lang} value={lang}>
-        {label}
-      </option>
-    ))
-  }
-</select>
-
-<script>
-  document
-    .getElementById("language-select")
-    ?.addEventListener("change", ({ target }) => {
-      window.location.href = `/${(target as HTMLSelectElement).value}`;
-    });
-</script>
+<div class="dropdown dropdown-end dropdown-top">
+  <div tabindex="0" role="button" class="btn btn-ghost btn-sm">
+    <Icon name="lucide:globe" size={18} />
+    <span class="mx-1 max-sm:hidden">{languages[currentLocale]}</span>
+  </div>
+  <ul
+    tabindex="0"
+    class="dropdown-content menu bg-base-100 rounded-box z-[1] w-40 p-2 shadow"
+  >
+    {
+      Object.entries(languages).map(([lang, label]) => (
+        <li>
+          <a href={`/${lang}${pathWithoutLocale}`} hreflang={lang}>
+            {label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
