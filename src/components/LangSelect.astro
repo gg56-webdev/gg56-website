@@ -21,7 +21,11 @@ const pathWithoutLocale =
     {
       Object.entries(languages).map(([lang, label]) => (
         <li>
-          <a href={`/${lang}${pathWithoutLocale}`} hreflang={lang}>
+          <a
+            href={`/${lang}${pathWithoutLocale}`}
+            hreflang={lang}
+            class:list={{ "menu-active": lang === currentLocale }}
+          >
             {label}
           </a>
         </li>
