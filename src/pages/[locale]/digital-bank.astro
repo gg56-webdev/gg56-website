@@ -1,4 +1,5 @@
 ---
+import DefaultHero from "@/components/DefaultHero.astro";
 import * as translations from "@/i18n";
 import Layout from "@/layouts/Layout.astro";
 import { getLocaleParams } from "@/utils";
@@ -10,8 +11,67 @@ export function getStaticPaths() {
 const t =
   translations[Astro.currentLocale as keyof typeof translations] ||
   translations.en;
+
+// TODO add links to App and Web
 ---
 
-<Layout title={t.page["digital-bank"]}>
-  <h1>{t.page["digital-bank"]}</h1>
+<Layout>
+  <DefaultHero title={t.page["digital-bank"]} />
+  <div class="grid gap-24 py-12 md:gap-32 md:py-24">
+    <section
+      id="ggbank"
+      aria-labelledby="ggbank-title"
+      class="mx-auto w-full max-w-(--breakpoint-lg) px-4"
+    >
+      <div class="prose md:prose-lg mx-auto">
+        <h2 id="ggbank-title">GGbank</h2>
+        <ul class="marker:text-primary">
+          <li>Anywhere, 24/7, 쉽게 접속하여 은행업무를 처리하는 디지털 뱅크</li>
+          <li>
+            피앗머니와 크립토머니를 통합 관리
+            <ul>
+              <li>기존 금융체계는 2개의 자산은 완전히 분리 관리</li>
+              <li>
+                자산간 이동 및 교환의 문제, 복잡한 이동과정, 추가비용 등의
+                비효율적 문제 해결
+              </li>
+            </ul>
+          </li>
+          <li>
+            전세계 은행들은 가상자산거래사업을 희망하고, 거래소들은 은행계좌의
+            연결을 희망
+            <ul>
+              <li>
+                <abbr title="Anti-Money Laundering">AML</abbr>, <abbr
+                  title="Know Your Customer">KYC</abbr
+                >등의 보안문제와 글로벌 표준문제, 막대한 시스템 구축비용 등 해결
+                어려움
+              </li>
+            </ul>
+          </li>
+          <li>
+            은행과 거래소의 약한 고리를 해결하기 위해 말레이시아 Labuan에 디지털
+            뱅크 설립
+            <ul>
+              <li>Tax heaven 지역 이점</li>
+              <li>익명성 보장 (이슬람금융)</li>
+            </ul>
+          </li>
+          <li>
+            이용방법
+            <dl>
+              <dt>App</dt>
+              <dd></dd>
+              <dt>Web</dt>
+              <dd></dd>
+            </dl>
+          </li>
+          <li>
+            Smart 계정과 사용이 편리한 UI/UX로 간단한 접속과 효율적인 업무처리
+            가능
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
 </Layout>
