@@ -9,7 +9,6 @@ const translations = {
     blockchain: "블록체인",
     exchange: "암호화폐 거래소",
     "digital-bank": "디지털 뱅크",
-    "culture-real-estate": "문화/부동산",
     "advisory-board": "자문 위원회",
     about: "회사개요",
     "mission-vision": "미션 & 비전",
