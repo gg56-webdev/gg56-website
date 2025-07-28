@@ -1,7 +1,18 @@
 ---
+import DefaultHero from "@/components/DefaultHero.astro";
 import * as translations from "@/i18n";
 import Layout from "@/layouts/Layout.astro";
 import { getLocaleParams } from "@/utils";
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+const ggexScreenshots = import.meta.glob<ImageMetadata>(
+  "@/assets/images/exchange/ggex-*",
+  {
+    eager: true,
+    import: "default",
+  },
+);
 
 export function getStaticPaths() {
   return getLocaleParams();
@@ -10,8 +21,40 @@ export function getStaticPaths() {
 const t =
   translations[Astro.currentLocale as keyof typeof translations] ||
   translations.en;
+
+// TODO add links to App store
 ---
 
-<Layout title={t.page.exchange}>
-  <h1>{t.page.exchange}</h1>
+<Layout>
+  <DefaultHero title={t.page.exchange} />
+  <div class="grid gap-24 py-12 md:gap-32 md:py-24">
+    <section
+      id="ggex"
+      aria-labelledby="ggex-title"
+      class="mx-auto w-full max-w-(--breakpoint-lg) px-4"
+    >
+      <div class="prose md:prose-lg mx-auto max-w-none">
+        <h2 id="ggex-title">GGEX</h2>
+        <ul class="marker:text-primary">
+          <li>
+            GGEX는 사용자 친화적인 UI로 쉽게 거래할 수 있으며, 안전하고 강력한
+            보안 시스템으로 자산을 안전하게 보호 합니다.
+            <div class="not-prose mt-4 grid grid-cols-2 gap-2 md:grid-cols-5">
+              {
+                Object.values(ggexScreenshots).map((src) => (
+                  <Image
+                    {src}
+                    alt=""
+                    class="aspect-[1/2] rounded-lg shadow-xs"
+                  />
+                ))
+              }
+            </div>
+          </li>
+          <li>충분한 유동성 확보</li>
+          <li>이용방법 : Play 스토아 &gt; GGEX(지지이엑스)</li>
+        </ul>
+      </div>
+    </section>
+  </div>
 </Layout>
