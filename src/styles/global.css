@@ -30,3 +30,7 @@
     curve to 0% 90% with 20% 110%
   );
 }
+
+li > ul {
+  @apply list-["-"];
+}
