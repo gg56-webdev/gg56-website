@@ -9,7 +9,6 @@ const translations = {
     blockchain: "Blockchain",
     exchange: "Crypto Exchange",
     "digital-bank": "Digital Bank",
-    bio: "Bio",
     "culture-real-estate": "Culture/Real Estate",
     "advisory-board": "Advisory Board",
     about: "About",
