@@ -1,12 +1,84 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { getLocaleParams } from "@/utils";
-
+import heroVideo from "@/assets/videos/hero.mp4";
 export function getStaticPaths() {
   return getLocaleParams();
 }
 ---
 
 <Layout>
-  <h1>Homepage</h1>
+  <section
+    id="hero"
+    aria-labelledby="hero-title"
+    class="grid *:[grid-area:1/1]"
+  >
+    <h1 class="sr-only">GG56</h1>
+
+    <video
+      src={heroVideo}
+      autoplay
+      loop
+      muted
+      playsinline
+      class="h-[80svh] w-full -scale-x-100 object-cover"></video>
+    <div class="mx-auto w-full max-w-(--breakpoint-lg) self-end p-8 md:p-12">
+      <div
+        class="fade text-neutral-content grid pb-4 text-xl font-bold text-balance text-shadow-md *:[grid-area:1/1] sm:text-2xl md:pb-12 md:text-4xl"
+      >
+        <p>
+          새로운 금융시장<br /><br />
+          우리가 혁신을 선도 하겠습니다.
+        </p>
+        <p>
+          IT와 블록체인으로 다져진 기업<br /><br />
+          이제, <span class="text-blue-400">암호화폐거래소</span>와<br />
+          <span class="ps-[4ch] text-green-400">디지탈뱅크</span> 사업에 진입 합니다.
+        </p>
+        <p>
+          아시아를 넘어,<br /><br />
+          글로벌 금융의 새 지평을<br />
+          열겠습니다.
+        </p>
+        <p>
+          당신 곁에서,<br />
+          당신의 손안에서,<br />
+          가장 신뢰하며 유익한<br /><br />
+          당신의 파트너가 되겠습니다.
+        </p>
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<style>
+  .fade > * {
+    opacity: 0;
+    animation: fadeInOut 20s ease-out infinite;
+  }
+
+  .fade > :nth-child(2) {
+    animation-delay: 5s;
+  }
+  .fade > :nth-child(3) {
+    animation-delay: 10s;
+  }
+  .fade > :nth-child(4) {
+    animation-delay: 15s;
+  }
+
+  @keyframes fadeInOut {
+    0% {
+      translate: 5%;
+    }
+    5%,
+    20% {
+      translate: 0;
+      opacity: 1;
+    }
+    25% {
+      translate: -5%;
+      opacity: 0;
+    }
+  }
+</style>
