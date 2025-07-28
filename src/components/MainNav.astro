@@ -9,11 +9,11 @@ const t = translations[locale as keyof typeof translations] || translations.en;
 type DropdownLinks = Array<keyof typeof t.page>;
 
 const businessLinks: DropdownLinks = [
-  "it",
-  "fintech",
-  "blockchain",
   "exchange",
   "digital-bank",
+  "fintech",
+  "blockchain",
+  "it",
 ];
 
 const aboutLinks: DropdownLinks = [
