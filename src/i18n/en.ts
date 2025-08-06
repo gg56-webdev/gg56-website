@@ -57,9 +57,6 @@ const translations = {
       p2: "At GG56, we believe that innovation is key to unlocking the potential of technology, and we are committed to driving this change through our work.",
       cta: "Advisory Board",
     },
-    founders: {
-      h2: "Founders",
-    },
     values: {
       value1: {
         h2: "Integrity & Respect",
