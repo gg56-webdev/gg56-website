@@ -51,12 +51,6 @@ const translations = {
   },
   about: {
     h1: "GG56 – Global Good 5 Oceans 6 Continents",
-    overview: {
-      h2: "Our Company in a Nutshell",
-      p1: "Founded by Han Seung-soo and Kim Young-kun, GG56 is a forward-thinking company dedicated to delivering innovative solutions that go beyond the conventional. Our mission is to reinvent the future of progress by creating sustainable shared values. We strive to create a positive impact on society by providing cutting-edge solutions that address the challenges faced by industries such as tourism, healthcare, and beyond.",
-      p2: "At GG56, we believe that innovation is key to unlocking the potential of technology, and we are committed to driving this change through our work.",
-      cta: "Advisory Board",
-    },
     values: {
       value1: {
         h2: "Integrity & Respect",

@@ -6,6 +6,7 @@ import * as translations from "@/i18n";
 import Layout from "@/layouts/Layout.astro";
 import { getLocaleParams } from "@/utils";
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 
 export function getStaticPaths() {
   return getLocaleParams();
@@ -13,6 +14,12 @@ export function getStaticPaths() {
 const t =
   translations[Astro.currentLocale as keyof typeof translations] ||
   translations.en;
+
+const breakWordIntoSpans = (str: string) =>
+  str
+    .split("")
+    .map((s) => `<span>${s}</span>`)
+    .join("");
 ---
 
 <Layout title={t.page.about}>
@@ -21,25 +28,104 @@ const t =
     <section
       id="overview"
       aria-labelledby="overview-title"
-      class="mx-auto grid w-full max-w-(--breakpoint-lg) items-center gap-12 px-4 md:grid-cols-2"
+      class="mx-auto w-full max-w-(--breakpoint-lg) space-y-24 px-4"
     >
-      <Image
-        src={overviewImg}
-        loading="eager"
-        alt="Female showing a gesture towards Fingerate bot"
-        class="rounded-box shadow-md max-md:hidden"
-      />
-      <div class="prose prose-lg">
-        <h2 id="overview-title">
-          {t.about.overview.h2}
-        </h2>
-        <p>{t.about.overview.p1}</p>
-        <p>{t.about.overview.p2}</p>
-        <a
-          href={getRelativeLocaleUrl(locale, ADVISORY_BOARD_LINK)}
-          class="btn btn-primary md:btn-wide not-prose max-md:w-full"
-          >{t.about.overview.cta}</a
+      <div>
+        <strong class="block text-center text-2xl"
+          ><dfn><abbr>GG56</abbr></dfn><br />(<span class="text-primary">G</span
+          >lobal <span class="text-primary">G</span>ood <span
+            class="text-primary">5</span
+          >Oceans <span class="text-primary">6</span>Continents)</strong
         >
+
+        <div class="mt-8 grid justify-center gap-4 sm:grid-cols-[auto_auto]">
+          <dl
+            class="rounded-box grid grid-cols-2 items-center border shadow-sm *:h-full *:items-center *:px-2 *:py-1"
+          >
+            <dt>
+              <Icon name="lucide:calendar" /><p
+                set:html={breakWordIntoSpans("설립일")}
+              />
+            </dt>
+            <dd><time datetime="2022-03-30">2022년 3월 30일</time></dd>
+
+            <dt>
+              <Icon name="lucide:circle-dollar-sign" /><p
+                set:html={breakWordIntoSpans("설립자본금")}
+              />
+            </dt>
+            <dd>100만 달러</dd>
+
+            <dt>
+              <Icon name="lucide:building" /><p
+                set:html={breakWordIntoSpans("법인형태")}
+              />
+            </dt>
+            <dd>독립법인</dd>
+
+            <dt>
+              <Icon name="lucide:globe" /><p
+                set:html={breakWordIntoSpans("홈페이지")}
+              />
+            </dt>
+            <dd><a href="https://gg56.com" class="link">gg56.com</a></dd>
+
+            <dt>
+              <Icon name="lucide:map-pin" /><p
+                set:html={breakWordIntoSpans("주소")}
+              />
+            </dt>
+            <dd>말레이시아 라부안</dd>
+          </dl>
+          <div
+            class="rounded-box grid grid-cols-[1fr_2fr] overflow-hidden shadow-sm"
+          >
+            <div
+              class="bg-primary text-primary-content grid gap-4 p-4 text-center"
+            >
+              <h3 class="text-lg font-bold">주요업무</h3>
+              <Icon
+                name="lucide:file-check"
+                size={42}
+                class="self-end justify-self-end"
+              />
+            </div>
+            <div class="bg-base-200 grid items-center justify-items-center p-4">
+              <p>GGEX의 기능</p>
+              <Icon name="lucide:plus" />
+              <p>GGBANK의 서비스</p>
+              <Icon name="lucide:chevrons-down" />
+              <strong class="text-primary">결합 금융 플랫폼</strong>
+              <hr class="my-2 w-full border-t" />
+              <p>암호화폐↔전통화폐</p>
+              <strong class="text-primary">글로벌 서비스</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="prose prose-lg">
+        <h2 id="overview-title">간략한 회사 소개</h2>
+        <ul class="marker:text-primary">
+          <li>
+            GG56은 세상을 <ruby
+              >선<rp>(</rp><rt lang="zh" class="text-base-content/60 text-[80%]"
+                >善</rt
+              ><rp>)</rp></ruby
+            >하게 만들기 위한 사람들의 모임의 장 입니다
+          </li>
+          <li>
+            GG56은 기존 가치를 넘어 혁신적인 솔루션을 제공하는데 전념하고 있는
+            미래 지향적인 기업입니다
+          </li>
+          <li>
+            우리의 사명은 지속 가능한 공유 가치를 창출하여 미래를 재창조하는
+            것입니다
+          </li>
+          <li>
+            우리는 산업이 직면한 문제를 해결하는 첨단 솔루션을 제공함으로써
+            사회에 긍정적인 영향을 미치기 위해 노력하고 있습니다
+          </li>
+        </ul>
       </div>
     </section>
     <section
@@ -132,22 +218,50 @@ const t =
         </article>
       </div>
     </section>
+    <section
+      id="values"
+      class="prose md:prose-lg mx-auto grid w-full max-w-(--breakpoint-xl) gap-12 px-4 sm:text-center lg:grid-cols-2"
+    >
+      <div>
+        <h2 class="text-green-500">
+          {t.about.values.value1.h2}
+        </h2>
+        <p>{t.about.values.value1.p}</p>
+      </div>
+      <div>
+        <h2 class="text-blue-500">
+          {t.about.values.value2.h2}
+        </h2>
+        <p>{t.about.values.value2.p}</p>
+      </div>
+    </section>
   </div>
-  <section
-    id="values"
-    class="prose md:prose-lg mx-auto grid w-full max-w-(--breakpoint-xl) gap-12 px-4 sm:text-center lg:grid-cols-2"
-  >
-    <div>
-      <h2 class="text-green-500">
-        {t.about.values.value1.h2}
-      </h2>
-      <p>{t.about.values.value1.p}</p>
-    </div>
-    <div>
-      <h2 class="text-blue-500">
-        {t.about.values.value2.h2}
-      </h2>
-      <p>{t.about.values.value2.p}</p>
-    </div>
-  </section>
 </Layout>
+
+<style>
+  dl > :not(:last-of-type) {
+    border-block-end: 1px solid var(--color-base-content);
+  }
+
+  dl > :nth-child(odd) {
+    border-inline-end: 1px solid var(--color-base-content);
+  }
+  dd,
+  dt {
+    display: inline-flex;
+  }
+  dt {
+    gap: 0.5rem;
+
+    > svg {
+      color: var(--color-primary);
+    }
+
+    > p {
+      flex-grow: 1;
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+    }
+  }
+</style>
