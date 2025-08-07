@@ -42,17 +42,6 @@ const international = people
     );
   });
 
-const local = people
-  .filter(({ data: { groups } }) => groups.includes("local"))
-  .sort((a, b) => {
-    const nameA = a.id.split("/")[1];
-    const nameB = b.id.split("/")[1];
-    return (
-      localOrder[nameA as keyof typeof localOrder] -
-      localOrder[nameB as keyof typeof localOrder]
-    );
-  });
-
 const t =
   translations[currentLocale as keyof typeof translations] || translations.en;
 ---
@@ -170,52 +159,7 @@ const t =
         }
       </ul>
     </section>
-    <section
-      id="local"
-      aria-labelledby="local-title"
-      class="mx-auto w-full max-w-(--breakpoint-lg) px-4"
-    >
-      <h2
-        id="local-title"
-        class="border-primary border-b pb-2 text-xl font-bold"
-      >
-        {t["advisory-board"].local.h2}
-      </h2>
-      <ul id="local-list" class="mt-4 grid gap-8 md:grid-cols-2">
-        {
-          local.map(({ data }) => (
-            <li class="rounded-box grid grid-cols-[auto_1fr] items-center gap-4 p-6 shadow-md">
-              <Image
-                src={data.photo}
-                alt=""
-                class="w-[100px] rounded-full shadow-md"
-              />
-              <div>
-                <h3 class="text-lg font-bold">{data.name}</h3>
-                <p>{data.subtitle}</p>
-                {data.socials && data.socials.length > 0 && (
-                  <div class="mt-2 flex gap-2">
-                    {data.socials.map((href) => (
-                      <a
-                        {href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn btn-sm btn-info btn-circle btn-outline"
-                      >
-                        <span class="sr-only">
-                          Learn more about {data.name}
-                        </span>
-                        <Icon name={getIconNameFromUrl(href)} size={16} />
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </li>
-          ))
-        }
-      </ul>
-    </section>
+
     <dialog id="details-dialog" class="modal">
       <div class="modal-box w-11/12 max-w-5xl">
         <form method="dialog">
