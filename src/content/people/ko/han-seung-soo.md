@@ -4,7 +4,7 @@ groups:
   - core
   - founders
 name: 한승수
-country: Republic of Korea
+country: 대한민국
 photo: "@/assets/images/people/han-seung-soo.png"
 subtitle: 창립자
 positions:
