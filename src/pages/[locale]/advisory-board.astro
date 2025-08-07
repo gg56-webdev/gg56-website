@@ -77,87 +77,96 @@ const t =
       aria-labelledby="international-title"
       class="mx-auto w-full max-w-(--breakpoint-lg) px-4"
     >
-      <h2
-        id="international-title"
-        class="border-primary border-b pb-2 text-xl font-bold"
-      >
-        {t["advisory-board"].international.h2}
-      </h2>
+      <div class="prose md:prose-lg border-primary max-w-none border-b pb-4">
+        <h2 id="international-title">
+          {t["advisory-board"].international.h2}
+        </h2>
+        <p>
+          GG56이 추구하는 Global Good의 가치를 함께하시는 글로벌 자문위원
+          입니다.<br />Global의 공동적인 가치와 이익을 위하여 소중한 의견을
+          제시하여 주십니다.
+        </p>
+      </div>
       <ul id="international-list" class="mt-4 grid gap-8 md:grid-cols-2">
         {
-          international.map(({ data, rendered }, i) => (
-            <li>
-              <button
-                aria-haspopup="dialog"
-                title={`Learn more about ${data.name}`}
-                aria-controls="details-dialog"
-                class="rounded-box hover:bg-base-200 grid h-full w-full appearance-none grid-cols-[auto_1fr] items-center gap-4 p-6 text-left shadow-md transition-colors hover:cursor-pointer"
-              >
-                <Image
-                  loading={i <= 3 ? "eager" : "lazy"}
-                  src={data.photo}
-                  alt=""
-                  class="w-[100px] rounded-full shadow-md"
-                />
-                <div>
-                  <h3 class="text-lg font-bold">{data.name}</h3>
-                  <p>{data.country}</p>
-                  {data.socials && data.socials.length > 0 && (
-                    <div class="mt-2 flex gap-2">
-                      {data.socials.map((href) => (
-                        <a
-                          {href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          class="btn btn-sm btn-info btn-circle btn-outline"
-                        >
-                          <span class="sr-only">
-                            Learn more about {data.name}
-                          </span>
-                          <Icon name={getIconNameFromUrl(href)} size={16} />
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </div>
-                <template>
-                  <div class="grid gap-4 md:grid-cols-[1fr_3fr]">
-                    <div class="md:border-base-300 px-4 text-center md:border-e">
-                      <Image
-                        src={data.photo}
-                        alt=""
-                        class="mx-auto rounded-full shadow-md"
-                      />
-                      <div class="mt-2 font-bold">{data.name}</div>
-                      {data.socials && data.socials.length > 0 && (
-                        <div class="mt-2 flex justify-center gap-2">
-                          {data.socials.map((href) => (
-                            <a
-                              {href}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              class="btn btn-sm btn-info btn-circle btn-outline"
-                              aria-label={`Learn more about ${data.name}`}
-                            >
-                              <Icon name={getIconNameFromUrl(href)} size={16} />
-                            </a>
-                          ))}
-                        </div>
+          international.map(({ data, rendered }) => {
+            return (
+              <li class="@container">
+                <button
+                  aria-haspopup="dialog"
+                  title={`Learn more about ${data.name}`}
+                  aria-controls="details-dialog"
+                  class="rounded-box hover:bg-base-200 grid h-full w-full appearance-none gap-4 p-6 text-left shadow-md transition-colors hover:cursor-pointer @sm:grid-cols-[auto_1fr]"
+                >
+                  <Image
+                    src={data.photo}
+                    alt=""
+                    class="w-[100px] rounded-full shadow-md"
+                  />
+                  <div>
+                    <h3 class="text-lg font-bold">
+                      {data.name}{" "}
+                      {data.country && (
+                        <span class="text-sm">({data.country})</span>
                       )}
-                    </div>
-                    <div class="prose prose-sm max-w-none">
-                      <ul class="text-base-content font-medium">
-                        {data.positions?.map((position) => (
-                          <li>{position}</li>
+                    </h3>
+                    <ul class="mt-2 list-disc ps-4 text-xs">
+                      {data.positions?.map((position) => (
+                        <li>{position}</li>
+                      ))}
+                    </ul>
+                    {/* Fix due to this issue https://github.com/natemoo-re/astro-icon/issues/273 */}
+                    {data.socials && data.socials.length > 0 && (
+                      <div class="hidden">
+                        {data.socials.map((href) => (
+                          <Icon name={getIconNameFromUrl(href)} />
                         ))}
-                      </ul>
-                      <Fragment set:html={rendered?.html} />
-                    </div>
+                      </div>
+                    )}
                   </div>
-                </template>
-              </button>
-            </li>
-          ))
+
+                  <template>
+                    <div class="grid gap-4 md:grid-cols-[1fr_3fr]">
+                      <div class="md:border-base-300 px-4 text-center md:border-e">
+                        <Image
+                          src={data.photo}
+                          alt=""
+                          class="mx-auto rounded-full shadow-md"
+                        />
+                        <div class="mt-2 font-bold">{data.name}</div>
+                        {data.socials && data.socials.length > 0 && (
+                          <div class="mt-2 flex justify-center gap-2">
+                            {data.socials.map((href) => (
+                              <a
+                                {href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-sm btn-info btn-circle btn-outline"
+                                aria-label={`Learn more about ${data.name}`}
+                              >
+                                <Icon
+                                  name={getIconNameFromUrl(href)}
+                                  size={16}
+                                />
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                      <div class="prose prose-sm max-w-none">
+                        <ul class="text-base-content font-medium">
+                          {data.positions?.map((position) => (
+                            <li>{position}</li>
+                          ))}
+                        </ul>
+                        <Fragment set:html={rendered?.html} />
+                      </div>
+                    </div>
+                  </template>
+                </button>
+              </li>
+            );
+          })
         }
       </ul>
     </section>
