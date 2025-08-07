@@ -2,7 +2,7 @@
 groups:
   - international
 name: Marsha Vande Berg
-country: United Sates of America
+country: United States of America
 photo: "@/assets/images/people/marsha-vande-berg.png"
 positions:
   - Independent Director, Quantum Advisors
