@@ -11,7 +11,6 @@ const translations = {
     "digital-bank": "Digital Bank",
     "advisory-board": "Advisory Board",
     about: "About",
-    "mission-vision": "Mission & Vision",
     "founders-message": "Founders' Message",
     contact: "Contact",
   },
@@ -60,26 +59,6 @@ const translations = {
         h2: "Innovation & Transparency",
         p: "We believe that innovation and transparency are key to success. Our team strive to be at the forefront of the latest technological advancements and to leverage them to drive progress and create positive change in industries and communities worldwide.",
       },
-    },
-  },
-  "mission-vision": {
-    h1: "Mission & Vision",
-    intro: {
-      h2: "GG56 for Global Good",
-      p: "GG56 was established in 2019 and is headquartered in Seoul, South Korea. Its core philosophy centers around the positive use of technology. Through our products and services, we aim to provide a fresh perspective on both the physical and digital worlds, helping everyone to become active in the society.",
-      slogan: "Global Good 5 Oceans 6 Continents",
-    },
-    mission: {
-      h2: "Mission Statement",
-      p: "Our mission is to drive innovation and develop sustainable solutions that promote positive change for individuals and communities worldwide, building trust through our commitment to excellence and social responsibility.",
-    },
-    values: {
-      h2: "Core Values",
-      values: ["Integrity and Respect", "Innovation", "Transparency"],
-    },
-    vision: {
-      h2: "Vision Statement",
-      p: "Our vision is to be recognized as a global leader in innovation and sustainability, providing trusted solutions that create positive impact and drive progress for generations to come.",
     },
   },
   "founders-message": {
