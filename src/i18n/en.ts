@@ -49,7 +49,7 @@ const translations = {
     },
   },
   about: {
-    h1: "GG56 – Global Good 5 Oceans 6 Continents",
+    h1: "About",
   },
   "founders-message": {
     h1: "Founders' Message",
