@@ -53,12 +53,6 @@ const translations = {
   },
   "founders-message": {
     h1: "Founders' Message",
-    message: {
-      overview: {
-        h2: "Han Seung-soo, founder of GG56",
-        p: "To foster global good, we have to advance along with time. That is why we prioritize the development of state-of-the-art technologies and robust data security protocols using blockchain to enhance the user experience. Moreover, we focus on giving back to society by establishing a platform with virtuous cycle of philanthropy with a strong emphasis on transparency.",
-      },
-    },
   },
   "advisory-board": {
     h1: "Advisory Board",
