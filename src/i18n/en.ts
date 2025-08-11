@@ -50,16 +50,6 @@ const translations = {
   },
   about: {
     h1: "GG56 – Global Good 5 Oceans 6 Continents",
-    values: {
-      value1: {
-        h2: "Integrity & Respect",
-        p: "Integrity and respect are the foundational principles that guide us here at GG56. We believe that these values are crucial for building a sustainable and successful organization that positively impacts the world.",
-      },
-      value2: {
-        h2: "Innovation & Transparency",
-        p: "We believe that innovation and transparency are key to success. Our team strive to be at the forefront of the latest technological advancements and to leverage them to drive progress and create positive change in industries and communities worldwide.",
-      },
-    },
   },
   "founders-message": {
     h1: "Founders' Message",
