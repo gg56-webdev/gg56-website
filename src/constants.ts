@@ -1,4 +1,4 @@
-export const LOCALES = ["en", "ko"] as const;
+export const LOCALES = ["ko"] as const;
 
 export const CONTACT_EMAIL = "info@gg56.world";
 export const CONTACT_PHONE = "+82 2-556-6780";
