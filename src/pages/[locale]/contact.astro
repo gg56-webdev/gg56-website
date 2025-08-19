@@ -1,5 +1,4 @@
 ---
-import DefaultHero from "@/components/DefaultHero.astro";
 import { LINKEDIN_URL } from "@/constants";
 import { FACEBOOK_URL } from "@/constants";
 import { CONTACT_EMAIL, CONTACT_PHONE, COMPANY_ADDRESS } from "@/constants";
@@ -18,7 +17,7 @@ const t =
 ---
 
 <Layout title={t.page.contact}>
-  <DefaultHero title={t.contact.h1} />
+  <h1 class="sr-only">{t.page.contact}</h1>
   <div class="grid gap-24 py-12 md:gap-32 md:py-24">
     <section
       id="info"
