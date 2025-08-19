@@ -8,12 +8,17 @@ const t = translations[locale as keyof typeof translations] || translations.en;
 
 type DropdownLinks = Array<keyof typeof t.page>;
 
-const businessLinks: DropdownLinks = [
-  "exchange",
-  "digital-bank",
-  "fintech",
-  "blockchain",
-  "it",
+type Section = {
+  title: string;
+  id: string;
+};
+
+const businessSections: Section[] = [
+  { title: "암호화폐 거래소", id: "ggex" },
+  { title: "디지털 뱅크", id: "ggbank" },
+  { title: "FIN-Tech", id: "fintech" },
+  { title: "블록체인", id: "blockchain" },
+  { title: "IT", id: "it" },
 ];
 
 const aboutLinks: DropdownLinks = [
@@ -24,7 +29,6 @@ const aboutLinks: DropdownLinks = [
 ];
 
 const dropdownLinks = {
-  business: businessLinks,
   about: aboutLinks,
 };
 ---
@@ -35,6 +39,29 @@ const dropdownLinks = {
       <a href={getRelativeLocaleUrl(locale, "/")} class="btn btn-ghost"
         >{t.nav.home}</a
       >
+    </li>
+    <li>
+      <div class="dropdown dropdown-hover dropdown-end">
+        <div tabindex="0" role="button" class="btn btn-ghost">
+          사업소개
+          <Icon size={20} name="lucide:chevron-down" />
+        </div>
+        <ul
+          tabindex="0"
+          role="menu"
+          class="menu dropdown-content rounded-box bg-base-100 z-[1] w-max p-2 shadow-md"
+        >
+          {
+            businessSections.map(({ id, title }) => (
+              <li>
+                <a href={`${getRelativeLocaleUrl(locale, "/business")}#${id}`}>
+                  {title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </li>
     {
       Object.entries(dropdownLinks).map(([key, links]) => (
