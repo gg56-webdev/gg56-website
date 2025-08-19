@@ -7,7 +7,6 @@ import { getCollection } from "astro:content";
 import { internationalOrder, localOrder } from "@/content/people";
 import { getIconNameFromUrl } from "@/utils";
 import { Icon } from "astro-icon/components";
-import DefaultHero from "@/components/DefaultHero.astro";
 
 export function getStaticPaths() {
   return getLocaleParams();
@@ -47,7 +46,7 @@ const t =
 ---
 
 <Layout title={t.page["advisory-board"]}>
-  <DefaultHero title={t["advisory-board"].h1} />
+  <h1 class="sr-only">{t.page["advisory-board"]}</h1>
   <div class="grid gap-24 py-12 md:gap-32 md:py-24">
     <section
       id="about"
@@ -78,7 +77,7 @@ const t =
       </div>
       <ul id="international-list" class="mt-4 grid gap-8 md:grid-cols-2">
         {
-          international.map(({ data, rendered }) => {
+          international.map(({ data, rendered }, i) => {
             return (
               <li class="@container">
                 <button
@@ -88,6 +87,7 @@ const t =
                   class="rounded-box hover:bg-base-200 grid h-full w-full appearance-none gap-4 p-6 text-left shadow-md transition-colors hover:cursor-pointer @sm:grid-cols-[auto_1fr]"
                 >
                   <Image
+                    loading={i < 2 ? "eager" : "lazy"}
                     src={data.photo}
                     alt=""
                     class="w-[100px] rounded-full shadow-md"

@@ -6,7 +6,6 @@ import founders2 from "@images/founders-message/founders-2.jpg";
 import { getLocaleParams } from "@/utils";
 import { Image } from "astro:assets";
 import { getEntry } from "astro:content";
-import DefaultHero from "@/components/DefaultHero.astro";
 
 export function getStaticPaths() {
   return getLocaleParams();
@@ -22,97 +21,90 @@ if (!founder) {
 ---
 
 <Layout title={t.page["founders-message"]}>
-  <DefaultHero title={t["founders-message"].h1} />
+  <h1 class="sr-only">{t.page["founders-message"]}</h1>
   <div class="grid gap-24 py-12 md:gap-32 md:py-24">
-    <section
-      id="founders"
-      aria-labelledby="founders-title"
-      class="py-12 md:gap-32 md:py-24"
-    >
-      <div class="mx-auto w-full max-w-(--breakpoint-lg) space-y-24 px-4">
-        <h2 id="founders-title" class="sr-only">Founders</h2>
-
-        <article
-          class="prose md:prose-lg grid w-full max-w-none gap-x-8 sm:grid-cols-[200px_1fr]"
-        >
-          <figure>
-            <Image
-              src={founders1}
-              alt=""
-              class="rounded-box max-w-[200px] border border-blue-500 shadow-md"
+    <div class="mx-auto w-full max-w-(--breakpoint-lg) space-y-24 px-4">
+      <article
+        class="prose md:prose-lg grid w-full max-w-none gap-x-8 sm:grid-cols-[200px_1fr]"
+      >
+        <figure>
+          <Image
+            src={founders1}
+            loading="eager"
+            alt=""
+            class="rounded-box max-w-[200px] border border-blue-500 shadow-md"
+          />
+          <figcaption>
+            <span class="text-base-content font-bold">한승수</span><br />창업주
+            - GG56, GxB
+          </figcaption>
+        </figure>
+        <div>
+          <h2>디지털금융의 새 패러다임</h2>
+          <p>
+            저희는 2020년, 더 나은 세상을 위한 'Global Good'이라는 꿈을 품고 첫
+            발을 내디뎠습니다. 그동안 IT와 블록체인 기술을 중심으로 다양한
+            시도를 이어오며 금융의 미래를 고민해왔고, 이제는 그 여정을 한 단계
+            더 확장하려 합니다.
+          </p>
+          <p>
+            바로 GxB라는 이름의 새로운 금융 플랫폼을 통해서 입니다. GxB는
+            암호화폐 거래소와 디지털 뱅크의 기능을 하나로 담은, 기존에 없던
+            새로운 개념의 금융 게이트웨이입니다.
+          </p>
+          <p>
+            AI와 블록체인기술을 바탕으로, 디지털자산과 전통화폐가 함께 살아 숨
+            쉬는 공간을 만들고자 합니다. GG56은 기술을 향한 열정뿐 아니라,
+            투명함, 규제에 대한 존중, 그리고 지속 가능한 미래를 함께 고민하는
+            팀입니다.
+          </p>
+          <p>
+            시장에 휩쓸리는 추종자가 아니라, 새로운 흐름을 만드는 선도자로서
+            나아가고자 합니다. 저희의 여정에 관심을 가져주시고 함께 해 주시기
+            바랍니다. 감사합니다.
+          </p>
+        </div>
+      </article>
+      <article
+        class="prose md:prose-lg grid w-full max-w-none gap-x-8 sm:grid-cols-[200px_1fr]"
+      >
+        <figure>
+          <Image
+            src={founders2}
+            alt=""
+            class="rounded-box max-w-[200px] border border-orange-500 shadow-md"
+          />
+          <figcaption>
+            <span class="text-base-content font-bold">김영군</span><br
+            />대표이사 - 공동창업주
+          </figcaption>
+        </figure>
+        <div>
+          <h2 class="font-medium">
+            은행을 넘어 <span class="font-bold">‘미래’를 설계합니다</span>
+          </h2>
+          <small>법정화폐와 크립토머니간 실시간 호환</small>
+          <p>
+            우리는 “왜 크립토와 법정화폐를 따로 관리해야 할까?”,<br />“왜 금융은
+            여전히 국경 안에 머물러야 할까?”라는 질문에서 출발했습니다.
+          </p>
+          <p>
+            그 해답으로, 가상자산거래소(GGEX)와 디지털은행(GGBank)을 통합한<br
             />
-            <figcaption>
-              <span class="text-base-content font-bold">한승수</span><br
-              />창업주 - GG56, GxB
-            </figcaption>
-          </figure>
-          <div>
-            <h3>디지털금융의 새 패러다임</h3>
-            <p>
-              저희는 2020년, 더 나은 세상을 위한 'Global Good'이라는 꿈을 품고
-              첫 발을 내디뎠습니다. 그동안 IT와 블록체인 기술을 중심으로 다양한
-              시도를 이어오며 금융의 미래를 고민해왔고, 이제는 그 여정을 한 단계
-              더 확장하려 합니다.
-            </p>
-            <p>
-              바로 GxB라는 이름의 새로운 금융 플랫폼을 통해서 입니다. GxB는
-              암호화폐 거래소와 디지털 뱅크의 기능을 하나로 담은, 기존에 없던
-              새로운 개념의 금융 게이트웨이입니다.
-            </p>
-            <p>
-              AI와 블록체인기술을 바탕으로, 디지털자산과 전통화폐가 함께 살아 숨
-              쉬는 공간을 만들고자 합니다. GG56은 기술을 향한 열정뿐 아니라,
-              투명함, 규제에 대한 존중, 그리고 지속 가능한 미래를 함께 고민하는
-              팀입니다.
-            </p>
-            <p>
-              시장에 휩쓸리는 추종자가 아니라, 새로운 흐름을 만드는 선도자로서
-              나아가고자 합니다. 저희의 여정에 관심을 가져주시고 함께 해 주시기
-              바랍니다. 감사합니다.
-            </p>
-          </div>
-        </article>
-        <article
-          class="prose md:prose-lg grid w-full max-w-none gap-x-8 sm:grid-cols-[200px_1fr]"
-        >
-          <figure>
-            <Image
-              src={founders2}
-              alt=""
-              class="rounded-box max-w-[200px] border border-orange-500 shadow-md"
+            새로운 금융 플랫폼 <strong>GxB</strong>를 만들고 있습니다.
+          </p>
+          <p>
+            GxB는 기술이 아닌 <strong>금융의 자유</strong>를 위한 도구입니다.<br
             />
-            <figcaption>
-              <span class="text-base-content font-bold">김영군</span><br
-              />대표이사 - 공동창업주
-            </figcaption>
-          </figure>
-          <div>
-            <h3 class="font-medium">
-              은행을 넘어 <span class="font-bold">‘미래’를 설계합니다</span>
-            </h3>
-            <small>법정화폐와 크립토머니간 실시간 호환</small>
-            <p>
-              우리는 “왜 크립토와 법정화폐를 따로 관리해야 할까?”,<br />“왜
-              금융은 여전히 국경 안에 머물러야 할까?”라는 질문에서 출발했습니다.
-            </p>
-            <p>
-              그 해답으로, 가상자산거래소(GGEX)와 디지털은행(GGBank)을 통합한<br
-              />
-              새로운 금융 플랫폼 <strong>GxB</strong>를 만들고 있습니다.
-            </p>
-            <p>
-              GxB는 기술이 아닌 <strong>금융의 자유</strong>를 위한 도구입니다.<br
-              />
-              누구나, 어디서나, 불안 없이 자산을 다룰 수 있는 세상.<br />그
-              미래를 우리가 먼저 실현하고자 합니다.
-            </p>
-            <p class="font-bold">
-              경계를 넘는 금융, GxB - The Liquid Asset AI Company.
-            </p>
-            <p></p>함께 만들어 갑시다. 감사합니다.
-          </div>
-        </article>
-      </div>
-    </section>
+            누구나, 어디서나, 불안 없이 자산을 다룰 수 있는 세상.<br />그 미래를
+            우리가 먼저 실현하고자 합니다.
+          </p>
+          <p class="font-bold">
+            경계를 넘는 금융, GxB - The Liquid Asset AI Company.
+          </p>
+          <p></p>함께 만들어 갑시다. 감사합니다.
+        </div>
+      </article>
+    </div>
   </div>
 </Layout>
