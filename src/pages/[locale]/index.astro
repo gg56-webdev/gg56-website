@@ -1,7 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { getLocaleParams } from "@/utils";
-import heroVideo from "@/assets/videos/hero.mp4";
 export function getStaticPaths() {
   return getLocaleParams();
 }
@@ -11,18 +10,17 @@ export function getStaticPaths() {
   <section
     id="hero"
     aria-labelledby="hero-title"
-    class="grid *:[grid-area:1/1]"
+    class="relative grid *:[grid-area:1/1]"
   >
     <h1 class="sr-only">GG56</h1>
-
+    <div id="controls" class="absolute end-0 top-0 z-20 flex gap-2"></div>
     <video
-      src={heroVideo}
+      src="https://videos.pexels.com/video-files/31964942/13620403_1920_1080_30fps.mp4"
       autoplay
       loop
       muted
       playsinline
-      class="h-[calc(100vh-56px-65px)] w-full -scale-x-100 object-cover"
-    ></video>
+      class="h-[calc(100vh-56px)] w-full object-cover"></video>
     <div class="mx-auto w-full max-w-(--breakpoint-lg) self-end p-8 md:p-12">
       <div
         class="fade text-neutral-content grid pb-4 text-xl font-bold text-balance text-shadow-md *:[grid-area:1/1] sm:text-2xl md:pb-12 md:text-4xl"
@@ -83,3 +81,25 @@ export function getStaticPaths() {
     }
   }
 </style>
+
+<script>
+  const links = [
+    "https://videos.pexels.com/video-files/31964942/13620403_1920_1080_30fps.mp4",
+    "https://videos.pexels.com/video-files/1851190/1851190-uhd_2560_1440_25fps.mp4",
+    "https://videos.pexels.com/video-files/10343918/10343918-hd_1920_1080_24fps.mp4",
+    "https://videos.pexels.com/video-files/5090509/5090509-uhd_2560_1440_30fps.mp4",
+  ];
+
+  const $controls = document.getElementById("controls")!;
+  const $video = document.querySelector("video")!;
+  links.forEach((link, i) => {
+    const $btn = document.createElement("button");
+    $btn.className = "btn btn-neutral btn-sm";
+    $btn.textContent = `${i + 1}`;
+    $btn.addEventListener("click", () => {
+      $video.src = link;
+      $video.play();
+    });
+    $controls.appendChild($btn);
+  });
+</script>
