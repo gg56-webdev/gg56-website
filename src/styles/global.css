@@ -30,15 +30,6 @@
   }
 }
 
-@utility clip-wave {
-  clip-path: shape(
-    from 0 10%,
-    curve to 100% 15% with 20% 0%,
-    line to 100% 90%,
-    curve to 0% 90% with 20% 110%
-  );
-}
-
 li > ul {
   @apply list-["-"];
 }
