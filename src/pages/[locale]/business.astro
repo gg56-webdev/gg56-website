@@ -313,15 +313,16 @@ const ggexScreenshots = import.meta.glob<ImageMetadata>(
       </div>
     </section>
 
-    <section
-      id="blockchain"
-      aria-labelledby="blockchain-heading"
-      class="bg-base-200 py-12"
-    >
+    <section id="rwa" aria-labelledby="rwa-heading" class="bg-base-200 py-12">
       <div class="prose md:prose-lg mx-auto max-w-(--breakpoint-md) px-4">
-        <h2 id="blockchain-heading">블록체인</h2>
-        <section>
-          <h3><abbr>PAFI</abbr> Project</h3>
+        <h2 id="rwa-heading">RWA</h2>
+        <p class="rounded-box border-primary border p-2 before:content-['※_']">
+          <dfn id="rwa-dfn"><abbr>RWA</abbr></dfn>(Real World Assets) : 블록체인
+          기술을 활용해 실물 자산을 디지털화 하고, 이를 토큰화 하여 온체인
+          생태계에서 거래 및 활용할 수 있도록 하는 비즈니스 입니다.
+        </p>
+        <section id="pafi" aria-labelledby="pafi-heading">
+          <h3 id="pafi-heading"><abbr>PAFI</abbr> Project</h3>
           <p class="ps-8 text-xl">
             (*<span class="text-primary font-bold">Pa</span>cific <span
               class="text-primary font-bold">Fi</span
@@ -329,110 +330,89 @@ const ggexScreenshots = import.meta.glob<ImageMetadata>(
           </p>
           <ul class="marker:text-primary">
             <li>
-              국제 간 무역, 해외 쇼핑,국제 송금 등 Global Trade를 위한 KRW/USD
-              기반 <abbr title="Real-World Asset">RWA</abbr> Stable Coin을 발행 및
-              운영하는 프로그램
-            </li>
-            <li>
-              <abbr>PAFI</abbr> Coin은 네트워크의 거버넌스를 담당하는 유틸리티 토큰
-              <ul>
+              <strong
+                >상품권 기반 글로벌 스테이블 코인의 결제 플랫폼을 구축하고,
+                지불결제 시장을 선점하기 위한 프로그램 입니다</strong
+              ><ul>
                 <li>
-                  토큰 발행→유통→결제→수수료 회수→DAO 운영→사용자 보상의 자체
-                  순환 경제 구조를 갖춤
+                  PAFI Pay 결제 플랫폼 구축, 암호화폐 결제 시장으로 사업 확장
                 </li>
+                <li>
+                  유통 결제 및 송금 서비스 : PAFI 코인(거버넌스, 스테이블)을
+                  활용
+                </li>
+                <li>국경없는 저비용 글로벌 금융 플랫폼 지향</li>
+                <li>고성능 네트워크 기반 실시간 결제 및 송금</li>
+                <li>PAFI Coin을 이용한 스테이블 코인 구매</li>
+                <li>PAFI 스테이블 코인 및 법정 통화 간 자동 교환</li>
               </ul>
             </li>
             <li>
-              특징
-              <ul>
+              <strong>PAFI Project의 추진 단계는</strong><ol>
                 <li>
-                  <abbr title="Real-World Asset">RWA</abbr>로 비유동적 자산에
-                  대한 유동성을 확보
+                  상품권 기반 글로벌 스테이블 코인 플랫폼 구축
+                  <ul>
+                    <li>PAFI Pay 구축 및 시장 선점</li>
+                  </ul>
                 </li>
-                <li>자산을 토큰으로 부분 소유권 가능</li>
-                <li>고부가가치 자산의 일부 거래 가능</li>
-                <li>투명성을 향상 소유권,거래내역 관리</li>
-                <li>스마트 컨트랙트로 중간 비용 절약</li>
-              </ul>
+                <li>
+                  PAFI 거버넌스 코인의 글로벌 확산 및 사용 확대 ⇒ 유동성 확보
+                </li>
+                <li>
+                  PAFI 스테이블 코인의 글로벌 확장 : 글로벌 유통사의 결제 용도
+                </li>
+              </ol>
             </li>
-          </ul>
-        </section>
-        <section class="mt-12">
-          <h3><abbr>PAFI</abbr> Project는</h3>
-          <ul class="marker:text-primary">
             <li>
-              글로벌 표준의 실물자산(<abbr title="Real-World Asset">RWA</abbr>)
-              기반 바우쳐 통합 플랫폼을 설계, 구축하여
-              <ul>
-                <li>
-                  글로벌 유통 플랫폼과 연계되는 구조로 확장, 글로벌
-                  유통/리워드/결제 인프라를 통합 추진
-                </li>
-                <li>
-                  <abbr title="Real-World Asset">RWA</abbr> 기반 디지털 자산의 글로벌
-                  활용을 위한 표준 생태계를 구축하는 프로젝트
-                </li>
-              </ul>
+              <strong>RWA 결제 시스템을 연계한 PAFI Pay 결제 구성도</strong>
               <div
-                class="not-prose mb-6 grid items-center gap-y-8 md:grid-cols-[1fr_4rem_1fr_4rem_1fr]"
+                class="my-12 grid items-center gap-4 text-center *:place-items-center max-sm:justify-center sm:grid-cols-[1fr_auto_1fr_auto_1fr]"
               >
                 <div
-                  class="bg-base-200 rounded-box border p-2 text-center shadow-md"
+                  class="rounded-box bg-primary text-primary-content aspect-square content-center border p-4 shadow-sm"
                 >
-                  <h3 class="font-bold">상품권 담보</h3>
-                  <ul class="*:rounded-box mt-2 space-y-2">
-                    <li class="bg-red-200">대기업 상품권</li>
-                    <li class="bg-orange-200">지역사랑 상품권</li>
-                    <li class="bg-amber-200">문화 상품권</li>
-                  </ul>
+                  <Icon name="lucide:smartphone" size={24} class="mb-2" />
+                  RWA Coin<br />Mobile App
                 </div>
-                <div class="text-neutral grid place-items-center gap-2">
-                  <p>토큰화</p>
+                <div class="grid max-sm:*:[grid-area:1/1]">
+                  <span class="max-sm:translate-x-[100%]">QR코드</span>
                   <Icon
-                    size={24}
-                    name="lucide:arrow-right"
-                    class="max-md:rotate-90"
+                    name="lucide:move-right"
+                    size={48}
+                    class="max-sm:rotate-90"
                   />
                 </div>
                 <div
-                  class="bg-base-200 rounded-box border p-2 text-center shadow-md"
+                  class="rounded-box aspect-square content-center border bg-orange-50 p-4 shadow-sm"
                 >
-                  <h3 class="font-bold">
-                    <abbr>PAFI</abbr>
-                    <abbr title="Stable Token Certificate">STC</abbr>
-                  </h3>
-                  <ul class="*:rounded-box mt-2 space-y-2">
-                    <li class="bg-green-200">PFKRW</li>
-                    <li class="bg-teal-200">AZUSD</li>
-                    <li class="bg-emerald-200">AiUSD</li>
-                  </ul>
+                  <Icon name="lucide:laptop-minimal" size={24} class="mb-2" />
+                  유통사 POS<br />시스템
                 </div>
-                <div class="text-neutral grid place-items-center gap-2">
-                  <p>결제</p>
+                <div class="grid max-sm:*:[grid-area:1/1]">
+                  <span class="max-sm:translate-x-[100%]">Payment</span>
                   <Icon
-                    size={24}
-                    name="lucide:arrow-right"
-                    class="max-md:rotate-90"
+                    name="lucide:move-horizontal"
+                    size={48}
+                    class="max-sm:rotate-90"
                   />
                 </div>
                 <div
-                  class="bg-base-200 rounded-box border p-2 text-center shadow-md"
+                  class="rounded-box aspect-square content-center border bg-white p-4 shadow-sm"
                 >
-                  <h3 class="font-bold">가맹점</h3>
-                  <ul class="*:rounded-box mt-2 space-y-2">
-                    <li class="bg-cyan-200">AMA@ON</li>
-                    <li class="bg-blue-200">Ai Express</li>
-                    <li class="bg-pink-200">K Market</li>
-                  </ul>
+                  <Icon name="lucide:banknote" size={24} class="mb-2" />
+                  RWA Payment<br />System
                 </div>
               </div>
             </li>
             <li>
-              <abbr>PAFI</abbr> Project는 Stable Coin과 Governance Coin을 포함
+              <strong>
+                PAFI Project는 유통회사와 가맹점의 지불 결제를 위한 코인 발행과,
+                결제 시스템 구축 사업을 추진하고 있습니다
+              </strong>
             </li>
-            <li>가맹점 결제를 위한 암호화폐 발행사업을 병행하고 있습니다</li>
           </ul>
         </section>
+
         <section class="mt-24">
           <h3>Forest City의 Blockchain Town 사업</h3>
           <ul class="marker:text-primary">
