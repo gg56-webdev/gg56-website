@@ -5,7 +5,6 @@ import founders1 from "@images/founders-message/founders-1.png";
 import founders2 from "@images/founders-message/founders-2.jpg";
 import { getLocaleParams } from "@/utils";
 import { Image } from "astro:assets";
-import { getEntry } from "astro:content";
 
 export function getStaticPaths() {
   return getLocaleParams();
@@ -13,11 +12,6 @@ export function getStaticPaths() {
 
 const locale = Astro.currentLocale!;
 const t = translations[locale as keyof typeof translations] || translations.en;
-
-let founder = await getEntry("people", `${locale}/han-seung-soo`);
-if (!founder) {
-  founder = await getEntry("people", `en/han-seung-soo`)!;
-}
 ---
 
 <Layout title={t.page["founders-message"]}>
