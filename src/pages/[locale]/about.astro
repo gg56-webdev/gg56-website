@@ -2,6 +2,7 @@
 import * as translations from "@/i18n";
 import Layout from "@/layouts/Layout.astro";
 import CompanyCard from "@/components/about/CompanyCard.astro";
+import Timeline from "@/components/about/Timeline.astro";
 import { getLocaleParams } from "@/utils";
 
 export function getStaticPaths() {
@@ -46,5 +47,6 @@ const t =
         </ul>
       </div>
     </section>
+    <Timeline />
   </div>
 </Layout>
