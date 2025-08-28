@@ -1,0 +1,107 @@
+---
+import { Icon } from "astro-icon/components";
+const breakWordIntoSpans = (str: string) =>
+  str
+    .split("")
+    .map((s) => `<span>${s}</span>`)
+    .join("");
+---
+
+<div>
+  <strong class="block text-center text-2xl"
+    ><dfn><abbr>GG56</abbr></dfn><br />(<span class="text-primary">G</span>lobal <span
+      class="text-primary">G</span
+    >ood <span class="text-primary">5</span>Oceans <span class="text-primary"
+      >6</span
+    >Continents)</strong
+  >
+
+  <div class="mt-8 grid justify-center gap-4 sm:grid-cols-[auto_auto]">
+    <dl
+      class="rounded-box grid grid-cols-2 items-center border shadow-sm *:h-full *:items-center *:px-2 *:py-1"
+    >
+      <dt>
+        <Icon name="lucide:calendar" /><p
+          set:html={breakWordIntoSpans("설립일")}
+        />
+      </dt>
+      <dd><time datetime="2022-03-30">2022년 3월 30일</time></dd>
+
+      <dt>
+        <Icon name="lucide:circle-dollar-sign" /><p
+          set:html={breakWordIntoSpans("설립자본금")}
+        />
+      </dt>
+      <dd>100만 달러</dd>
+
+      <dt>
+        <Icon name="lucide:building" /><p
+          set:html={breakWordIntoSpans("법인형태")}
+        />
+      </dt>
+      <dd>독립법인</dd>
+
+      <dt>
+        <Icon name="lucide:globe" /><p
+          set:html={breakWordIntoSpans("홈페이지")}
+        />
+      </dt>
+      <dd><a href="https://gg56.com" class="link">gg56.com</a></dd>
+
+      <dt>
+        <Icon name="lucide:map-pin" /><p
+          set:html={breakWordIntoSpans("주소")}
+        />
+      </dt>
+      <dd>말레이시아 라부안</dd>
+    </dl>
+    <div class="rounded-box grid grid-cols-[1fr_2fr] overflow-hidden shadow-sm">
+      <div class="bg-primary text-primary-content grid gap-4 p-4 text-center">
+        <strong class="text-lg">주요업무</strong>
+        <Icon
+          name="lucide:file-check"
+          size={42}
+          class="self-end justify-self-end"
+        />
+      </div>
+      <div class="bg-base-200 grid items-center justify-items-center p-4">
+        <p>GGEX의 기능</p>
+        <Icon name="lucide:plus" />
+        <p>GGBANK의 서비스</p>
+        <Icon name="lucide:chevrons-down" />
+        <strong class="text-primary">결합 금융 플랫폼</strong>
+        <hr class="my-2 w-full border-t" />
+        <p>암호화폐↔전통화폐</p>
+        <strong class="text-primary">글로벌 서비스</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  dl > :not(:last-of-type) {
+    border-block-end: 1px solid var(--color-base-content);
+  }
+
+  dl > :nth-child(odd) {
+    border-inline-end: 1px solid var(--color-base-content);
+  }
+  dd,
+  dt {
+    display: inline-flex;
+  }
+  dt {
+    gap: 0.5rem;
+
+    > svg {
+      color: var(--color-primary);
+    }
+
+    > p {
+      flex-grow: 1;
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+    }
+  }
+</style>
