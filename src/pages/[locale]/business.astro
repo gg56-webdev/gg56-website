@@ -25,63 +25,7 @@ const ggexScreenshots = import.meta.glob<ImageMetadata>(
 <Layout title="사업소개">
   <DefaultHero title="사업소개" />
   <div class="grid gap-12 py-12 md:gap-24 md:py-24 lg:gap-36">
-    <section id="ggex" aria-labelledby="ggex-heading">
-      <div class="prose md:prose-lg mx-auto max-w-(--breakpoint-lg) px-4">
-        <h2 id="ggex-heading">GGEX</h2>
-        <ul class="marker:text-orange-400">
-          <li>
-            GGEX는 사용자 친화적인 UI로 쉽게 거래할 수 있으며, 안전하고 강력한
-            보안 시스템으로 자산을 안전하게 보호 합니다.
-            <div class="not-prose mt-4 grid grid-cols-2 gap-2 md:grid-cols-5">
-              {
-                Object.values(ggexScreenshots).map((src) => (
-                  <Image
-                    {src}
-                    alt=""
-                    loading="eager"
-                    class="aspect-[1/2] rounded-lg border shadow-xs"
-                  />
-                ))
-              }
-            </div>
-          </li>
-          <li>GGEX는 충분한 유동성을 확보하고 있습니다.</li>
-          <div class="not-prose mt-6 flex flex-wrap gap-x-4 gap-y-2">
-            <a
-              href="https://ggex.io/en"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn md:btn-wide bg-orange-400 max-md:w-full"
-              >자세히 알아보기</a
-            >
-            <a
-              href="https://apps.apple.com/kr/app/ggex/id6738909226"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-outline md:btn-wide max-md:w-full"
-            >
-              <Icon name="app-store" size={24} />
-              App Store
-            </a>
-            <a
-              href="https://play.google.com/store/apps/details?id=app.webview.ggex&hl"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-outline md:btn-wide max-md:w-full"
-            >
-              <Icon name="google-play" size={24} />
-              Google Play
-            </a>
-          </div>
-        </ul>
-      </div>
-    </section>
-
-    <section
-      id="ggbank"
-      aria-labelledby="ggbank-heading"
-      class="bg-base-200 py-12"
-    >
+    <section id="ggbank" aria-labelledby="ggbank-heading">
       <div class="prose md:prose-lg mx-auto max-w-(--breakpoint-lg) px-4">
         <h2 id="ggbank-heading">GGbank</h2>
         <ul class="marker:text-primary">
@@ -215,6 +159,61 @@ const ggexScreenshots = import.meta.glob<ImageMetadata>(
           </li>
           <li><strong>은행업무를 쉽게 처리할 수 있는 UI/UX 사용</strong></li>
           {/* TODO: add app download links */}
+        </ul>
+      </div>
+    </section>
+    <section
+      id="ggex"
+      aria-labelledby="ggex-heading"
+      class="bg-orange-50/50 py-12"
+    >
+      <div class="prose md:prose-lg mx-auto max-w-(--breakpoint-lg) px-4">
+        <h2 id="ggex-heading">GGEX</h2>
+        <ul class="marker:text-orange-400">
+          <li>
+            GGEX는 사용자 친화적인 UI로 쉽게 거래할 수 있으며, 안전하고 강력한
+            보안 시스템으로 자산을 안전하게 보호 합니다.
+            <div class="not-prose mt-4 grid grid-cols-2 gap-2 md:grid-cols-5">
+              {
+                Object.values(ggexScreenshots).map((src) => (
+                  <Image
+                    {src}
+                    alt=""
+                    loading="eager"
+                    class="aspect-[1/2] rounded-lg border shadow-xs"
+                  />
+                ))
+              }
+            </div>
+          </li>
+          <li>GGEX는 충분한 유동성을 확보하고 있습니다.</li>
+          <div class="not-prose mt-6 flex flex-wrap gap-x-4 gap-y-2">
+            <a
+              href="https://ggex.io/en"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn md:btn-wide bg-orange-400 max-md:w-full"
+              >자세히 알아보기</a
+            >
+            <a
+              href="https://apps.apple.com/kr/app/ggex/id6738909226"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline md:btn-wide max-md:w-full"
+            >
+              <Icon name="app-store" size={24} />
+              App Store
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=app.webview.ggex&hl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-outline md:btn-wide max-md:w-full"
+            >
+              <Icon name="google-play" size={24} />
+              Google Play
+            </a>
+          </div>
         </ul>
       </div>
     </section>
