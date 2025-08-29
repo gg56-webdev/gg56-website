@@ -1,0 +1,20 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getLocaleParams } from "@/utils";
+import * as translations from "@/i18n";
+export function getStaticPaths() {
+  return getLocaleParams();
+}
+const locale = Astro.currentLocale!;
+const t = translations[locale as keyof typeof translations] || translations.en;
+---
+
+<Layout title={t.notice.h1}>
+  <section class="mx-auto max-w-(--breakpoint-lg) p-6 md:p-12">
+    <h1 class="mb-6 text-3xl font-bold md:text-5xl">{t.notice.h1}</h1>
+    <p class="opacity-80">
+      준비 중입니다. 공지사항, 보도자료, 업데이트 등의 내용을 이곳에서 확인하실
+      수 있게 될 예정입니다.
+    </p>
+  </section>
+</Layout>
