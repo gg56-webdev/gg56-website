@@ -2,7 +2,7 @@
 groups:
   - international
 name: Pablo Bereciartua
-country: 아랍에미리트
+country: 아르헨티나
 photo: "@images/people/pablo-bereciartua.png"
 positions:
   - 부에노스아이레스 대학교수
