@@ -8,13 +8,18 @@ const translations = {
     about: "회사개요",
     "founders-message": "창립자 인사말",
     contact: "연락처",
+    notice: "알림마당",
   },
   nav: {
     home: "홈",
     about: "회사소개",
+    notice: "알림마당",
   },
   about: {
     h1: "회사개요",
+  },
+  notice: {
+    h1: "알림마당",
   },
   "founders-message": {
     h1: "창립자 인사말",

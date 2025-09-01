@@ -1,0 +1,43 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getLocaleParams } from "@/utils";
+import * as translations from "@/i18n";
+export function getStaticPaths() {
+  return getLocaleParams();
+}
+const locale = Astro.currentLocale!;
+const t = translations[locale as keyof typeof translations] || translations.en;
+---
+
+<Layout title={t.notice.h1}>
+  <h1 class="sr-only">{t.notice.h1}</h1>
+  <div class="grid gap-24 py-12 md:gap-32 md:py-24">
+    <section
+      id="notice"
+      aria-labelledby="notice-heading"
+      class="mx-auto max-w-(--breakpoint-md) px-4"
+    >
+      <div class="prose prose-lg mx-auto">
+        <h2 id="notice-heading">공지사항</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>글번호</th>
+              <th>제목</th>
+              <th>작성일</th>
+              <th>담당부서</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>공지사항 제목 1</td>
+              <td>2023-01-01</td>
+              <td>홍보팀</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</Layout>
