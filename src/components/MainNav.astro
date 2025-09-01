@@ -1,19 +1,14 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
 import * as translations from "@/i18n";
-import { Icon } from "astro-icon/components";
+import NavDropdown from "./NavDropdown.astro";
 
 const locale = Astro.currentLocale!;
 const t = translations[locale as keyof typeof translations] || translations.en;
 
-type DropdownLinks = Array<keyof typeof t.page>;
+type Link = keyof typeof t.page;
 
-type Section = {
-  title: string;
-  id: string;
-};
-
-const businessSections: Section[] = [
+const businessSections = [
   { title: "디지털 뱅크", id: "ggbank" },
   { title: "암호화폐 거래소", id: "ggex" },
   { title: "FIN-Tech", id: "fintech" },
@@ -21,16 +16,12 @@ const businessSections: Section[] = [
   { title: "IT", id: "it" },
 ];
 
-const aboutLinks: DropdownLinks = [
+const aboutLinks: Link[] = [
   "about",
   "founders-message",
   "advisory-board",
   "contact",
 ];
-
-const dropdownLinks = {
-  about: aboutLinks,
-};
 ---
 
 <nav>
@@ -41,52 +32,22 @@ const dropdownLinks = {
       >
     </li>
     <li>
-      <div class="dropdown dropdown-hover dropdown-end">
-        <div tabindex="0" role="button" class="btn btn-ghost">
-          사업소개
-          <Icon size={20} name="lucide:chevron-down" />
-        </div>
-        <ul
-          tabindex="0"
-          role="menu"
-          class="menu dropdown-content rounded-box bg-base-100 z-[1] w-max p-2 shadow-md"
-        >
-          {
-            businessSections.map(({ id, title }) => (
-              <li>
-                <a href={`${getRelativeLocaleUrl(locale, "/business")}#${id}`}>
-                  {title}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
+      <NavDropdown
+        label="사업소개"
+        links={businessSections.map(({ id, title }) => ({
+          href: `${getRelativeLocaleUrl(locale, "/business")}#${id}`,
+          text: title,
+        }))}
+      />
     </li>
-    {
-      Object.entries(dropdownLinks).map(([key, links]) => (
-        <li>
-          <div class="dropdown dropdown-hover dropdown-end">
-            <div tabindex="0" role="button" class="btn btn-ghost">
-              {t.nav[key as keyof typeof t.nav]}
-              <Icon size={20} name="lucide:chevron-down" />
-            </div>
-            <ul
-              tabindex="0"
-              role="menu"
-              class="menu dropdown-content rounded-box bg-base-100 z-[1] w-max p-2 shadow-md"
-            >
-              {links.map((link) => (
-                <li>
-                  <a href={getRelativeLocaleUrl(locale, link)}>
-                    {t.page[link]}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </li>
-      ))
-    }
+    <li>
+      <NavDropdown
+        label="회사소개"
+        links={aboutLinks.map((link) => ({
+          href: getRelativeLocaleUrl(locale, link),
+          text: t.page[link],
+        }))}
+      />
+    </li>
   </ul>
 </nav>
