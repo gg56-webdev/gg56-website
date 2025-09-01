@@ -3,7 +3,7 @@ groups:
   - international
 name: Loic Fauchon
 country: 프랑스
-photo: "@/assets/images/people/loic-fauchon.png"
+photo: "@images/people/loic-fauchon.png"
 positions:
   - 세계 물 위원회(WWC) 회장
   - SAFIm 회장 겸 CEO

@@ -5,7 +5,7 @@ groups:
   - founders
 name: 한승수
 country: 대한민국
-photo: "@/assets/images/people/han-seung-soo.png"
+photo: "@images/people/han-seung-soo.png"
 subtitle: 창립자
 positions:
   - 전 대한민국 국무총리

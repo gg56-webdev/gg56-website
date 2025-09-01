@@ -3,7 +3,7 @@ groups:
   - international
 name: Louis Cheung
 country: 홍콩
-photo: "@/assets/images/people/louis-cheung.png"
+photo: "@images/people/louis-cheung.png"
 positions:
   - CEO, Boyu Capital Consultancy
   - Former President of PingAn Insurance and partner

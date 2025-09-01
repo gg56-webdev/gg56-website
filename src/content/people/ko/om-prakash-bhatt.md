@@ -3,7 +3,7 @@ groups:
   - international
 name: Om Prakash Bhatt
 country: 인도
-photo: "@/assets/images/people/om-prakash-bhatt.png"
+photo: "@images/people/om-prakash-bhatt.png"
 positions:
   - State Bank of India 전 회장
   - Tata Steel 이사회 멤버

@@ -3,7 +3,7 @@ groups:
   - international
 name: Jan Kavan
 country: Czech Republic
-photo: "@/assets/images/people/jan-kavan.png"
+photo: "@images/people/jan-kavan.png"
 positions:
   - Former Deputy Prime Minister
   - Former Foreign Minister

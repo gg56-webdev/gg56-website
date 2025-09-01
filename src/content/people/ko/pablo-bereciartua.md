@@ -3,7 +3,7 @@ groups:
   - international
 name: Pablo Bereciartua
 country: 아랍에미리트
-photo: "@/assets/images/people/pablo-bereciartua.png"
+photo: "@images/people/pablo-bereciartua.png"
 positions:
   - 부에노스아이레스 대학교수
   - Bereco SA  창업자

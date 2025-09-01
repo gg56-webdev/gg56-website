@@ -3,7 +3,7 @@ groups:
   - core
   - founders
 name: 김영군
-photo: "@/assets/images/people/kim-young-kun.png"
+photo: "@images/people/kim-young-kun.png"
 subtitle: 공동 창립자
 positions:
   - 삼성, 현대, LG 등 국내 최대 대기업과 함께 100여개의 기술 기반 프로젝트를 성공적으로 개발한 한국 IT 분야의 개척자

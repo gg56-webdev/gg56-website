@@ -3,7 +3,7 @@ groups:
   - international
 name: Ching Man Ho
 country: 중국
-photo: "@/assets/images/people/ching-man-ho.png"
+photo: "@images/people/ching-man-ho.png"
 positions:
   - 중국 비공립 의료협회(IMECC)부회장 겸 사무총장
   - 중국 상하이 E-Health 산업 육성 의장

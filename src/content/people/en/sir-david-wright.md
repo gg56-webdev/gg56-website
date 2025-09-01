@@ -3,7 +3,7 @@ groups:
   - international
 name: Sir David Wright
 country: United Kingdom
-photo: "@/assets/images/people/sir-david-wright.png"
+photo: "@images/people/sir-david-wright.png"
 positions:
   - Global Advisor Sumitomo Mitsui Banking Corporation
   - Non-Executive Director of Rezolve

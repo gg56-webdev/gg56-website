@@ -3,7 +3,7 @@ groups:
   - international
 name: Marsha Vande Berg
 country: 미국
-photo: "@/assets/images/people/marsha-vande-berg.png"
+photo: "@images/people/marsha-vande-berg.png"
 positions:
   - Independent Director, Quantum Advisors
   - Former CEO, Pacific Pension Institute

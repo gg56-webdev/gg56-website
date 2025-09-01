@@ -3,7 +3,7 @@ groups:
   - international
 name: Jan Kavan
 country: 체코
-photo: "@/assets/images/people/jan-kavan.png"
+photo: "@images/people/jan-kavan.png"
 positions:
   - 전 부총리
   - 전 외무부 장관

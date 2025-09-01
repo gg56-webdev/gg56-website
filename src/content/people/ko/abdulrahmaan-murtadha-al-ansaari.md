@@ -3,7 +3,7 @@ groups:
   - international
 name: Abdulrahmaan Murtadha Al Ansaari
 country: 아랍에미리트
-photo: "@/assets/images/people/abdulrahmaan-murtadha-al-ansaari.png"
+photo: "@images/people/abdulrahmaan-murtadha-al-ansaari.png"
 positions:
   - Founder and Group CEO, Apolonia Capital
   - Multiverse CEO 및 창립자

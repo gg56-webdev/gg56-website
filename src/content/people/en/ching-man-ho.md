@@ -3,7 +3,7 @@ groups:
   - international
 name: Ching Man Ho
 country: China
-photo: "@/assets/images/people/ching-man-ho.png"
+photo: "@images/people/ching-man-ho.png"
 positions:
   - Honorary President of United Nations International Association of Peace Foundation
   - President of International Association of Peace Foundations-IMECC

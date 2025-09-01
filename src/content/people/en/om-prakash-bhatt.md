@@ -3,7 +3,7 @@ groups:
   - international
 name: Om Prakash Bhatt
 country: India
-photo: "@/assets/images/people/om-prakash-bhatt.png"
+photo: "@images/people/om-prakash-bhatt.png"
 positions:
   - Former Chairman of the State Bank of India
   - Board Member of Tata Steel

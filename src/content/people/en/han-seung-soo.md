@@ -5,7 +5,7 @@ groups:
   - founders
 name: Han Seung-soo
 country: Republic of Korea
-photo: "@/assets/images/people/han-seung-soo.png"
+photo: "@images/people/han-seung-soo.png"
 subtitle: Founder
 positions:
   - Former Prime Minister, Republic of Korea

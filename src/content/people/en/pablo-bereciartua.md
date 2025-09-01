@@ -3,7 +3,7 @@ groups:
   - international
 name: Pablo Bereciartua
 country: Argentina
-photo: "@/assets/images/people/pablo-bereciartua.png"
+photo: "@images/people/pablo-bereciartua.png"
 positions:
   - Chairman, Global Water Partnerships (GWP)
   - President, Argentinian Engineering Center

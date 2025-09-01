@@ -3,7 +3,7 @@ groups:
   - international
 name: Loic Fauchon
 country: France
-photo: "@/assets/images/people/loic-fauchon.png"
+photo: "@images/people/loic-fauchon.png"
 positions:
   - President of World Water Council
   - Chairman & CEO of SAFIMM

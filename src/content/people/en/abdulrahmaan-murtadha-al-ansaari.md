@@ -3,7 +3,7 @@ groups:
   - international
 name: Abdulrahmaan Murtadha Al Ansaari
 country: United Arab Emirates
-photo: "@/assets/images/people/abdulrahmaan-murtadha-al-ansaari.png"
+photo: "@images/people/abdulrahmaan-murtadha-al-ansaari.png"
 positions:
   - CEO and Founder of Multiverse
   - Chairman and Founder of GO F5
