@@ -3,9 +3,19 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import MainNav from "./MainNav.astro";
 import Logo from "@/assets/svgs/gg56.svg";
 const locale = Astro.currentLocale!;
+const isIndexPage = (() => {
+  const p = Astro.url.pathname;
+  const loc = Astro.currentLocale;
+  return p === "/" || p === `/${loc}` || p === `/${loc}/`;
+})();
 ---
 
-<header class="bg-base-100 sticky top-0 z-40 shadow-sm">
+<header
+  class="top-0 z-40"
+  class:list={[
+    isIndexPage ? "fixed w-full text-white" : "bg-base-100 sticky shadow-sm",
+  ]}
+>
   <div class="container mx-auto flex items-center justify-between px-4 py-2">
     <a href={getRelativeLocaleUrl(locale, "/")} aria-label="Home">
       <Logo class="size-8 md:size-10" />
