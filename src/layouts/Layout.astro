@@ -20,6 +20,9 @@ const isIndexPage = (() => {
     <slot name="head" />
   </head>
   <body class="flex min-h-screen flex-col">
+    <div class="bg-warning text-warning-content fixed z-50 p-2">
+      테스트 버전
+    </div>
     <Header />
     <main class="grow">
       <slot />
