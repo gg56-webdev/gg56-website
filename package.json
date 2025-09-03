@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@fontsource-variable/noto-sans-kr": "^5.2.6",
     "@iconify-json/fa6-brands": "^1.2.5",
     "@iconify-json/lucide": "^1.2.56",
     "@tailwindcss/vite": "^4.1.11",

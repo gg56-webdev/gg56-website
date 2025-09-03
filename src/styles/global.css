@@ -4,6 +4,10 @@
   themes: light --default;
 }
 
+@theme {
+  --font-sans: "Noto Sans KR Variable", sans-serif;
+}
+
 @layer base {
   :root {
     @apply scroll-smooth;
