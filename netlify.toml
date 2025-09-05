@@ -1,0 +1,29 @@
+[[redirects]]
+  from = "/wp-json"
+  to = "https://old.gg56.com/wp-json"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/wp-json/*"
+  to = "https://old.gg56.com/wp-json/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/wp-content/*"
+  to = "https://old.gg56.com/wp-content/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/wp-includes/*"
+  to = "https://old.gg56.com/wp-includes/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/wp-admin/admin-ajax.php"
+  to = "https://old.gg56.com/wp-admin/admin-ajax.php"
+  status = 301
+  force = true
