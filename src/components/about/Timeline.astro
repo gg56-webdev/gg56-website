@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 
 const timelineImgs = Object.values(
-  import.meta.glob<ImageMetadata>("@/assets/images/about/timeline/*", {
+  import.meta.glob<ImageMetadata>("@images/about/timeline/*", {
     eager: true,
     import: "default",
   }),
@@ -12,137 +12,184 @@ const timelineImgs = Object.values(
 <section
   id="timeline"
   aria-labelledby="timeline-heading"
-  class="mx-auto w-full max-w-(--breakpoint-2xl) overflow-hidden px-4"
+  class="mx-auto w-full max-w-(--breakpoint-xl) overflow-hidden px-4"
 >
   <h2 id="timeline-heading" class="mb-12 text-2xl font-bold">
     혁신적인 금융시장을 향한 여정
   </h2>
   <ol
-    class="before:bg-primary relative grid before:absolute before:h-full before:w-1 before:rounded-full lg:grid-cols-7 lg:before:h-0.5 lg:before:w-[calc(100%+1rem)] lg:before:justify-self-center lg:before:[grid-area:3/1/3/-1]"
+    class="before:border-primary max-lg:before:bg-primary relative grid items-start gap-x-4 **:text-balance before:absolute before:-z-10 max-lg:ms-1 max-lg:gap-y-8 max-lg:py-4 max-lg:before:-start-3 max-lg:before:h-full max-lg:before:w-1 max-lg:before:rounded-full lg:grid-cols-5 lg:before:inset-[0_0_0_-1rem] lg:before:rounded-r-[64px] lg:before:border-4 lg:before:border-l-0 lg:before:[grid-area:2/2/6/-2]"
   >
     <li
-      class="max-lg:border-primary grid max-lg:border-b-2 max-lg:py-4 max-lg:ps-4 lg:row-span-3 lg:grid-rows-subgrid"
+      class="grid gap-0 lg:col-span-2 lg:row-span-2 lg:grid-cols-subgrid lg:grid-rows-subgrid"
     >
-      <div
-        class="before:bg-primary relative grid before:absolute before:start-[1px] before:bottom-[-1px] before:size-2 before:-translate-x-1/2 before:translate-y-1/2 before:rounded-full max-lg:before:hidden lg:row-span-2 lg:grid-rows-subgrid"
+      <time
+        datetime="2021-01"
+        class="pb-2 max-lg:before:-start-4 max-lg:before:self-center lg:col-start-2 lg:before:-bottom-2"
+        >2021년1분기</time
       >
-        <time class="text-base-content/75" datetime="2021-01">2021년 1분기</time
-        >
-        <p class="lg:border-primary mt-4 lg:border-s-2 lg:px-2 lg:pb-2">
-          말레이시아 전 총리 마하티르 모하마드는 대한민국 전 국무총리 한승수와
-          그의 회사 GG56을 라부안으로 초청하여, 라부안을 글로벌 금융 허브로
-          재활성화하기 위한 협력을 제안
-        </p>
+      <div class="mt-2 lg:col-start-2">
+        <strong>라부안을 글로벌 금융허브 활성화 위한 협력 제안</strong>
+        <ul>
+          <li>마하티르 모하드 총리</li>
+          <li>한승수 전 총리</li>
+          <li>GG56코리아 사무실</li>
+        </ul>
       </div>
-      <div class="max-lg:mt-4 lg:p-2">
-        <Image src={timelineImgs[0]} alt="" class="rounded-box shadow-sm" />
+      <Image
+        src={timelineImgs[0]}
+        alt=""
+        class="rounded-box mt-4 shadow-sm lg:col-start-1 lg:row-start-2 lg:w-[90%]"
+      />
+    </li>
+    <li class="grid lg:row-span-2 lg:grid-rows-subgrid">
+      <time
+        datetime="2022-01"
+        class="pb-2 max-lg:before:-start-4 max-lg:before:self-center lg:before:-bottom-2"
+        >2022년1분기</time
+      >
+      <div class="mt-2">
+        <strong class="text-primary">GG56 Labuan 법인 설립</strong>
+        <ul>
+          <li>납입자본금 미화 100만 달러</li>
+        </ul>
+        <Image
+          src={timelineImgs[4]}
+          alt=""
+          class="rounded-box mt-2 shadow-sm lg:w-[90%]"
+        />
       </div>
     </li>
     <li
-      class="max-lg:border-primary grid max-lg:border-b-2 max-lg:py-4 max-lg:ps-4 lg:row-span-3 lg:grid-rows-subgrid"
+      class="grid pe-4 lg:col-start-4 lg:row-span-2 lg:row-start-1 lg:grid-rows-subgrid"
     >
-      <div
-        class="before:bg-primary relative grid before:absolute before:start-[1px] before:bottom-[-1px] before:size-2 before:-translate-x-1/2 before:translate-y-1/2 before:rounded-full max-lg:before:hidden lg:row-span-2 lg:grid-rows-subgrid"
+      <time
+        datetime="2023-01"
+        class="pb-2 max-lg:before:-start-4 max-lg:before:self-center lg:before:-bottom-2"
+        >2023년1분기</time
       >
-        <time class="text-base-content/75" datetime="2022-01">2022년 1분기</time
-        >
-        <p class="lg:border-primary mt-4 lg:border-s-2 lg:px-2 lg:pb-2">
-          <strong>GG56 Labuan 법인 설립 (납입자본금 미화 100만 달러)</strong>
-        </p>
-      </div>
-      <div class="max-lg:mt-4 lg:p-2">
-        <Image src={timelineImgs[4]} alt="" class="rounded-box shadow-sm" />
+      <div class="mt-2">
+        <strong>GGEX Korea 법인 설립</strong>
+        <ul>
+          <li>글로벌 암호화폐 거래소</li>
+        </ul>
       </div>
     </li>
     <li
-      class="max-lg:border-primary grid max-lg:border-b-2 max-lg:py-4 max-lg:ps-4 lg:row-span-3 lg:grid-rows-subgrid"
+      class="grid lg:grid-cols-subgrid lg:grid-rows-subgrid lg:[grid-area:2/-3/6/-1]"
     >
-      <div
-        class="before:bg-primary relative grid before:absolute before:start-[1px] before:bottom-[-1px] before:size-2 before:-translate-x-1/2 before:translate-y-1/2 before:rounded-full max-lg:before:hidden lg:row-span-2 lg:grid-rows-subgrid"
+      <time
+        datetime="2024-01"
+        class="before:-start-4 before:self-center lg:col-start-2 lg:before:-left-6"
+        >2024년1분기</time
       >
-        <time class="text-base-content/75" datetime="2023-01">2023년 1분기</time
+      <div class="mt-2 lg:col-start-2">
+        <strong
+          >말레이시아 스마트시티 자금조달 및 라부안의 혁신적 디지털금융 도입을
+          위한 파트너십 합의</strong
         >
-        <p class="lg:border-primary mt-4 lg:border-s-2 lg:px-2 lg:pb-2">
-          <strong>GGEX Korea 법인 설립</strong><br />
-          한국 내 암호화폐 거래소 사업에서 ‘글로벌’ 거래소로 피벗 전환 국내 16개
-          거래소에 대한 실사 수행
-        </p>
+        <ul>
+          <li>말레이시아 안와르 이브라힘 총리</li>
+          <li>한국 한승수 전 총리</li>
+        </ul>
       </div>
-      <div class="max-lg:mt-4 lg:p-2">
-        <Image src={timelineImgs[1]} alt="" class="rounded-box shadow-sm" />
-      </div>
+      <Image
+        src={timelineImgs[6]}
+        alt=""
+        class="rounded-box mb-2 w-1/2 self-end object-cover shadow-sm max-lg:mt-2 lg:order-first lg:col-start-2"
+      />
+      <Image
+        src={timelineImgs[2]}
+        alt=""
+        class="rounded-box mt-2 object-cover shadow-sm lg:row-span-2 lg:row-start-2 lg:w-[90%]"
+      />
     </li>
-    <li
-      class="max-lg:border-primary grid max-lg:border-b-2 max-lg:py-4 max-lg:ps-4 lg:row-span-3 lg:grid-rows-subgrid"
-    >
-      <div
-        class="before:bg-primary relative grid before:absolute before:start-[1px] before:bottom-[-1px] before:size-2 before:-translate-x-1/2 before:translate-y-1/2 before:rounded-full max-lg:before:hidden lg:row-span-2 lg:grid-rows-subgrid"
+    <li class="grid lg:grid-rows-subgrid lg:[grid-area:5/4/7/-1]">
+      <time
+        class="pb-2 max-lg:before:-start-4 max-lg:before:self-center lg:before:-bottom-1"
+        datetime="2024-07">2024년3분기</time
       >
-        <time class="text-base-content/75" datetime="2024-01">2024년 1분기</time
-        >
-        <p class="lg:border-primary mt-4 lg:border-s-2 lg:px-2 lg:pb-2">
-          말레이시아 안와르 이브라힘 총리와 합의하여, <strong
-            >말레이시아 스마트시티 자금조달 및 라부안의 혁신적 디지털 금융
-            도입을 위해 GG56과 파트너십 합의</strong
-          >
-        </p>
-      </div>
-      <div class="max-lg:mt-4 lg:p-2">
-        <Image src={timelineImgs[2]} alt="" class="rounded-box shadow-sm" />
-      </div>
-    </li>
-    <li
-      class="max-lg:border-primary grid max-lg:border-b-2 max-lg:py-4 max-lg:ps-4 lg:row-span-3 lg:grid-rows-subgrid"
-    >
-      <div
-        class="before:bg-primary relative grid before:absolute before:start-[1px] before:bottom-[-1px] before:size-2 before:-translate-x-1/2 before:translate-y-1/2 before:rounded-full max-lg:before:hidden lg:row-span-2 lg:grid-rows-subgrid"
-      >
-        <time class="text-base-content/75" datetime="2024-07">2024년 3분기</time
-        >
-        <p class="lg:border-primary mt-4 lg:border-s-2 lg:px-2 lg:pb-2">
+      <div class="mt-2 grid lg:grid-cols-2">
+        <div class="self-end">
           <strong
-            >이브라힘 이스칸다르 국왕실과 GG56은 라부안내 혁신 디지털 금융 도입</strong
-          >과 말레이시아 포레스트 시티의 자금조달 및 개발 가속화를 위한 <strong
-            >MOA를 체결</strong
+            >라부안내 혁신 디지털 금융 도입과, 포레스트시티의 자금 조달 및
+            개발을 위한 MOA 체결</strong
           >
-        </p>
-      </div>
-      <div class="max-lg:mt-4 lg:p-2">
-        <Image src={timelineImgs[3]} alt="" class="rounded-box shadow-sm" />
+          <ul>
+            <li>이브라힘 이스칸다르 국왕실</li>
+            <li>GG56 대표이사 김영군</li>
+          </ul>
+        </div>
+        <Image
+          src={timelineImgs[3]}
+          alt=""
+          class="rounded-box w-[90%] shadow-sm lg:order-first"
+        />
       </div>
     </li>
     <li
-      class="max-lg:border-primary grid max-lg:border-b-2 max-lg:py-4 max-lg:ps-4 lg:row-span-3 lg:grid-rows-subgrid"
+      class="grid lg:col-start-3 lg:row-span-2 lg:row-start-5 lg:grid-rows-subgrid"
     >
-      <div
-        class="before:bg-primary relative grid before:absolute before:start-[1px] before:bottom-[-1px] before:size-2 before:-translate-x-1/2 before:translate-y-1/2 before:rounded-full max-lg:before:hidden lg:row-span-2 lg:grid-rows-subgrid"
+      <time
+        class="pb-2 max-lg:before:-start-4 max-lg:before:self-center lg:before:-bottom-1"
+        datetime="2025-04">2025년2분기</time
       >
-        <time class="text-base-content/75" datetime="2025-04">2025년 2분기</time
-        >
-        <p class="lg:border-primary mt-4 lg:border-s-2 lg:px-2 lg:pb-2">
-          GGEX 코어 시스템 완료(2024년 4분기) 및 <strong
-            >상업 운영 개시(2025년 2분기)</strong
-          >
-        </p>
-      </div>
-      <div class="max-lg:mt-4 lg:p-2">
-        <Image src={timelineImgs[5]} alt="" class="rounded-box shadow-sm" />
+      <div class="mt-2">
+        <strong>GGEX 코어시스템 완료</strong>
+        <ul>
+          <li>2024년 4분기</li>
+          <li>상업 운영 개시<br />(2025년 2분기)</li>
+        </ul>
       </div>
     </li>
-    <li class="grid max-lg:py-4 max-lg:ps-4 lg:row-span-3 lg:grid-rows-subgrid">
-      <div
-        class="before:bg-primary relative grid before:absolute before:start-[1px] before:bottom-[-1px] before:size-2 before:-translate-x-1/2 before:translate-y-1/2 before:rounded-full max-lg:before:hidden lg:row-span-2 lg:grid-rows-subgrid"
+    <li
+      class="grid lg:col-start-2 lg:row-span-2 lg:row-start-5 lg:grid-rows-subgrid"
+    >
+      <time
+        class="pb-2 max-lg:before:-start-4 max-lg:before:self-center lg:before:-bottom-1"
+        datetime="2025-01/2026-01">2025년 1분기<br />2026년 1분기</time
       >
-        <time class="text-base-content/75" datetime="2025-01/2026-01"
-          >2025년 1분기 ~ 2026년 1분기</time
+      <div class="mt-2">
+        <strong class="text-orange-700">GGBank 라이센스 취득</strong>
+        <ul>
+          <li>2026년 1분기</li>
+        </ul>
+        <strong class="text-orange-700"
+          >GGBank & GGEX 통합 서비스 운영 개시</strong
         >
-        <p class="lg:border-primary mt-4 lg:border-s-2 lg:px-2 lg:pb-2">
-          <strong
-            >GGBank 인가 취득(2026년 1분기) 및 단일 플랫폼을 통한 GGBank & GGEX
-            통합 서비스 운영 개시<br />(2026년 4분기)</strong
-          >
-        </p>
+        <ul>
+          <li>2026년 4분기</li>
+        </ul>
       </div>
+    </li>
+    <li
+      aria-hidden="true"
+      class="border-primary relative w-2/4 self-end justify-self-end border-b-4 [grid-area:5/1/6/2] max-lg:hidden"
+    >
+      <span
+        aria-hidden="true"
+        class="border-r-primary absolute bottom-0 h-0 w-0 -translate-x-full translate-y-[calc(12px+2px)] border-y-[12px] border-r-[12px] border-y-transparent"
+      ></span>
     </li>
   </ol>
 </section>
+
+<style>
+  li ul {
+    list-style: "-";
+  }
+
+  time {
+    position: relative;
+    align-self: self-end;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 0.75rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background-color: var(--color-primary);
+    }
+  }
+</style>
