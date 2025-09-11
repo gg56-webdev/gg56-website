@@ -8,13 +8,18 @@ const translations = {
     about: "About",
     "founders-message": "Founders' Message",
     contact: "Contact",
+    notice: "Notice",
   },
   nav: {
     home: "Home",
     about: "About",
+    notice: "Notice",
   },
   about: {
     h1: "About",
+  },
+  notice: {
+    h1: "Notice",
   },
   "founders-message": {
     h1: "Founders' Message",
