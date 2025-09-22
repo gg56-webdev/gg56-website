@@ -1,0 +1,64 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getLocaleParams } from "@/utils";
+import * as translations from "@/i18n";
+export function getStaticPaths() {
+  return getLocaleParams();
+}
+const locale = Astro.currentLocale!;
+const t = translations[locale as keyof typeof translations] || translations.en;
+
+const docs = [
+  {
+    title: "디지털 뱅킹과 암호화폐 거래소간 혁신적인 통합 플랫폼 GxB",
+    date: "2025-09-01",
+    link: "/docs/ko/GxBTeaser_IR.pdf",
+  },
+];
+---
+
+<Layout title={t.notice.h1}>
+  <h1 class="sr-only">{t.notice.h1}</h1>
+  <div class="grid gap-24 py-12 md:gap-32 md:py-24">
+    <section
+      id="notice"
+      aria-labelledby="notice-heading"
+      class="mx-auto max-w-(--breakpoint-md) px-4"
+    >
+      <div class="prose prose-lg mx-auto">
+        <h2 id="notice-heading">공지사항</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>제목</th>
+              <th class="max-md:hidden">작성일</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              docs.map(({ date, link, title }, id) => (
+                <tr>
+                  <th>{id + 1}</th>
+                  <td>
+                    <a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href={link}
+                      class="text-balance"
+                    >
+                      {title}
+                    </a>
+                  </td>
+                  <td class="max-md:hidden">
+                    <time datetime={date}>{date}</time>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</Layout>
