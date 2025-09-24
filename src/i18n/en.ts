@@ -9,6 +9,7 @@ const translations = {
     "founders-message": "Founders' Message",
     contact: "Contact",
     notice: "Notice",
+    news: "News",
   },
   nav: {
     home: "Home",
@@ -20,6 +21,9 @@ const translations = {
   },
   notice: {
     h1: "Notice",
+  },
+  news: {
+    h1: "News",
   },
   "founders-message": {
     h1: "Founders' Message",

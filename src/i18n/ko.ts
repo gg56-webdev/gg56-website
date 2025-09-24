@@ -9,6 +9,7 @@ const translations = {
     "founders-message": "창립자 인사말",
     contact: "연락처",
     notice: "알림마당",
+    news: "뉴스",
   },
   nav: {
     home: "홈",
@@ -20,6 +21,9 @@ const translations = {
   },
   notice: {
     h1: "알림마당",
+  },
+  news: {
+    h1: "뉴스",
   },
   "founders-message": {
     h1: "창립자 인사말",

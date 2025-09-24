@@ -1,0 +1,65 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getLocaleParams } from "@/utils";
+import * as translations from "@/i18n";
+export function getStaticPaths() {
+  return getLocaleParams();
+}
+const locale = Astro.currentLocale!;
+const t = translations[locale as keyof typeof translations] || translations.en;
+
+const articles = [
+  {
+    title: '[특별인터뷰] 보 하인스 테더 USAT CEO "한국과 KRW 암호화폐 협력"',
+    date: "2025-09-23",
+    link: "https://www.hansbiz.co.kr/news/articleView.html?idxno=779022",
+  },
+  {
+    title:
+      "[단독] GG56그룹·리버밴스, 테더와 손잡고 한국형 스테이블코인 발행 구상",
+    date: "2025-09-23",
+    link: "https://www.hansbiz.co.kr/news/articleView.html?idxno=779262",
+  },
+].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+---
+
+<Layout title={t.news.h1}>
+  <h1 class="sr-only">{t.news.h1}</h1>
+  <div class="grid gap-24 py-12 md:gap-32 md:py-24">
+    <section
+      id="news"
+      aria-labelledby="news-heading"
+      class="mx-auto max-w-(--breakpoint-md) px-4"
+    >
+      <div class="prose prose-lg mx-auto">
+        <h2 id="news-heading">보도자료</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>제목</th>
+              <th class="max-md:hidden">작성일</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              articles.map(({ date, link, title }, id) => (
+                <tr>
+                  <th>{id + 1}</th>
+                  <td class="text-pretty">
+                    <a target="_blank" rel="noopener noreferrer" href={link}>
+                      {title}
+                    </a>
+                  </td>
+                  <td class="whitespace-nowrap max-md:hidden">
+                    <time datetime={date}>{date}</time>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</Layout>
