@@ -8,7 +8,6 @@ import { Image } from "astro:assets";
 import appImg from "@images/it/app.webp";
 import botImg from "@images/it/bot.webp";
 import passngoImg from "@images/it/passngo.png";
-import signisImg from "@images/it/signis.webp";
 import DefaultHero from "@/components/DefaultHero.astro";
 
 export function getStaticPaths() {
@@ -749,40 +748,6 @@ const ggexScreenshots = Object.values(
             class="btn btn-primary not-prose md:btn-wide mt-4 max-md:w-full"
             >자세히 알아보기</a
           >
-        </div>
-      </section>
-      <section
-        id="signis"
-        aria-labelledby="signis-heading"
-        class="bg-primary/5 mt-24 py-12 md:py-24"
-      >
-        <div
-          class="mx-auto grid max-w-(--breakpoint-lg) items-center gap-8 px-4 md:grid-cols-2"
-        >
-          <Image
-            src={signisImg}
-            alt="Signis FR metaverse map"
-            class="md:order-last"
-          />
-          <div class="prose md:prose-lg max-w-none">
-            <h2 id="signis-heading">SIGNIS FR</h2>
-            <p>
-              SIGNIS FR은 세계 최초의 가톨릭 메타버스 플랫폼입니다. SIGNIS(국제
-              가톨릭 커뮤니케이션 협회)의 공동 사명을 위해 전 세계 사람들이
-              연결하고 상호 작용하며 단결할 수 있는 허브 역할을 합니다. SIGNIS
-              FR은 약 50억 명의 디지털 친화적인 MZ 세대를 모읍니다. 이 플랫폼을
-              통해 가톨릭 신자와 메타버스 애호가를 포함한 다양한 배경의 개인들이
-              시간과 공간의 한계를 초월하여 이해, 공감 및 다양한 경험을 촉진하고
-              가톨릭을 홍보하며 세계 평화를 위해 노력할 수 있습니다.
-            </p>
-            <a
-              href="https://www.blockchaintoday.co.kr/news/articleView.html?idxno=23930"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-primary not-prose md:btn-wide mt-4 max-md:w-full"
-              >자세히 알아보기</a
-            >
-          </div>
         </div>
       </section>
     </section>
