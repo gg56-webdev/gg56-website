@@ -559,6 +559,68 @@ const ggexScreenshots = Object.values(
             </div>
           </div>
         </section>
+        <section
+          id="sms-service"
+          aria-labelledby="sms-service-heading"
+          class="mt-24"
+        >
+          <h3 id="sms-service-heading">SMS 결제서비스</h3>
+          <ul class="marker:text-primary">
+            <li>
+              <strong>
+                고객에게 수신된 SMS 메세지를 통해 카드정보 입력 후 결제하는
+                서비스
+              </strong>
+              <ul>
+                <li>
+                  판매자가 상품 및 단가를 웹 또는 앱에서 구매자에게 SMS로 결제
+                  요청 시, 구매자는 카드정보 노출 없이 신용카드 결제를 진행
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <div class="not-prose mt-12">
+            <div
+              class="grid gap-y-4 text-center md:grid-cols-[repeat(3,1fr_auto)_1fr] md:items-start"
+            >
+              <div class="grid justify-items-center">
+                <Icon name="lucide:store" size={36} />
+                <strong>판매자</strong>
+                <p class="text-sm">고객에게 문자 발송</p>
+              </div>
+              <Icon
+                name="lucide:move-right"
+                size={36}
+                class="self-center justify-self-center text-slate-300 max-md:rotate-90"
+              />
+              <div class="grid justify-items-center">
+                <Icon name="lucide:mail" size={36} />
+                <strong>SMS 결제요청</strong>
+                <p class="text-sm">상품명, 결제금액 고객정보 등</p>
+              </div>
+              <Icon
+                name="lucide:move-right"
+                size={36}
+                class="self-center justify-self-center text-slate-300 max-md:rotate-90"
+              />
+              <div class="grid justify-items-center">
+                <Icon name="lucide:credit-card" size={36} />
+                <strong>카드정보입력</strong>
+                <p class="text-sm">카드번호, 유효기간 등 입력</p>
+              </div>
+              <Icon
+                name="lucide:move-right"
+                size={36}
+                class="self-center justify-self-center text-slate-300 max-md:rotate-90"
+              />
+              <div class="grid justify-items-center">
+                <Icon name="lucide:hand-coins" size={36} />
+                <strong>고객결제</strong>
+                <p class="text-sm">결제완료, 취소가능</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
 
