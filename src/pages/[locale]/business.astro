@@ -367,94 +367,175 @@ const ggexScreenshots = Object.values(
     <section id="fintech" aria-labelledby="fintech-heading">
       <div class="prose md:prose-lg mx-auto max-w-(--breakpoint-md) px-4">
         <h2 id="fintech-heading">{t.business.fintech.h2}</h2>
-        <section>
-          <h3>RAPID 송금 서비스</h3>
+        <section id="pg-service" aria-labelledby="pg-service-heading">
+          <h3 id="pg-service-heading">PG 서비스</h3>
+          <p
+            class="rounded-box border-primary border p-2 before:content-['※_']"
+          >
+            <dfn id="pg-dfn"><abbr>PG</abbr></dfn> : Payment Gateway
+          </p>
           <ul class="marker:text-primary">
-            <li>연중무휴, 24시간 빠르고 간편한 해외송금 서비스</li>
             <li>
-              쉽고 간편한 모바일 App으로 비대면 해외송금
+              <strong>
+                금융기관(카드사, 은행등)과 인터넷 거래가 가능하게 연결해주는
+                서비스
+              </strong>
               <ul>
-                <li>은행대비 수수료는 저렴, 기다림은 짧게</li>
-                <li>20분 이내 송금 (국가 별 차이 있음)</li>
+                <li>
+                  가맹점<Icon
+                    class="mx-2 inline-block"
+                    name="lucide:move-horizontal"
+                  />PG사<Icon
+                    class="mx-2 inline-block"
+                    name="lucide:move-horizontal"
+                  />금융기관
+                </li>
               </ul>
-              <li>
-                월렛에 미리 충전, 해외 송금, 카드 결제까지!
-                <ul>
-                  <li>월렛 연결 선불 결제카드 제공</li>
-                  <li>은행 계좌 잔액 및 거래내역 조회 기능 제공</li>
-                </ul>
-              </li>
-              <li>
-                서비스 가능 국가
-                <ul>
-                  <li>
-                    아시아 : 일본, 홍콩, 싱가폴, 필리핀, 중국, 타이완,
-                    말레이시아, 한국
-                  </li>
-                  <li>아메리카 : 미국, 카나다, 멕시코</li>
-                  <li>유럽 : 영국, 독일, 프랑스, 스페인</li>
-                </ul>
-              </li>
             </li>
           </ul>
-        </section>
-        <section class="mt-24">
-          <h3>현금 바로결제 서비스</h3>
-          <ul class="marker:text-primary">
-            <li>
-              복잡했던 은행업무를 GG Fin-tech 중계 서비스를 통해 편리하게 이용
-              가능
-              <ul>
-                <li>
-                  은행별로 다른 금융업무를 기업과 은행의 시스템에 안전하게
-                  이어주는 기업뱅킹 서비스
-                </li>
-                <li>
-                  자금이체, 출금, 가상계좌, 전자어음 등 기업 내 복잡하고 다양한
-                  자금 관리 업무를 사무실에서 실시간으로 처리
-                </li>
-              </ul>
-            </li>
-            <li>
-              간편한 회원가입과 결제
-              <ul>
-                <li>
-                  최초 결제 시: <ol
-                    class="not-prose ms-2 inline-flex list-inside list-decimal flex-wrap gap-x-4"
+          <div class="not-prose mt-12">
+            <div
+              class="mx-auto grid max-w-[500px] grid-cols-3 grid-rows-[1fr_auto_1fr] max-sm:scale-80"
+            >
+              <div
+                class="grid aspect-square place-content-center place-items-center rounded-full border-4 border-blue-200 text-center"
+              >
+                <Icon name="lucide:credit-card" size={36} />
+                <span class="text-lg font-bold">고객</span>
+              </div>
+              <div class="self-center justify-self-center text-center">
+                <span
+                  class="before:text-primary before:font-bold before:content-['1_']"
+                  >주문결제</span
+                >
+                <svg class="h-6 w-full text-slate-300" role="img">
+                  <defs>
+                    <marker
+                      id="arrowhead"
+                      viewBox="0 0 10 10"
+                      refX="5"
+                      refY="5"
+                      markerWidth="6"
+                      markerHeight="6"
+                      orient="auto-start-reverse"
+                    >
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"
+                      ></path>
+                    </marker>
+                  </defs>
+                  <line
+                    id="horizontal-line"
+                    x1="10%"
+                    y1="12"
+                    x2="90%"
+                    y2="12"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    marker-start="url(#arrowhead)"
+                    marker-end="url(#arrowhead)"></line>
+                </svg>
+                <span
+                  class="before:text-primary before:font-bold before:content-['4_']"
+                  >서비스 제공</span
+                >
+              </div>
+              <div
+                class="grid aspect-square place-content-center place-items-center rounded-full border-4 border-pink-200 text-center"
+              >
+                <Icon name="lucide:store" size={36} />
+                <span class="text-lg font-bold">가맹점</span>
+              </div>
+              <div class="relative">
+                <div
+                  class="absolute end-[calc(50%+24px)] top-1/2 w-max -translate-y-1/2 text-end"
+                >
+                  <span
+                    class="before:text-primary before:font-bold before:content-['7_']"
+                    >대금납부</span
                   >
-                    <li>계좌등록</li>
-                    <li>비밀번호 설정</li>
-                    <li>결제완료</li>
-                  </ol>
-                </li>
-              </ul>
-            </li>
-            <li>
-              회원이 좋은점
-              <ul>
-                <li>
-                  소득공제혜택, 간편한 사용 가능 (별도 프로그램 설치 없음)
-                </li>
-              </ul>
-            </li>
-            <li>
-              가맹점의 혜택
-              <ul>
-                <li>
-                  <span class="font-medium">낮은 수수료</span> : 오픈뱅킹 기반 결제로
-                  신용카드 결제 대비 낮은 수수료
-                </li>
-                <li>
-                  <span class="font-medium">빠른 정산주기</span> : 통상 D+2일 정산으로
-                  현금 흐름을 효율적으로 관리
-                </li>
-                <li>
-                  <span class="font-medium">고객사 맞춤 컬러 결제창</span> : 커스터마이징으로
-                  결제창에서도 고객사 고유의 아이덴티티 유지
-                </li>
-              </ul>
-            </li>
-          </ul>
+                </div>
+                <svg class="mx-auto w-6 text-slate-300" role="img">
+                  <line
+                    y1="10%"
+                    x1="12"
+                    y2="90%"
+                    x2="12"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    marker-end="url(#arrowhead)"></line>
+                </svg>
+              </div>
+              <div></div>
+              <div class="relative">
+                <div
+                  class="absolute end-[calc(50%+24px)] top-1/2 w-max -translate-y-1/2 text-end"
+                >
+                  <span
+                    class="before:text-primary before:font-bold before:content-['3_']"
+                    >결제승인</span
+                  >
+                  <br />
+                  <span
+                    class="before:text-primary before:font-bold before:content-['6_']"
+                    >판매대금 입금</span
+                  >
+                </div>
+                <svg class="mx-auto w-6 text-slate-300" role="img">
+                  <line
+                    y1="10%"
+                    x1="12"
+                    y2="90%"
+                    x2="12"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    marker-start="url(#arrowhead)"
+                    marker-end="url(#arrowhead)"></line>
+                </svg>
+                <div
+                  class="absolute start-[calc(50%+24px)] top-1/2 w-max -translate-y-1/2"
+                >
+                  <span
+                    class="before:text-primary before:font-bold before:content-['2_']"
+                    >결제요청</span
+                  >
+                </div>
+              </div>
+              <div
+                class="grid aspect-square place-content-center place-items-center rounded-full border-4 border-orange-200 text-center"
+              >
+                <Icon name="lucide:building-2" size={36} />
+                <span class="text-lg font-bold">금융기관</span>
+                <span>(카드사)</span>
+              </div>
+              <div class="self-center justify-self-center text-center">
+                <span
+                  class="before:text-primary before:font-bold before:content-['3_']"
+                  >결제승인</span
+                >
+                <br />
+                <span
+                  class="before:text-primary before:font-bold before:content-['5_']"
+                  >정산대금 입금</span
+                >
+                <svg class="h-6 w-full text-slate-300" role="img">
+                  <use href="#horizontal-line"></use>
+                </svg>
+                <span
+                  class="before:text-primary before:font-bold before:content-['2_']"
+                  >결제요청</span
+                >
+              </div>
+              <div
+                class="grid aspect-square place-content-center place-items-center rounded-full border-4 border-purple-200 text-center"
+              >
+                <Icon name="lucide:server" size={36} />
+                <span class="text-lg font-bold">PG</span>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     </section>
