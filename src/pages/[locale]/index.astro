@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import { getLocaleParams } from "@/utils";
 import heroVideo from "@/assets/videos/hero_bg_1080p_60fps.mp4";
+import Fade from "@/components/index/Fade.astro";
 export function getStaticPaths() {
   return getLocaleParams();
 }
@@ -26,73 +27,6 @@ export function getStaticPaths() {
       playsinline
       preload="auto"
       class="h-dvh w-full object-cover lg:object-right-top"></video>
-    <div
-      class="grid w-full items-end overflow-hidden pe-4 pb-4 max-2xl:justify-end 2xl:items-center"
-    >
-      <div
-        class="fade grid text-xl font-bold text-balance text-white *:[grid-area:1/1] sm:text-2xl md:text-4xl/[1.3] 2xl:ms-[62vw] 2xl:items-center"
-      >
-        <p>
-          새로운 금융시장<br /><br />
-          우리가 혁신을 선도 하겠습니다.
-        </p>
-        <p>
-          IT와 블록체인으로 다져진 기업<br /><br />
-          이제, <span
-            class="bg-linear-to-r from-[#e38536] to-[#f5e948] bg-clip-text text-transparent"
-            >암호화폐거래소</span
-          >와<br />
-          <span class="ps-[4ch]"
-            ><span
-              class="bg-linear-to-r from-[#D8F3FF] to-[#7DA6FF] bg-clip-text text-transparent"
-              >디지털뱅크</span
-            ></span
-          > 사업을 시작합니다.
-        </p>
-        <p>
-          글로벌을 향한,<br /><br />
-          혁신적인 금융의 새 지평을<br />
-          열겠습니다.
-        </p>
-        <p>
-          당신 곁에서,<br />
-          당신의 손안에서,<br />
-          가장 신뢰하며 유익한<br /><br />
-          당신의 파트너가 되겠습니다.
-        </p>
-      </div>
-    </div>
+    <Fade />
   </section>
 </Layout>
-
-<style>
-  .fade > * {
-    opacity: 0;
-    animation: fadeInOut 20s ease-out infinite;
-  }
-
-  .fade > :nth-child(2) {
-    animation-delay: 5s;
-  }
-  .fade > :nth-child(3) {
-    animation-delay: 10s;
-  }
-  .fade > :nth-child(4) {
-    animation-delay: 15s;
-  }
-
-  @keyframes fadeInOut {
-    0% {
-      translate: 5%;
-    }
-    5%,
-    20% {
-      translate: 0;
-      opacity: 1;
-    }
-    25% {
-      translate: -5%;
-      opacity: 0;
-    }
-  }
-</style>
