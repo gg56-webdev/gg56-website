@@ -9,7 +9,7 @@ import icon from "astro-icon";
 export default defineConfig({
   i18n: {
     defaultLocale: "ko",
-    locales: ["ko"],
+    locales: ["en", "ko"],
     routing: {
       prefixDefaultLocale: true,
     },
