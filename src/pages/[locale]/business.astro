@@ -6,7 +6,6 @@ import { Image } from "astro:assets";
 import appImg from "@images/it/app.webp";
 import botImg from "@images/it/bot.webp";
 import passngoImg from "@images/it/passngo.png";
-import signisImg from "@images/it/signis.webp";
 import DefaultHero from "@/components/DefaultHero.astro";
 
 export function getStaticPaths() {
@@ -219,90 +218,282 @@ const ggexScreenshots = import.meta.glob<ImageMetadata>(
     <section id="fintech" aria-labelledby="fintech-heading">
       <div class="prose md:prose-lg mx-auto max-w-(--breakpoint-md) px-4">
         <h2 id="fintech-heading">FIN-Tech</h2>
-        <section>
-          <h3>RAPID 송금 서비스</h3>
+        <section id="pg-service" aria-labelledby="pg-service-heading">
+          <h3 id="pg-service-heading">PG 서비스</h3>
+          <p
+            class="rounded-box border-primary border p-2 before:content-['※_']"
+          >
+            <dfn id="pg-dfn"><abbr>PG</abbr></dfn> : Payment Gateway
+          </p>
           <ul class="marker:text-primary">
-            <li>연중무휴, 24시간 빠르고 간편한 해외송금 서비스</li>
             <li>
-              쉽고 간편한 모바일 App으로 비대면 해외송금
+              <strong>
+                금융기관(카드사, 은행등)과 인터넷 거래가 가능하게 연결해주는
+                서비스
+              </strong>
               <ul>
-                <li>은행대비 수수료는 저렴, 기다림은 짧게</li>
-                <li>20분 이내 송금 (국가 별 차이 있음)</li>
+                <li>
+                  가맹점<Icon
+                    class="mx-2 inline-block"
+                    name="lucide:move-horizontal"
+                  />PG사<Icon
+                    class="mx-2 inline-block"
+                    name="lucide:move-horizontal"
+                  />금융기관
+                </li>
               </ul>
-              <li>
-                월렛에 미리 충전, 해외 송금, 카드 결제까지!
-                <ul>
-                  <li>월렛 연결 선불 결제카드 제공</li>
-                  <li>은행 계좌 잔액 및 거래내역 조회 기능 제공</li>
-                </ul>
-              </li>
-              <li>
-                서비스 가능 국가
-                <ul>
-                  <li>
-                    아시아 : 일본, 홍콩, 싱가폴, 필리핀, 중국, 타이완,
-                    말레이시아, 한국
-                  </li>
-                  <li>아메리카 : 미국, 카나다, 멕시코</li>
-                  <li>유럽 : 영국, 독일, 프랑스, 스페인</li>
-                </ul>
-              </li>
             </li>
           </ul>
+          <div class="not-prose mt-12">
+            <div
+              class="mx-auto grid max-w-[500px] grid-cols-3 grid-rows-[1fr_auto_1fr] max-sm:scale-80"
+            >
+              <div
+                class="grid aspect-square place-content-center place-items-center rounded-full border-4 border-blue-200 text-center"
+              >
+                <Icon name="lucide:credit-card" size={36} />
+                <span class="text-lg font-bold">고객</span>
+              </div>
+              <div class="self-center justify-self-center text-center">
+                <span
+                  class="before:text-primary before:font-bold before:content-['1_']"
+                  >주문결제</span
+                >
+                <svg class="h-6 w-full text-slate-300" role="img">
+                  <defs>
+                    <marker
+                      id="arrowhead"
+                      viewBox="0 0 10 10"
+                      refX="5"
+                      refY="5"
+                      markerWidth="6"
+                      markerHeight="6"
+                      orient="auto-start-reverse"
+                    >
+                      <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"
+                      ></path>
+                    </marker>
+                  </defs>
+                  <line
+                    id="horizontal-line"
+                    x1="10%"
+                    y1="12"
+                    x2="90%"
+                    y2="12"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    marker-start="url(#arrowhead)"
+                    marker-end="url(#arrowhead)"></line>
+                </svg>
+                <span
+                  class="before:text-primary before:font-bold before:content-['4_']"
+                  >서비스 제공</span
+                >
+              </div>
+              <div
+                class="grid aspect-square place-content-center place-items-center rounded-full border-4 border-pink-200 text-center"
+              >
+                <Icon name="lucide:store" size={36} />
+                <span class="text-lg font-bold">가맹점</span>
+              </div>
+              <div class="relative">
+                <div
+                  class="absolute end-[calc(50%+24px)] top-1/2 w-max -translate-y-1/2 text-end"
+                >
+                  <span
+                    class="before:text-primary before:font-bold before:content-['7_']"
+                    >대금납부</span
+                  >
+                </div>
+                <svg class="mx-auto w-6 text-slate-300" role="img">
+                  <line
+                    y1="10%"
+                    x1="12"
+                    y2="90%"
+                    x2="12"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    marker-end="url(#arrowhead)"></line>
+                </svg>
+              </div>
+              <div></div>
+              <div class="relative">
+                <div
+                  class="absolute end-[calc(50%+24px)] top-1/2 w-max -translate-y-1/2 text-end"
+                >
+                  <span
+                    class="before:text-primary before:font-bold before:content-['3_']"
+                    >결제승인</span
+                  >
+                  <br />
+                  <span
+                    class="before:text-primary before:font-bold before:content-['6_']"
+                    >판매대금 입금</span
+                  >
+                </div>
+                <svg class="mx-auto w-6 text-slate-300" role="img">
+                  <line
+                    y1="10%"
+                    x1="12"
+                    y2="90%"
+                    x2="12"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    marker-start="url(#arrowhead)"
+                    marker-end="url(#arrowhead)"></line>
+                </svg>
+                <div
+                  class="absolute start-[calc(50%+24px)] top-1/2 w-max -translate-y-1/2"
+                >
+                  <span
+                    class="before:text-primary before:font-bold before:content-['2_']"
+                    >결제요청</span
+                  >
+                </div>
+              </div>
+              <div
+                class="grid aspect-square place-content-center place-items-center rounded-full border-4 border-orange-200 text-center"
+              >
+                <Icon name="lucide:building-2" size={36} />
+                <span class="text-lg font-bold">금융기관</span>
+                <span>(카드사)</span>
+              </div>
+              <div class="self-center justify-self-center text-center">
+                <span
+                  class="before:text-primary before:font-bold before:content-['3_']"
+                  >결제승인</span
+                >
+                <br />
+                <span
+                  class="before:text-primary before:font-bold before:content-['5_']"
+                  >정산대금 입금</span
+                >
+                <svg class="h-6 w-full text-slate-300" role="img">
+                  <use href="#horizontal-line"></use>
+                </svg>
+                <span
+                  class="before:text-primary before:font-bold before:content-['2_']"
+                  >결제요청</span
+                >
+              </div>
+              <div
+                class="grid aspect-square place-content-center place-items-center rounded-full border-4 border-purple-200 text-center"
+              >
+                <Icon name="lucide:server" size={36} />
+                <span class="text-lg font-bold">PG</span>
+              </div>
+            </div>
+          </div>
         </section>
-        <section class="mt-24">
-          <h3>현금 바로결제 서비스</h3>
+        <section
+          id="sms-service"
+          aria-labelledby="sms-service-heading"
+          class="mt-24"
+        >
+          <h3 id="sms-service-heading">SMS 결제서비스</h3>
           <ul class="marker:text-primary">
             <li>
-              복잡했던 은행업무를 GG Fin-tech 중계 서비스를 통해 편리하게 이용
-              가능
+              <strong>
+                고객에게 수신된 SMS 메세지를 통해 카드정보 입력 후 결제하는
+                서비스
+              </strong>
               <ul>
                 <li>
-                  은행별로 다른 금융업무를 기업과 은행의 시스템에 안전하게
-                  이어주는 기업뱅킹 서비스
-                </li>
-                <li>
-                  자금이체, 출금, 가상계좌, 전자어음 등 기업 내 복잡하고 다양한
-                  자금 관리 업무를 사무실에서 실시간으로 처리
+                  판매자가 상품 및 단가를 웹 또는 앱에서 구매자에게 SMS로 결제
+                  요청 시, 구매자는 카드정보 노출 없이 신용카드 결제를 진행
                 </li>
               </ul>
             </li>
+          </ul>
+          <div class="not-prose mt-12">
+            <div
+              class="grid gap-y-4 text-center md:grid-cols-[repeat(3,1fr_auto)_1fr] md:items-start"
+            >
+              <div class="grid justify-items-center">
+                <Icon name="lucide:store" size={36} />
+                <strong>판매자</strong>
+                <p class="text-sm">고객에게 문자 발송</p>
+              </div>
+              <Icon
+                name="lucide:move-right"
+                size={36}
+                class="self-center justify-self-center text-slate-300 max-md:rotate-90"
+              />
+              <div class="grid justify-items-center">
+                <Icon name="lucide:mail" size={36} />
+                <strong>SMS 결제요청</strong>
+                <p class="text-sm">상품명, 결제금액 고객정보 등</p>
+              </div>
+              <Icon
+                name="lucide:move-right"
+                size={36}
+                class="self-center justify-self-center text-slate-300 max-md:rotate-90"
+              />
+              <div class="grid justify-items-center">
+                <Icon name="lucide:credit-card" size={36} />
+                <strong>카드정보입력</strong>
+                <p class="text-sm">카드번호, 유효기간 등 입력</p>
+              </div>
+              <Icon
+                name="lucide:move-right"
+                size={36}
+                class="self-center justify-self-center text-slate-300 max-md:rotate-90"
+              />
+              <div class="grid justify-items-center">
+                <Icon name="lucide:hand-coins" size={36} />
+                <strong>고객결제</strong>
+                <p class="text-sm">결제완료, 취소가능</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="payment-service"
+          aria-labelledby="payment-service-heading"
+          class="mt-24"
+        >
+          <h3 id="payment-service-heading">수기결제서비스</h3>
+          <ul class="marker:text-primary">
             <li>
-              간편한 회원가입과 결제
-              <ul>
-                <li>
-                  최초 결제 시: <ol
-                    class="not-prose ms-2 inline-flex list-inside list-decimal flex-wrap gap-x-4"
-                  >
-                    <li>계좌등록</li>
-                    <li>비밀번호 설정</li>
-                    <li>결제완료</li>
-                  </ol>
-                </li>
-              </ul>
+              <strong>
+                판매자가 최소한의 고객카드 정보만으로 결제하는 빠르고 간편한
+                결제 수단
+              </strong>
             </li>
             <li>
-              회원이 좋은점
-              <ul>
-                <li>
-                  소득공제혜택, 간편한 사용 가능 (별도 프로그램 설치 없음)
-                </li>
-              </ul>
+              <strong
+                >개인정보 없이 판매자의 보증보험 가입을 통해 결제가 가능한
+                결제서비스</strong
+              >
             </li>
             <li>
-              가맹점의 혜택
+              <strong>수기결제의 장점</strong>
+              <ul>
+                <li>판매상품의 높은 결제율을 위한 신용카드사 모두 지원 가능</li>
+                <li>소비자의 방문 없이 전화/문자 한통으로 카드결제 가능</li>
+                <li>
+                  번거로운 인증절차 없이 로그인 한번으로 빠른 결제처리 가능
+                </li>
+                <li>휴대단말기 필요 없이 매출정산/운영/관리 유지비 0원!</li>
+              </ul>
+            </li>
+          </ul>
+          <p class="text-primary font-bold before:content-['※_']">
+            안전하고 스마트한 결제 서비스를 함께할 고객님을 모십니다
+          </p>
+          <ul class="marker:text-primary">
+            <li>
+              <strong>추천업종</strong>
               <ul>
                 <li>
-                  <span class="font-medium">낮은 수수료</span> : 오픈뱅킹 기반 결제로
-                  신용카드 결제 대비 낮은 수수료
+                  리조트, 팬션예약, 제조사, 유통사, 대리운전, 배달업종, 블로그,
+                  SNS, 관공서, 병원, 쇼핑몰, 카페, 증권, 화원
                 </li>
                 <li>
-                  <span class="font-medium">빠른 정산주기</span> : 통상 D+2일 정산으로
-                  현금 흐름을 효율적으로 관리
-                </li>
-                <li>
-                  <span class="font-medium">고객사 맞춤 컬러 결제창</span> : 커스터마이징으로
-                  결제창에서도 고객사 고유의 아이덴티티 유지
+                  그 외 방문판매, 의료기기, 기타업종 등 모두 편리하게 사용 가능
                 </li>
               </ul>
             </li>
@@ -410,38 +601,6 @@ const ggexScreenshots = import.meta.glob<ImageMetadata>(
             </li>
           </ul>
         </section>
-
-        <section class="mt-24">
-          <h3>Forest City의 Blockchain Town 사업</h3>
-          <ul class="marker:text-primary">
-            <li>
-              K-Culture 허브를 구축, 방문객을 유치하기 위한 몰입형 문화 경험과
-              재미있는 서비스를 제공하고
-              <ul>
-                <li>
-                  Filming Studio, Arena, Multiplex Theaters, Retail Spaces
-                </li>
-                <li>
-                  Cultural District Complex<br />
-                  (Global Culture Street Mall, Shared Office Tower, Serviced Residence
-                  Towers, AICT Towers, K-Beauty and Medical Center)
-                </li>
-              </ul>
-            </li>
-            <li>
-              블록체인 산업을 위한 법인 설립부터 주거형 사무공간을 제공하며
-            </li>
-            <li>
-              편리한 인프라와 관련 시설을 개발하여 비즈니스로 재창조 되게 만드는
-              프로그램 입니다
-              <ul>
-                <li>Support for incorporation</li>
-                <li>Business Villages and Residences</li>
-                <li>Convenient infrastructure development</li>
-              </ul>
-            </li>
-          </ul>
-        </section>
       </div>
     </section>
 
@@ -461,14 +620,27 @@ const ggexScreenshots = import.meta.glob<ImageMetadata>(
         />
         <div class="prose md:prose-lg max-w-none">
           <h3 id="app-title">FingeRate App</h3>
-          <p>
-            FingerRate앱은 설문조사 수행 방식을 혁신하여 기업에게 귀중한
-            피드백을 제공하는 동시에 참여자에게 보상을 제공합니다.
-            FingerRate앱은 메타버스를 기반으로 한 최초의 앱으로 실제 지도를
-            사용하여 설문조사에 참여하면 보상을 받을 수 있는 흥미로운 기회를
-            제공합니다. 가치 없는 설문조사에 시간을 낭비하지 마시고 지금 바로
-            FingerRate와 함께 보상을 받으세요!
-          </p>
+          <ul class="marker:text-primary">
+            <li>
+              <strong
+                >FingerRate앱은 설문조사 수행 방식을 혁신하여 기업에게 귀중한
+                피드백을 제공하는 동시에 참여자에게 보상을 제공합니다.</strong
+              >
+            </li>
+            <li>
+              <strong
+                >FingerRate앱은 메타버스를 기반으로 한 최초의 앱으로 실제 지도를
+                사용하여 설문조사에 참여하면 보상을 받을 수 있는 흥미로운 기회를
+                제공합니다.</strong
+              >
+            </li>
+            <li>
+              <strong
+                >가치 없는 설문조사에 시간을 낭비하지 마시고 지금 바로
+                FingerRate와 함께 보상을 받으세요!</strong
+              >
+            </li>
+          </ul>
           <ul
             class="not-prose grid gap-x-6 gap-y-2 font-medium sm:grid-cols-2 md:gap-x-12"
           >
@@ -511,13 +683,23 @@ const ggexScreenshots = import.meta.glob<ImageMetadata>(
             alt="Person showing a gesture towards Fingerate bot"
             class="rounded-box mx-auto h-[350px] object-cover shadow-md"
           />
-          <div class="prose md:prose-lg sm:mx-auto sm:text-center">
+          <div class="prose md:prose-lg sm:mx-auto">
             <h3 id="bot-heading">FingeRate Bot</h3>
-            <p>
-              FingeRate 생태계를 통해 기업에 고객 데이터를 제공하는 것을 넘어,
-              터치리스 시스템을 통해 고객에게 안전하고 편리한 경험을 보장합니다.
-              실시간 데이터 분석을 통해 고객 행동에 대한 깊은 이해를 제공합니다.
-            </p>
+            <ul class="marker:text-primary">
+              <li>
+                <strong
+                  >FingeRate 생태계를 통해 기업에 고객 데이터를 제공하는 것을
+                  넘어, 터치리스 시스템을 통해 고객에게 안전하고 편리한 경험을
+                  보장합니다.</strong
+                >
+              </li>
+              <li>
+                <strong
+                  >실시간 데이터 분석을 통해 고객 행동에 대한 깊은 이해를
+                  제공합니다.</strong
+                >
+              </li>
+            </ul>
             <a
               href="http://fingerate.world"
               target="_blank"
@@ -540,55 +722,32 @@ const ggexScreenshots = import.meta.glob<ImageMetadata>(
         />
         <div class="prose md:prose-lg max-w-none">
           <h3 id="passngo-heading">Pass&Go</h3>
-          <p>
-            Pass&Go의 주요 서비스는 QR 코드 형태의 디지털 자격 증명을 생성하는
-            것입니다. 이 자격 증명은 음성 검사 통과 또는 면역력 보유와 같은 특정
-            지표를 확인하여 사회 및 경제 활동에 완전히 참여할 수 있도록 합니다.
-            Pass&Go를 사용하면 더 이상 물리적 문서를 휴대하거나 분실 또는 손상된
-            문서에 대해 걱정할 필요가 없습니다.
-          </p>
-
-          <a
-            href="https://www.bloomberg.com/press-releases/2021-07-02/gg56-is-offering-the-covid-19-digital-solution-to-the-world-for-free"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-primary not-prose md:btn-wide mt-4 max-md:w-full"
-            >자세히 알아보기</a
-          >
-        </div>
-      </section>
-      <section
-        id="signis"
-        aria-labelledby="signis-heading"
-        class="bg-primary/5 mt-24 py-12 md:py-24"
-      >
-        <div
-          class="mx-auto grid max-w-(--breakpoint-lg) items-center gap-8 px-4 md:grid-cols-2"
-        >
-          <Image
-            src={signisImg}
-            alt="Signis FR metaverse map"
-            class="md:order-last"
-          />
-          <div class="prose md:prose-lg max-w-none">
-            <h2 id="signis-heading">SIGNIS FR</h2>
-            <p>
-              SIGNIS FR은 세계 최초의 가톨릭 메타버스 플랫폼입니다. SIGNIS(국제
-              가톨릭 커뮤니케이션 협회)의 공동 사명을 위해 전 세계 사람들이
-              연결하고 상호 작용하며 단결할 수 있는 허브 역할을 합니다. SIGNIS
-              FR은 약 50억 명의 디지털 친화적인 MZ 세대를 모읍니다. 이 플랫폼을
-              통해 가톨릭 신자와 메타버스 애호가를 포함한 다양한 배경의 개인들이
-              시간과 공간의 한계를 초월하여 이해, 공감 및 다양한 경험을 촉진하고
-              가톨릭을 홍보하며 세계 평화를 위해 노력할 수 있습니다.
-            </p>
-            <a
-              href="https://www.blockchaintoday.co.kr/news/articleView.html?idxno=23930"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-primary not-prose md:btn-wide mt-4 max-md:w-full"
-              >자세히 알아보기</a
-            >
-          </div>
+          <ul class="marker:text-primary">
+            <li>
+              <strong
+                >Pass&Go의 주요 서비스는 QR 코드 형태의 디지털 자격 증명을
+                생성하는 것입니다.</strong
+              >
+            </li>
+            <li>
+              <strong
+                >이 자격 증명은 음성 검사 통과 또는 면역력 보유와 같은 특정
+                지표를 확인하여 사회 및 경제 활동에 완전히 참여할 수 있도록
+                합니다.</strong
+              ><ul>
+                <li>
+                  호흡기 질병 등의 검사 결과(음성, 양성)로 다중시설 이용, 항공기
+                  등 탑승 구분
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong
+                >Pass&Go를 사용하면 더 이상 물리적 문서를 휴대하거나 분실 또는
+                손상된 문서에 대해 걱정할 필요가 없습니다.</strong
+              >
+            </li>
+          </ul>
         </div>
       </section>
     </section>
