@@ -6,22 +6,20 @@ import NavDropdown from "./NavDropdown.astro";
 const locale = Astro.currentLocale!;
 const t = translations[locale as keyof typeof translations] || translations.en;
 
-type Link = keyof typeof t.page;
-
 const businessSections = [
-  { title: "디지털 뱅크", id: "ggbank" },
-  { title: "암호화폐 거래소", id: "ggex" },
-  { title: "FIN-Tech", id: "fintech" },
-  { title: "RWA", id: "rwa" },
-  { title: "IT", id: "it" },
+  { text: t.business.ggbank.h2, id: "ggbank" },
+  { text: t.business.ggex.h2, id: "ggex" },
+  { text: t.business.fintech.h2, id: "fintech" },
+  { text: t.business.rwa.h2, id: "rwa" },
+  { text: t.business.it.h2, id: "it" },
 ];
 
-const aboutLinks: Link[] = [
-  "about",
-  "founders-message",
-  "advisory-board",
-  "contact",
-  "notice",
+const aboutLinks = [
+  { href: "about", text: t.about.h1 },
+  { href: "founders-message", text: t["founders-message"].h1 },
+  { href: "advisory-board", text: t["advisory-board"].h1 },
+  { href: "contact", text: t.contact.h1 },
+  { href: "notice", text: t.notice.h1 },
 ];
 ---
 
@@ -34,19 +32,19 @@ const aboutLinks: Link[] = [
     </li>
     <li>
       <NavDropdown
-        label="사업소개"
-        links={businessSections.map(({ id, title }) => ({
+        label={t.nav.business}
+        links={businessSections.map(({ id, text }) => ({
           href: `${getRelativeLocaleUrl(locale, "/business")}#${id}`,
-          text: title,
+          text,
         }))}
       />
     </li>
     <li>
       <NavDropdown
-        label="회사소개"
-        links={aboutLinks.map((link) => ({
-          href: getRelativeLocaleUrl(locale, link),
-          text: t.page[link],
+        label={t.nav.about}
+        links={aboutLinks.map(({ href, text }) => ({
+          href: getRelativeLocaleUrl(locale, href),
+          text,
         }))}
       />
     </li>

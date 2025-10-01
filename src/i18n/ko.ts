@@ -3,17 +3,17 @@ const translations = {
     defaultDescription:
       "GG56는 혁신적인 기술 솔루션으로 글로벌 변화를 주도하고 있습니다. 함께 변화를 만들어 갑시다. GG56 Limited - 글로벌 선을 위하여.",
   },
-  page: {
-    "advisory-board": "자문 위원회",
-    about: "회사개요",
-    "founders-message": "창립자 인사말",
-    contact: "연락처",
-    notice: "알림마당",
-  },
   nav: {
     home: "홈",
     about: "회사소개",
-    notice: "알림마당",
+    business: "사업소개",
+  },
+  business: {
+    ggbank: { h2: "디지털 뱅크" },
+    ggex: { h2: "암호화폐 거래소" },
+    fintech: { h2: "FIN-Tech" },
+    rwa: { h2: "RWA" },
+    it: { h2: "IT" },
   },
   about: {
     h1: "회사개요",

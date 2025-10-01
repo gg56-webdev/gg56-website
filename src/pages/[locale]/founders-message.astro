@@ -14,8 +14,8 @@ const locale = Astro.currentLocale!;
 const t = translations[locale as keyof typeof translations] || translations.en;
 ---
 
-<Layout title={t.page["founders-message"]}>
-  <h1 class="sr-only">{t.page["founders-message"]}</h1>
+<Layout title={t["founders-message"].h1}>
+  <h1 class="sr-only">{t["founders-message"].h1}</h1>
   <div class="grid gap-24 py-12 md:gap-32 md:py-24">
     <div class="mx-auto w-full max-w-(--breakpoint-lg) space-y-24 px-4">
       <article

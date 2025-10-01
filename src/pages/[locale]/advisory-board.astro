@@ -45,8 +45,8 @@ const t =
   translations[currentLocale as keyof typeof translations] || translations.en;
 ---
 
-<Layout title={t.page["advisory-board"]}>
-  <h1 class="sr-only">{t.page["advisory-board"]}</h1>
+<Layout title={t["advisory-board"].h1}>
+  <h1 class="sr-only">{t["advisory-board"].h1}</h1>
   <div class="grid gap-24 py-12 md:gap-32 md:py-24">
     <section
       id="about"

@@ -3,17 +3,17 @@ const translations = {
     defaultDescription:
       "GG56 is driving global change with innovative tech solutions. Partner with us to make a difference. GG56 Limited - For a Global Good.",
   },
-  page: {
-    "advisory-board": "Advisory Board",
-    about: "About",
-    "founders-message": "Founders' Message",
-    contact: "Contact",
-    notice: "Notice",
-  },
   nav: {
     home: "Home",
     about: "About",
-    notice: "Notice",
+    business: "Business",
+  },
+  business: {
+    ggbank: { h2: "Digital Bank" },
+    ggex: { h2: "Digital Exchange" },
+    fintech: { h2: "FIN-Tech" },
+    rwa: { h2: "RWA" },
+    it: { h2: "IT Services" },
   },
   about: {
     h1: "About",
@@ -38,7 +38,7 @@ const translations = {
     },
   },
   contact: {
-    h1: "Get in Touch with Us",
+    h1: "Contact Us",
     info: {
       h2: "We would love to hear from you!",
       p: "There are several ways to contact us. You may reach us via email or phone, or you could pay a visit to our office situated in the center of Seoul.",
