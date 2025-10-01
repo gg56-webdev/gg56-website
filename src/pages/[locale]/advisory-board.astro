@@ -69,11 +69,25 @@ const t =
         <h2 id="international-title">
           {t["advisory-board"].international.h2}
         </h2>
-        <p>
-          GG56이 추구하는 Global Good의 가치를 함께하시는 글로벌 자문위원
-          입니다.<br />Global의 공동적인 가치와 이익을 위하여 소중한 의견을
-          제시하여 주십니다.
-        </p>
+        {
+          currentLocale === "ko" ? (
+            <p>
+              GG56이 추구하는 Global Good의 가치를 함께하시는 글로벌 자문위원
+              입니다.
+              <br />
+              Global의 공동적인 가치와 이익을 위하여 소중한 의견을 제시하여
+              주십니다.
+            </p>
+          ) : (
+            <p>
+              They are a global advisory board member who shares the values of
+              Global Good that GG56 pursues.
+              <br />
+              They provide valuable insights for the common values and benefits
+              of the global community.
+            </p>
+          )
+        }
       </div>
       <ul id="international-list" class="mt-4 grid gap-8 md:grid-cols-2">
         {
