@@ -8,9 +8,9 @@ import { getLocaleParams } from "@/utils";
 export function getStaticPaths() {
   return getLocaleParams();
 }
+const { currentLocale } = Astro;
 const t =
-  translations[Astro.currentLocale as keyof typeof translations] ||
-  translations.en;
+  translations[currentLocale as keyof typeof translations] || translations.en;
 ---
 
 <Layout title={t.about.h1}>
@@ -23,26 +23,50 @@ const t =
     >
       <CompanyCard />
       <div class="prose prose-lg mx-auto">
-        <h2 id="overview-title">간략한 회사 소개</h2>
+        <h2 id="overview-title">
+          {currentLocale === "ko" ? "간략한 회사 소개" : "Company Overview"}
+        </h2>
         <ul class="marker:text-primary">
+          {
+            currentLocale === "ko" ? (
+              <li>
+                GG56은 세상을{" "}
+                <ruby>
+                  선<rp>(</rp>
+                  <rt lang="zh" class="text-base-content/60 text-[80%]">
+                    善
+                  </rt>
+                  <rp>)</rp>
+                </ruby>
+                하게 만들기 위한 사람들의 모임의 장 입니다
+              </li>
+            ) : (
+              <li>
+                GG56 is a community of people dedicated to making the world a
+                better and more virtuous place
+              </li>
+            )
+          }
           <li>
-            GG56은 세상을 <ruby
-              >선<rp>(</rp><rt lang="zh" class="text-base-content/60 text-[80%]"
-                >善</rt
-              ><rp>)</rp></ruby
-            >하게 만들기 위한 사람들의 모임의 장 입니다
+            {
+              currentLocale === "ko"
+                ? "GG56은 기존 가치를 넘어 혁신적인 솔루션을 제공하는데 전념하고 있는 미래 지향적인 기업입니다"
+                : "GG56 is a forward-looking company committed to delivering innovative solutions that go beyond conventional values."
+            }
           </li>
           <li>
-            GG56은 기존 가치를 넘어 혁신적인 솔루션을 제공하는데 전념하고 있는
-            미래 지향적인 기업입니다
+            {
+              currentLocale === "ko"
+                ? "우리의 사명은 지속 가능한 공유 가치를 창출하여 미래를 재창조하는 것입니다"
+                : "Our mission is to reinvent the future through the creation of sustainable shared value."
+            }
           </li>
           <li>
-            우리의 사명은 지속 가능한 공유 가치를 창출하여 미래를 재창조하는
-            것입니다
-          </li>
-          <li>
-            우리는 산업이 직면한 문제를 해결하는 첨단 솔루션을 제공함으로써
-            사회에 긍정적인 영향을 미치기 위해 노력하고 있습니다
+            {
+              currentLocale === "ko"
+                ? "우리는 산업이 직면한 문제를 해결하는 첨단 솔루션을 제공함으로써 사회에 긍정적인 영향을 미치기 위해 노력하고 있습니다"
+                : "We are committed to creating a positive social impact by delivering cutting-edge solutions that tackle the challenges industries face."
+            }
           </li>
         </ul>
       </div>
