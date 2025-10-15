@@ -8,6 +8,9 @@ export function getStaticPaths() {
 ---
 
 <Layout>
+  <Fragment slot="head">
+    <link rel="preload" href={heroVideo} as="video" type="video/mp4" />
+  </Fragment>
   <section
     id="hero"
     aria-labelledby="hero-title"
@@ -21,6 +24,7 @@ export function getStaticPaths() {
       loop
       muted
       playsinline
+      preload="auto"
       class="h-dvh w-full object-cover lg:object-right-top"></video>
     <div
       class="grid w-full items-end overflow-hidden pe-4 pb-4 max-2xl:justify-end 2xl:items-center"
