@@ -27,3 +27,8 @@
   to = "https://old.gg56.com/wp-admin/admin-ajax.php"
   status = 301
   force = true
+
+[[headers]]
+  for = "/_astro/*.mp4"
+[headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
