@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-
+const { currentLocale } = Astro;
 const timelineImgs = Object.values(
   import.meta.glob<ImageMetadata>("@images/about/timeline/*", {
     eager: true,
@@ -15,7 +15,11 @@ const timelineImgs = Object.values(
   class="mx-auto w-full max-w-(--breakpoint-xl) overflow-hidden px-4"
 >
   <h2 id="timeline-heading" class="mb-12 text-2xl font-bold">
-    혁신적인 금융시장을 향한 여정
+    {
+      currentLocale === "ko"
+        ? "혁신적인 금융시장을 향한 여정"
+        : "Our Journey Towards Innovative Financial Markets"
+    }
   </h2>
   <ol
     class="before:border-primary max-lg:before:bg-primary relative grid items-start gap-x-4 **:text-balance before:absolute before:-z-10 max-lg:ms-1 max-lg:gap-y-8 max-lg:py-4 max-lg:before:-start-3 max-lg:before:h-full max-lg:before:w-1 max-lg:before:rounded-full lg:grid-cols-5 lg:before:inset-[0_0_0_-1rem] lg:before:rounded-r-[64px] lg:before:border-4 lg:before:border-l-0 lg:before:[grid-area:2/2/6/-2]"
@@ -26,14 +30,34 @@ const timelineImgs = Object.values(
       <time
         datetime="2021-01"
         class="pb-2 max-lg:before:-start-4 max-lg:before:self-center lg:col-start-2 lg:before:-bottom-2"
-        >2021년1분기</time
+        >{currentLocale === "ko" ? "2021년1분기" : "Q1 2021"}</time
       >
       <div class="mt-2 lg:col-start-2">
-        <strong>라부안을 글로벌 금융허브 활성화 위한 협력 제안</strong>
+        <strong
+          >{
+            currentLocale === "ko"
+              ? "라부안을 글로벌 금융허브 활성화 위한 협력 제안"
+              : "Proposal for Collaboration to Develop Labuan as a Global Financial Hub"
+          }</strong
+        >
         <ul>
-          <li>마하티르 모하드 총리</li>
-          <li>한승수 전 총리</li>
-          <li>GG56코리아 사무실</li>
+          <li>
+            {
+              currentLocale === "ko"
+                ? "마하티르 모하드 총리"
+                : "Prime Minister Mahathir Mohamad"
+            }
+          </li>
+          <li>
+            {
+              currentLocale === "ko"
+                ? "한승수 전 총리"
+                : "Former Prime Minister Han Seung-soo"
+            }
+          </li>
+          <li>
+            {currentLocale === "ko" ? "GG56코리아 사무실" : "GG56 Korea Office"}
+          </li>
         </ul>
       </div>
       <Image
@@ -46,12 +70,24 @@ const timelineImgs = Object.values(
       <time
         datetime="2022-01"
         class="pb-2 max-lg:before:-start-4 max-lg:before:self-center lg:before:-bottom-2"
-        >2022년1분기</time
+        >{currentLocale === "ko" ? "2022년1분기" : "Q1 2022"}</time
       >
       <div class="mt-2">
-        <strong class="text-primary">GG56 Labuan 법인 설립</strong>
+        <strong class="text-primary"
+          >{
+            currentLocale === "ko"
+              ? "GG56 Labuan 법인 설립"
+              : "Establishment of GG56 Labuan Corporation"
+          }</strong
+        >
         <ul>
-          <li>납입자본금 미화 100만 달러</li>
+          <li>
+            {
+              currentLocale === "ko"
+                ? "납입자본금 미화 100만 달러"
+                : "Paid-in capital of USD 1 million"
+            }
+          </li>
         </ul>
         <Image
           src={timelineImgs[4]}
@@ -66,12 +102,24 @@ const timelineImgs = Object.values(
       <time
         datetime="2023-01"
         class="pb-2 max-lg:before:-start-4 max-lg:before:self-center lg:before:-bottom-2"
-        >2023년1분기</time
+        >{currentLocale === "ko" ? "2023년1분기" : "Q1 2023"}</time
       >
       <div class="mt-2">
-        <strong>GGEX Korea 법인 설립</strong>
+        <strong
+          >{
+            currentLocale === "ko"
+              ? "GGEX Korea 법인 설립"
+              : "Establishment of GGEX Korea"
+          }</strong
+        >
         <ul>
-          <li>글로벌 암호화폐 거래소</li>
+          <li>
+            {
+              currentLocale === "ko"
+                ? "글로벌 암호화폐 거래소"
+                : "Global Cryptocurrency Exchange"
+            }
+          </li>
         </ul>
       </div>
     </li>
@@ -81,16 +129,31 @@ const timelineImgs = Object.values(
       <time
         datetime="2024-01"
         class="before:-start-4 before:self-center lg:col-start-2 lg:before:-left-6"
-        >2024년1분기</time
+        >{currentLocale === "ko" ? "2024년1분기" : "Q1 2024"}</time
       >
       <div class="mt-2 lg:col-start-2">
         <strong
-          >말레이시아 스마트시티 자금조달 및 라부안의 혁신적 디지털금융 도입을
-          위한 파트너십 합의</strong
+          >{
+            currentLocale === "ko"
+              ? "말레이시아 스마트시티 자금조달 및 라부안 디지털금융 파트너십"
+              : "Partnership for Malaysia Smart City Financing and Labuan Digital Finance"
+          }</strong
         >
         <ul>
-          <li>말레이시아 안와르 이브라힘 총리</li>
-          <li>한국 한승수 전 총리</li>
+          <li>
+            {
+              currentLocale === "ko"
+                ? "말레이시아 안와르 이브라힘 총리"
+                : "Prime Minister Anwar Ibrahim of Malaysia"
+            }
+          </li>
+          <li>
+            {
+              currentLocale === "ko"
+                ? "한국 한승수 전 총리"
+                : "Former Prime Minister Han Seung-soo of Korea"
+            }
+          </li>
         </ul>
       </div>
       <Image
@@ -107,17 +170,33 @@ const timelineImgs = Object.values(
     <li class="grid lg:grid-rows-subgrid lg:[grid-area:5/4/7/-1]">
       <time
         class="pb-2 max-lg:before:-start-4 max-lg:before:self-center lg:before:-bottom-1"
-        datetime="2024-07">2024년3분기</time
+        datetime="2024-07"
+        >{currentLocale === "ko" ? "2024년3분기" : "Q3 2024"}</time
       >
       <div class="mt-2 grid lg:grid-cols-2">
         <div class="self-end">
           <strong
-            >라부안내 혁신 디지털 금융 도입과, 포레스트시티의 자금 조달 및
-            개발을 위한 MOA 체결</strong
+            >{
+              currentLocale === "ko"
+                ? "라부안내 혁신 디지털 금융 도입과, 포레스트시티의 자금 조달 및 개발을 위한 MOA 체결"
+                : "MOA Signed for Innovative Digital Finance and Forest City Development"
+            }</strong
           >
           <ul>
-            <li>이브라힘 이스칸다르 국왕실</li>
-            <li>GG56 대표이사 김영군</li>
+            <li>
+              {
+                currentLocale === "ko"
+                  ? "이브라힘 이스칸다르 국왕실"
+                  : "Royal Office of Ibrahim Iskandar"
+              }
+            </li>
+            <li>
+              {
+                currentLocale === "ko"
+                  ? "GG56 대표이사 김영군"
+                  : "CEO of GG56, Kim Young-gun"
+              }
+            </li>
           </ul>
         </div>
         <Image
@@ -132,13 +211,26 @@ const timelineImgs = Object.values(
     >
       <time
         class="pb-2 max-lg:before:-start-4 max-lg:before:self-center lg:before:-bottom-1"
-        datetime="2025-04">2025년2분기</time
+        datetime="2025-04"
+        >{currentLocale === "ko" ? "2025년2분기" : "Q2 2025"}</time
       >
       <div class="mt-2">
-        <strong>GGEX 코어시스템 완료</strong>
+        <strong
+          >{
+            currentLocale === "ko"
+              ? "GGEX 코어시스템 완료"
+              : "Completion of GGEX Core System"
+          }</strong
+        >
         <ul>
-          <li>2024년 4분기</li>
-          <li>상업 운영 개시<br />(2025년 2분기)</li>
+          <li>{currentLocale === "ko" ? "2024년 4분기" : "Q4 2024"}</li>
+          <li>
+            {
+              currentLocale === "ko"
+                ? "상업 운영 개시"
+                : "Commercial Operations Launch"
+            }<br />{currentLocale === "ko" ? "(2025년 2분기)" : "(Q2 2025)"}
+          </li>
         </ul>
       </div>
     </li>
@@ -147,18 +239,31 @@ const timelineImgs = Object.values(
     >
       <time
         class="pb-2 max-lg:before:-start-4 max-lg:before:self-center lg:before:-bottom-1"
-        datetime="2025-01/2026-01">2025년 1분기<br />2026년 1분기</time
+        datetime="2025-01/2026-01"
+        >{currentLocale === "ko" ? "2025년 1분기" : "Q1 2025"}<br />{
+          currentLocale === "ko" ? "2026년 1분기" : "Q1 2026"
+        }</time
       >
       <div class="mt-2">
-        <strong class="text-orange-700">GGBank 라이센스 취득</strong>
-        <ul>
-          <li>2026년 1분기</li>
-        </ul>
         <strong class="text-orange-700"
-          >GGBank & GGEX 통합 서비스 운영 개시</strong
+          >{
+            currentLocale === "ko"
+              ? "GGBank 라이센스 취득"
+              : "Acquisition of GGBank License"
+          }</strong
         >
         <ul>
-          <li>2026년 4분기</li>
+          <li>{currentLocale === "ko" ? "2026년 1분기" : "Q1 2026"}</li>
+        </ul>
+        <strong class="text-orange-700">
+          {
+            currentLocale === "ko"
+              ? "GGBank & GGEX 통합 서비스 운영 개시"
+              : "Launch of GGBank & GGEX Integrated Services"
+          }</strong
+        >
+        <ul>
+          <li>{currentLocale === "ko" ? "2026년 4분기" : "Q4 2026"}</li>
         </ul>
       </div>
     </li>
