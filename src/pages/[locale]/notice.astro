@@ -26,13 +26,15 @@ const docs = [
       class="mx-auto max-w-(--breakpoint-md) px-4"
     >
       <div class="prose prose-lg mx-auto">
-        <h2 id="notice-heading">공지사항</h2>
+        <h2 id="notice-heading">{locale === "ko" ? "공지사항" : "Notice"}</h2>
         <table class="table">
           <thead>
             <tr>
               <th></th>
-              <th>제목</th>
-              <th class="max-md:hidden">작성일</th>
+              <th>{locale === "ko" ? "제목" : "Title"}</th>
+              <th class="max-md:hidden"
+                >{locale === "ko" ? "작성일" : "Date"}</th
+              >
             </tr>
           </thead>
           <tbody>
