@@ -368,7 +368,9 @@ const ggexScreenshots = Object.values(
       <div class="prose md:prose-lg mx-auto max-w-(--breakpoint-md) px-4">
         <h2 id="fintech-heading">{t.business.fintech.h2}</h2>
         <section id="pg-service" aria-labelledby="pg-service-heading">
-          <h3 id="pg-service-heading">PG 서비스</h3>
+          <h3 id="pg-service-heading">
+            {locale === "ko" ? "PG 서비스" : "PG Service"}
+          </h3>
           <p
             class="rounded-box border-primary border p-2 before:content-['※_']"
           >
@@ -377,37 +379,43 @@ const ggexScreenshots = Object.values(
           <ul class="marker:text-primary">
             <li>
               <strong>
-                금융기관(카드사, 은행등)과 인터넷 거래가 가능하게 연결해주는
-                서비스
+                {
+                  locale === "ko"
+                    ? "금융기관(카드사, 은행등)과 인터넷 거래가 가능하게 연결해주는 서비스"
+                    : "A service that connects banks and card companies, enabling secure and convenient online transactions"
+                }
               </strong>
               <ul>
                 <li>
-                  가맹점<Icon
+                  {locale === "ko" ? "가맹점" : "Merchant"}<Icon
                     class="mx-2 inline-block"
                     name="lucide:move-horizontal"
-                  />PG사<Icon
+                  />{locale === "ko" ? "PG사" : "PG Company"}<Icon
                     class="mx-2 inline-block"
                     name="lucide:move-horizontal"
-                  />금융기관
+                  />{locale === "ko" ? "금융기관" : "Financial Institution"}
                 </li>
               </ul>
             </li>
           </ul>
           <div class="not-prose mt-12">
             <div
-              class="mx-auto grid max-w-[500px] grid-cols-3 grid-rows-[1fr_auto_1fr] max-sm:scale-80"
+              class="mx-auto grid max-w-[600px] grid-cols-3 grid-rows-[1fr_auto_1fr] max-sm:scale-80"
             >
               <div
                 class="grid aspect-square place-content-center place-items-center rounded-full border-4 border-blue-200 text-center"
               >
                 <Icon name="lucide:credit-card" size={36} />
-                <span class="text-lg font-bold">고객</span>
+                <span class="text-lg font-bold">
+                  {locale === "ko" ? "고객" : "Customer"}
+                </span>
               </div>
               <div class="self-center justify-self-center text-center">
                 <span
                   class="before:text-primary before:font-bold before:content-['1_']"
-                  >주문결제</span
                 >
+                  {locale === "ko" ? "주문결제" : "Order Payment"}
+                </span>
                 <svg class="h-6 w-full text-slate-300" role="img">
                   <defs>
                     <marker
@@ -437,14 +445,17 @@ const ggexScreenshots = Object.values(
                 </svg>
                 <span
                   class="before:text-primary before:font-bold before:content-['4_']"
-                  >서비스 제공</span
                 >
+                  {locale === "ko" ? "서비스 제공" : "Service Provision"}
+                </span>
               </div>
               <div
                 class="grid aspect-square place-content-center place-items-center rounded-full border-4 border-pink-200 text-center"
               >
                 <Icon name="lucide:store" size={36} />
-                <span class="text-lg font-bold">가맹점</span>
+                <span class="text-lg font-bold">
+                  {locale === "ko" ? "가맹점" : "Merchant"}
+                </span>
               </div>
               <div class="relative">
                 <div
@@ -452,8 +463,9 @@ const ggexScreenshots = Object.values(
                 >
                   <span
                     class="before:text-primary before:font-bold before:content-['7_']"
-                    >대금납부</span
                   >
+                    {locale === "ko" ? "대금납부" : "Payment"}
+                  </span>
                 </div>
                 <svg class="mx-auto w-6 text-slate-300" role="img">
                   <line
@@ -474,13 +486,15 @@ const ggexScreenshots = Object.values(
                 >
                   <span
                     class="before:text-primary before:font-bold before:content-['3_']"
-                    >결제승인</span
                   >
+                    {locale === "ko" ? "결제승인" : "Payment Approval"}
+                  </span>
                   <br />
                   <span
                     class="before:text-primary before:font-bold before:content-['6_']"
-                    >판매대금 입금</span
                   >
+                    {locale === "ko" ? "판매대금 입금" : "Sales Deposit"}
+                  </span>
                 </div>
                 <svg class="mx-auto w-6 text-slate-300" role="img">
                   <line
@@ -499,34 +513,42 @@ const ggexScreenshots = Object.values(
                 >
                   <span
                     class="before:text-primary before:font-bold before:content-['2_']"
-                    >결제요청</span
                   >
+                    {locale === "ko" ? "결제요청" : "Payment Request"}
+                  </span>
                 </div>
               </div>
               <div
                 class="grid aspect-square place-content-center place-items-center rounded-full border-4 border-orange-200 text-center"
               >
                 <Icon name="lucide:building-2" size={36} />
-                <span class="text-lg font-bold">금융기관</span>
-                <span>(카드사)</span>
+                <span class="text-lg font-bold">
+                  {locale === "ko" ? "금융기관" : "FI"}
+                </span>
+                <span>
+                  {locale === "ko" ? "(카드사)" : "(Card Company)"}
+                </span>
               </div>
               <div class="self-center justify-self-center text-center">
                 <span
                   class="before:text-primary before:font-bold before:content-['3_']"
-                  >결제승인</span
                 >
+                  {locale === "ko" ? "결제승인" : "Payment Approval"}
+                </span>
                 <br />
                 <span
                   class="before:text-primary before:font-bold before:content-['5_']"
-                  >정산대금 입금</span
                 >
+                  {locale === "ko" ? "정산대금 입금" : "Settlement Deposit"}
+                </span>
                 <svg class="h-6 w-full text-slate-300" role="img">
                   <use href="#horizontal-line"></use>
                 </svg>
                 <span
                   class="before:text-primary before:font-bold before:content-['2_']"
-                  >결제요청</span
                 >
+                  {locale === "ko" ? "결제요청" : "Payment Request"}
+                </span>
               </div>
               <div
                 class="grid aspect-square place-content-center place-items-center rounded-full border-4 border-purple-200 text-center"
