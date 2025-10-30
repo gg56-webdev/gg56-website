@@ -462,11 +462,14 @@ const ggexScreenshots = Object.values(
 
     <section id="rwa" aria-labelledby="rwa-heading" class="bg-base-200 py-12">
       <div class="prose md:prose-lg mx-auto max-w-(--breakpoint-md) px-4">
-        <h2 id="rwa-heading">RWA</h2>
+        <h2 id="rwa-heading">{t.business.rwa.h2}</h2>
         <p class="rounded-box border-primary border p-2 before:content-['※_']">
-          <dfn id="rwa-dfn"><abbr>RWA</abbr></dfn>(Real World Assets) : 블록체인
-          기술을 활용해 실물 자산을 디지털화 하고, 이를 토큰화 하여 온체인
-          생태계에서 거래 및 활용할 수 있도록 하는 비즈니스 입니다.
+          <dfn id="rwa-dfn"><abbr>RWA</abbr></dfn>
+          {
+            locale === "ko"
+              ? "(Real World Assets) : 블록체인 기술을 활용해 실물 자산을 디지털화 하고, 이를 토큰화 하여 온체인 생태계에서 거래 및 활용할 수 있도록 하는 비즈니스 입니다."
+              : "(Real World Assets): Leveraging blockchain technology to digitize and tokenize real-world assets, enabling their seamless trading and utilization within the on-chain ecosystem."
+          }
         </p>
         <section id="pafi" aria-labelledby="pafi-heading">
           <h3 id="pafi-heading"><abbr>PAFI</abbr> Project</h3>
@@ -478,40 +481,105 @@ const ggexScreenshots = Object.values(
           <ul class="marker:text-primary">
             <li>
               <strong
-                >상품권 기반 글로벌 스테이블 코인의 결제 플랫폼을 구축하고,
-                지불결제 시장을 선점하기 위한 프로그램 입니다</strong
+                >{
+                  locale === "ko"
+                    ? "상품권 기반 글로벌 스테이블 코인의 결제 플랫폼을 구축하고, 지불결제 시장을 선점하기 위한 프로그램 입니다"
+                    : "A program designed to establish a global stablecoin payment platform based on gift certificates, securing a leading position in the payment market"
+                }</strong
               ><ul>
                 <li>
-                  PAFI Pay 결제 플랫폼 구축, 암호화폐 결제 시장으로 사업 확장
+                  {
+                    locale === "ko"
+                      ? "PAFI Pay 결제 플랫폼 구축, 암호화폐 결제 시장으로 사업 확장"
+                      : "PAFI Pay payment platform construction, business expansion into cryptocurrency payment market"
+                  }
                 </li>
                 <li>
-                  유통 결제 및 송금 서비스 : PAFI 코인(거버넌스, 스테이블)을
-                  활용
+                  {
+                    locale === "ko"
+                      ? "유통 결제 및 송금 서비스 : PAFI 코인(거버넌스, 스테이블)을 활용"
+                      : "Distribution payment and remittance services: Utilizing PAFI coins (governance, stable)"
+                  }
                 </li>
-                <li>국경없는 저비용 글로벌 금융 플랫폼 지향</li>
-                <li>고성능 네트워크 기반 실시간 결제 및 송금</li>
-                <li>PAFI Coin을 이용한 스테이블 코인 구매</li>
-                <li>PAFI 스테이블 코인 및 법정 통화 간 자동 교환</li>
+                <li>
+                  {
+                    locale === "ko"
+                      ? "국경없는 저비용 글로벌 금융 플랫폼 지향"
+                      : "Aims to be a borderless, low-cost global financial platform"
+                  }
+                </li>
+                <li>
+                  {
+                    locale === "ko"
+                      ? "고성능 네트워크 기반 실시간 결제 및 송금"
+                      : "Real-time payment and remittance based on high-performance networks"
+                  }
+                </li>
+                <li>
+                  {
+                    locale === "ko"
+                      ? "PAFI Coin을 이용한 스테이블 코인 구매"
+                      : "Purchase stable coins using PAFI Coin"
+                  }
+                </li>
+                <li>
+                  {
+                    locale === "ko"
+                      ? "PAFI 스테이블 코인 및 법정 통화 간 자동 교환"
+                      : "Automatic exchange between PAFI stable coin and fiat currency"
+                  }
+                </li>
               </ul>
             </li>
             <li>
-              <strong>PAFI Project의 추진 단계는</strong><ol>
+              <strong>
+                {
+                  locale === "ko"
+                    ? "PAFI Project의 추진 단계는"
+                    : "PAFI Project Implementation Stages:"
+                }
+              </strong>
+              <ol>
                 <li>
-                  상품권 기반 글로벌 스테이블 코인 플랫폼 구축
+                  {
+                    locale === "ko"
+                      ? "상품권 기반 글로벌 스테이블 코인 플랫폼 구축"
+                      : "Build a gift voucher-based global stable coin platform"
+                  }
                   <ul>
-                    <li>PAFI Pay 구축 및 시장 선점</li>
+                    <li>
+                      {
+                        locale === "ko"
+                          ? "PAFI Pay 구축 및 시장 선점"
+                          : "PAFI Pay development and market establishment"
+                      }
+                    </li>
                   </ul>
                 </li>
                 <li>
-                  PAFI 거버넌스 코인의 글로벌 확산 및 사용 확대 ⇒ 유동성 확보
+                  {
+                    locale === "ko"
+                      ? "PAFI 거버넌스 코인의 글로벌 확산 및 사용 확대 ⇒ 유동성 확보"
+                      : "Global expansion and increased usage of PAFI governance coins ⇒ Secure liquidity"
+                  }
                 </li>
                 <li>
-                  PAFI 스테이블 코인의 글로벌 확장 : 글로벌 유통사의 결제 용도
+                  {
+                    locale === "ko"
+                      ? "PAFI 스테이블 코인의 글로벌 확장 : 글로벌 유통사의 결제 용도"
+                      : "Global expansion of PAFI stable coins: For payment purposes by global distributors"
+                  }
                 </li>
               </ol>
             </li>
             <li>
-              <strong>RWA 결제 시스템을 연계한 PAFI Pay 결제 구성도</strong>
+              <strong>
+                {
+                  locale === "ko"
+                    ? "RWA 결제 시스템을 연계한 PAFI Pay 결제 구성도"
+                    : "PAFI Pay Payment Configuration Diagram Linked to RWA Payment System"
+                }
+              </strong>
               <div
                 class="my-12 grid items-center gap-4 text-center *:place-items-center max-sm:justify-center sm:grid-cols-[1fr_auto_1fr_auto_1fr]"
               >
@@ -522,7 +590,9 @@ const ggexScreenshots = Object.values(
                   RWA Coin<br />Mobile App
                 </div>
                 <div class="grid max-sm:*:[grid-area:1/1]">
-                  <span class="max-sm:translate-x-[100%]">QR코드</span>
+                  <span class="max-sm:translate-x-[100%]">
+                    {locale === "ko" ? "QR코드" : "QR Code"}
+                  </span>
                   <Icon
                     name="lucide:move-right"
                     size={48}
@@ -533,7 +603,9 @@ const ggexScreenshots = Object.values(
                   class="rounded-box aspect-square content-center border bg-orange-50 p-4 shadow-sm"
                 >
                   <Icon name="lucide:laptop-minimal" size={24} class="mb-2" />
-                  유통사 POS<br />시스템
+                  {locale === "ko" ? "유통사 POS" : "Distributor POS System"}
+                  <br />
+                  {locale === "ko" ? "시스템" : ""}
                 </div>
                 <div class="grid max-sm:*:[grid-area:1/1]">
                   <span class="max-sm:translate-x-[100%]">Payment</span>
@@ -547,14 +619,19 @@ const ggexScreenshots = Object.values(
                   class="rounded-box aspect-square content-center border bg-white p-4 shadow-sm"
                 >
                   <Icon name="lucide:banknote" size={24} class="mb-2" />
-                  RWA Payment<br />System
+                  {locale === "ko" ? "RWA Payment" : "RWA Payment"}
+                  <br />
+                  {locale === "ko" ? "System" : "System"}
                 </div>
               </div>
             </li>
             <li>
               <strong>
-                PAFI Project는 유통회사와 가맹점의 지불 결제를 위한 코인 발행과,
-                결제 시스템 구축 사업을 추진하고 있습니다
+                {
+                  locale === "ko"
+                    ? "PAFI Project는 유통회사와 가맹점의 지불 결제를 위한 코인 발행과, 결제 시스템 구축 사업을 추진하고 있습니다"
+                    : "The PAFI Project is developing a digital payment ecosystem by issuing coins and establishing a payment system designed for distribution companies and franchise partners"
+                }
               </strong>
             </li>
           </ul>
