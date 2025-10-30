@@ -564,29 +564,45 @@ const ggexScreenshots = Object.values(
           aria-labelledby="sms-service-heading"
           class="mt-24"
         >
-          <h3 id="sms-service-heading">SMS 결제서비스</h3>
+          <h3 id="sms-service-heading">
+            {locale === "ko" ? "SMS 결제서비스" : "SMS Payment Service"}
+          </h3>
           <ul class="marker:text-primary">
             <li>
               <strong>
-                고객에게 수신된 SMS 메세지를 통해 카드정보 입력 후 결제하는
-                서비스
+                {
+                  locale === "ko"
+                    ? "고객에게 수신된 SMS 메세지를 통해 카드정보 입력 후 결제하는 서비스"
+                    : "A service enabling customers to make payments by entering card details via received SMS messages"
+                }
               </strong>
               <ul>
                 <li>
-                  판매자가 상품 및 단가를 웹 또는 앱에서 구매자에게 SMS로 결제
-                  요청 시, 구매자는 카드정보 노출 없이 신용카드 결제를 진행
+                  {
+                    locale === "ko"
+                      ? "판매자가 상품 및 단가를 웹 또는 앱에서 구매자에게 SMS로 결제 요청 시, 구매자는 카드정보 노출 없이 신용카드 결제를 진행"
+                      : "Sellers can request payments via SMS with product details, allowing buyers to complete secure credit card payments without exposing card information"
+                  }
                 </li>
               </ul>
             </li>
           </ul>
           <div class="not-prose mt-12">
             <div
-              class="grid gap-y-4 text-center md:grid-cols-[repeat(3,1fr_auto)_1fr] md:items-start"
+              class="grid gap-y-4 text-center md:grid-cols-[repeat(3,1fr_auto)_1fr] md:items-start [&_div]:gap-2 [&_strong]:leading-tight"
             >
               <div class="grid justify-items-center">
                 <Icon name="lucide:store" size={36} />
-                <strong>판매자</strong>
-                <p class="text-sm">고객에게 문자 발송</p>
+                <strong>
+                  {locale === "ko" ? "판매자" : "Seller"}
+                </strong>
+                <p class="text-sm">
+                  {
+                    locale === "ko"
+                      ? "고객에게 문자 발송"
+                      : "Send SMS notifications to customers"
+                  }
+                </p>
               </div>
               <Icon
                 name="lucide:move-right"
@@ -595,8 +611,16 @@ const ggexScreenshots = Object.values(
               />
               <div class="grid justify-items-center">
                 <Icon name="lucide:mail" size={36} />
-                <strong>SMS 결제요청</strong>
-                <p class="text-sm">상품명, 결제금액 고객정보 등</p>
+                <strong>
+                  {locale === "ko" ? "SMS 결제요청" : "SMS Payment Request"}
+                </strong>
+                <p class="text-sm">
+                  {
+                    locale === "ko"
+                      ? "상품명, 결제금액 고객정보 등"
+                      : "Product name, payment amount, customer info, etc."
+                  }
+                </p>
               </div>
               <Icon
                 name="lucide:move-right"
@@ -605,8 +629,16 @@ const ggexScreenshots = Object.values(
               />
               <div class="grid justify-items-center">
                 <Icon name="lucide:credit-card" size={36} />
-                <strong>카드정보입력</strong>
-                <p class="text-sm">카드번호, 유효기간 등 입력</p>
+                <strong>
+                  {locale === "ko" ? "카드정보입력" : "Enter Card Information"}
+                </strong>
+                <p class="text-sm">
+                  {
+                    locale === "ko"
+                      ? "카드번호, 유효기간 등 입력"
+                      : "Enter card number, expiration date, etc."
+                  }
+                </p>
               </div>
               <Icon
                 name="lucide:move-right"
@@ -615,8 +647,16 @@ const ggexScreenshots = Object.values(
               />
               <div class="grid justify-items-center">
                 <Icon name="lucide:hand-coins" size={36} />
-                <strong>고객결제</strong>
-                <p class="text-sm">결제완료, 취소가능</p>
+                <strong>
+                  {locale === "ko" ? "고객결제" : "Customer Payment"}
+                </strong>
+                <p class="text-sm">
+                  {
+                    locale === "ko"
+                      ? "결제완료, 취소가능"
+                      : "Payments can be completed or canceled easily"
+                  }
+                </p>
               </div>
             </div>
           </div>
@@ -626,45 +666,95 @@ const ggexScreenshots = Object.values(
           aria-labelledby="payment-service-heading"
           class="mt-24"
         >
-          <h3 id="payment-service-heading">수기결제서비스</h3>
+          <h3 id="payment-service-heading">
+            {locale === "ko" ? "수기결제서비스" : "Manual Payment Service"}
+          </h3>
           <ul class="marker:text-primary">
             <li>
               <strong>
-                판매자가 최소한의 고객카드 정보만으로 결제하는 빠르고 간편한
-                결제 수단
+                {
+                  locale === "ko"
+                    ? "판매자가 최소한의 고객카드 정보만으로 결제하는 빠르고 간편한 결제 수단"
+                    : "A fast and convenient payment method where sellers process payment with minimal customer card information"
+                }
               </strong>
             </li>
             <li>
-              <strong
-                >개인정보 없이 판매자의 보증보험 가입을 통해 결제가 가능한
-                결제서비스</strong
-              >
+              <strong>
+                {
+                  locale === "ko"
+                    ? "개인정보 없이 판매자의 보증보험 가입을 통해 결제가 가능한 결제서비스"
+                    : "A payment service that enables transactions through seller's indemnity insurance without requiring personal information"
+                }
+              </strong>
             </li>
             <li>
-              <strong>수기결제의 장점</strong>
+              <strong>
+                {
+                  locale === "ko"
+                    ? "수기결제의 장점"
+                    : "Advantages of Manual Payment"
+                }
+                }
+              </strong>
               <ul>
-                <li>판매상품의 높은 결제율을 위한 신용카드사 모두 지원 가능</li>
-                <li>소비자의 방문 없이 전화/문자 한통으로 카드결제 가능</li>
                 <li>
-                  번거로운 인증절차 없이 로그인 한번으로 빠른 결제처리 가능
+                  {
+                    locale === "ko"
+                      ? "판매상품의 높은 결제율을 위한 신용카드사 모두 지원 가능"
+                      : "Support for all credit card companies to achieve high payment rates for products"
+                  }
                 </li>
-                <li>휴대단말기 필요 없이 매출정산/운영/관리 유지비 0원!</li>
+                <li>
+                  {
+                    locale === "ko"
+                      ? "소비자의 방문 없이 전화/문자 한통으로 카드결제 가능"
+                      : "Card payment possible with a single phone call or text message without consumer visits"
+                  }
+                </li>
+                <li>
+                  {
+                    locale === "ko"
+                      ? "번거로운 인증절차 없이 로그인 한번으로 빠른 결제처리 가능"
+                      : "Fast payment processing with a single login, without complicated authentication procedures"
+                  }
+                </li>
+                <li>
+                  {
+                    locale === "ko"
+                      ? "휴대단말기 필요 없이 매출정산/운영/관리 유지비 0원!"
+                      : "No maintenance fees for sales settlement, operation, and management without needing mobile terminals!"
+                  }
+                </li>
               </ul>
             </li>
           </ul>
           <p class="text-primary font-bold before:content-['※_']">
-            안전하고 스마트한 결제 서비스를 함께할 고객님을 모십니다
+            {
+              locale === "ko"
+                ? "안전하고 스마트한 결제 서비스를 함께할 고객님을 모십니다"
+                : "We welcome customers who wish to partner with us for safe and smart payment services"
+            }
           </p>
           <ul class="marker:text-primary">
             <li>
-              <strong>추천업종</strong>
+              <strong>
+                {locale === "ko" ? "추천업종" : "Recommended Industries"}
+              </strong>
               <ul>
                 <li>
-                  리조트, 팬션예약, 제조사, 유통사, 대리운전, 배달업종, 블로그,
-                  SNS, 관공서, 병원, 쇼핑몰, 카페, 증권, 화원
+                  {
+                    locale === "ko"
+                      ? "리조트, 팬션예약, 제조사, 유통사, 대리운전, 배달업종, 블로그, SNS, 관공서, 병원, 쇼핑몰, 카페, 증권, 화원"
+                      : "Resorts, pension reservations, manufacturers, distributors, designated drivers, delivery services, blogs, SNS, government offices, hospitals, shopping malls, cafes, securities, flower shops"
+                  }
                 </li>
                 <li>
-                  그 외 방문판매, 의료기기, 기타업종 등 모두 편리하게 사용 가능
+                  {
+                    locale === "ko"
+                      ? "그 외 방문판매, 의료기기, 기타업종 등 모두 편리하게 사용 가능"
+                      : "All other types including direct sales, medical devices, and other industries can use it conveniently"
+                  }
                 </li>
               </ul>
             </li>
