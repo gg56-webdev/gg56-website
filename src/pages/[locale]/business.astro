@@ -1,8 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import * as translations from "@/i18n";
 import { getLocaleParams } from "@/utils";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
+
 import appImg from "@images/it/app.webp";
 import botImg from "@images/it/bot.webp";
 import passngoImg from "@images/it/passngo.png";
@@ -13,6 +15,9 @@ export function getStaticPaths() {
   return getLocaleParams();
 }
 
+const locale = Astro.currentLocale!;
+const t = translations[locale as keyof typeof translations] || translations.en;
+
 const ggexScreenshots = import.meta.glob<ImageMetadata>(
   "@/assets/images/exchange/ko/ggex-*",
   {
@@ -22,8 +27,8 @@ const ggexScreenshots = import.meta.glob<ImageMetadata>(
 );
 ---
 
-<Layout title="사업소개">
-  <DefaultHero title="사업소개" />
+<Layout title={t.business.h1}>
+  <DefaultHero title={t.business.h1} />
   <div class="grid gap-12 py-12 md:gap-24 md:py-24 lg:gap-36">
     <section id="ggbank" aria-labelledby="ggbank-heading">
       <div class="prose md:prose-lg mx-auto max-w-(--breakpoint-lg) px-4">

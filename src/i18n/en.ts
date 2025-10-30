@@ -9,6 +9,7 @@ const translations = {
     business: "Business",
   },
   business: {
+    h1: "Business Overview",
     ggbank: { h2: "Digital Bank" },
     ggex: { h2: "Digital Exchange" },
     fintech: { h2: "FIN-Tech" },
