@@ -18,13 +18,12 @@ export function getStaticPaths() {
 const locale = Astro.currentLocale!;
 const t = translations[locale as keyof typeof translations] || translations.en;
 
-const ggexScreenshots = import.meta.glob<ImageMetadata>(
-  "@/assets/images/exchange/ko/ggex-*",
-  {
+const ggexScreenshots = Object.values(
+  import.meta.glob<ImageMetadata>("@/assets/images/exchange/*/ggex-*", {
     eager: true,
     import: "default",
-  },
-);
+  }),
+).filter((src) => src.src.includes(`/${locale}/`));
 ---
 
 <Layout title={t.business.h1}>
@@ -309,14 +308,17 @@ const ggexScreenshots = import.meta.glob<ImageMetadata>(
       class="bg-orange-50/50 py-12"
     >
       <div class="prose md:prose-lg mx-auto max-w-(--breakpoint-lg) px-4">
-        <h2 id="ggex-heading">GGEX</h2>
+        <h2 id="ggex-heading">{t.business.ggex.h2}</h2>
         <ul class="marker:text-orange-400">
           <li>
-            GGEX는 사용자 친화적인 UI로 쉽게 거래할 수 있으며, 안전하고 강력한
-            보안 시스템으로 자산을 안전하게 보호 합니다.
+            {
+              locale === "ko"
+                ? "GGEX는 사용자 친화적인 UI로 쉽게 거래할 수 있으며, 안전하고 강력한 보안 시스템으로 자산을 안전하게 보호 합니다"
+                : "GGEX offers easy trading with a user-friendly interface and protects your assets safely with a robust security system"
+            }
             <div class="not-prose mt-4 grid grid-cols-2 gap-2 md:grid-cols-5">
               {
-                Object.values(ggexScreenshots).map((src) => (
+                ggexScreenshots.map((src) => (
                   <Image
                     {src}
                     alt=""
@@ -326,14 +328,20 @@ const ggexScreenshots = import.meta.glob<ImageMetadata>(
               }
             </div>
           </li>
-          <li>GGEX는 충분한 유동성을 확보하고 있습니다.</li>
+          <li>
+            {
+              locale === "ko"
+                ? "GGEX는 충분한 유동성을 확보하고 있습니다."
+                : "GGEX maintains sufficient liquidity."
+            }
+          </li>
           <div class="not-prose mt-6 flex flex-wrap gap-x-4 gap-y-2">
             <a
               href="https://ggex.io/en"
               target="_blank"
               rel="noopener noreferrer"
               class="btn sm:btn-wide bg-orange-400 max-sm:w-full"
-              >자세히 알아보기</a
+              >{t.common.learnMore}</a
             >
             <a
               href="https://apps.apple.com/kr/app/ggex/id6738909226"
