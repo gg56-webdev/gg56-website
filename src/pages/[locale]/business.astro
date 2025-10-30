@@ -656,23 +656,31 @@ const ggexScreenshots = Object.values(
           <h3 id="app-title">FingeRate App</h3>
           <ul class="marker:text-primary">
             <li>
-              <strong
-                >FingerRate앱은 설문조사 수행 방식을 혁신하여 기업에게 귀중한
-                피드백을 제공하는 동시에 참여자에게 보상을 제공합니다.</strong
-              >
+              <strong>
+                {
+                  locale === "ko"
+                    ? "FingerRate앱은 설문조사 수행 방식을 혁신하여 기업에게 귀중한 피드백을 제공하는 동시에 참여자에게 보상을 제공합니다."
+                    : "FingerRate app revolutionizes survey methodology by providing valuable feedback to companies while rewarding participants."
+                }
+              </strong>
             </li>
             <li>
-              <strong
-                >FingerRate앱은 메타버스를 기반으로 한 최초의 앱으로 실제 지도를
-                사용하여 설문조사에 참여하면 보상을 받을 수 있는 흥미로운 기회를
-                제공합니다.</strong
-              >
+              <strong>
+                {
+                  locale === "ko"
+                    ? "FingerRate앱은 메타버스를 기반으로 한 최초의 앱으로 실제 지도를 사용하여 설문조사에 참여하면 보상을 받을 수 있는 흥미로운 기회를 제공합니다."
+                    : "FingerRate app is the first metaverse-based app that offers an exciting opportunity to earn rewards by participating in surveys using real-world maps."
+                }
+              </strong>
             </li>
             <li>
-              <strong
-                >가치 없는 설문조사에 시간을 낭비하지 마시고 지금 바로
-                FingerRate와 함께 보상을 받으세요!</strong
-              >
+              <strong>
+                {
+                  locale === "ko"
+                    ? "가치 없는 설문조사에 시간을 낭비하지 마시고 지금 바로 FingerRate와 함께 보상을 받으세요!"
+                    : "Don't waste time on worthless surveys - start earning rewards with FingerRate now!"
+                }
+              </strong>
             </li>
           </ul>
           <ul
@@ -680,10 +688,10 @@ const ggexScreenshots = Object.values(
           >
             {
               [
-                "보상 기반 설문조사",
-                "실제 세계 지도",
-                "언제 어디서나",
-                "무료!",
+                locale === "ko" ? "보상 기반 설문조사" : "Reward-Based Surveys",
+                locale === "ko" ? "실제 세계 지도" : "Real-World Maps",
+                locale === "ko" ? "언제 어디서나" : "Anytime, Anywhere",
+                locale === "ko" ? "무료!" : "Free!",
               ].map((item) => (
                 <li class="flex items-center gap-2">
                   <Icon
@@ -702,8 +710,9 @@ const ggexScreenshots = Object.values(
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-primary md:btn-wide not-prose mt-6 max-md:w-full"
-            >지금 시작하기!</a
           >
+            {locale === "ko" ? "지금 시작하기!" : "Get Started Now!"}
+          </a>
         </div>
       </section>
       <section
