@@ -730,17 +730,22 @@ const ggexScreenshots = Object.values(
             <h3 id="bot-heading">FingeRate Bot</h3>
             <ul class="marker:text-primary">
               <li>
-                <strong
-                  >FingeRate 생태계를 통해 기업에 고객 데이터를 제공하는 것을
-                  넘어, 터치리스 시스템을 통해 고객에게 안전하고 편리한 경험을
-                  보장합니다.</strong
-                >
+                <strong>
+                  {
+                    locale === "ko"
+                      ? "FingeRate 생태계를 통해 기업에 고객 데이터를 제공하는 것을 넘어, 터치리스 시스템을 통해 고객에게 안전하고 편리한 경험을 보장합니다."
+                      : "Through the FingeRate ecosystem, we not only provide customer data to businesses but also deliver a safe and seamless touchless experience for customers."
+                  }
+                </strong>
               </li>
               <li>
-                <strong
-                  >실시간 데이터 분석을 통해 고객 행동에 대한 깊은 이해를
-                  제공합니다.</strong
-                >
+                <strong>
+                  {
+                    locale === "ko"
+                      ? "실시간 데이터 분석을 통해 고객 행동에 대한 깊은 이해를 제공합니다."
+                      : "We deliver deep insights into customer behavior through real-time data analytics."
+                  }
+                </strong>
               </li>
             </ul>
             <a
@@ -748,8 +753,9 @@ const ggexScreenshots = Object.values(
               target="_blank"
               rel="noopener noreferrer"
               class="btn btn-primary not-prose sm:btn-wide max-sm:w-full"
-              >자세히 알아보기</a
             >
+              {t.common.learnMore}
+            </a>
           </div>
         </div>
       </section>
