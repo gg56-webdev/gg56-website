@@ -44,6 +44,9 @@ const translations = {
       p: "There are several ways to contact us. You may reach us via email or phone, or you could pay a visit to our office situated in the center of Seoul.",
     },
   },
+  common: {
+    learnMore: "Learn More",
+  },
 } as const;
 
 export default translations;
