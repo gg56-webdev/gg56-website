@@ -32,91 +32,208 @@ const ggexScreenshots = import.meta.glob<ImageMetadata>(
   <div class="grid gap-12 py-12 md:gap-24 md:py-24 lg:gap-36">
     <section id="ggbank" aria-labelledby="ggbank-heading">
       <div class="prose md:prose-lg mx-auto max-w-(--breakpoint-lg) px-4">
-        <h2 id="ggbank-heading">GGbank</h2>
+        <h2 id="ggbank-heading">{t.business.ggbank.h2}</h2>
         <ul class="marker:text-primary">
           <li>
             <strong
-              >세계 최초로 암호화폐 거래소와 디지털뱅크간 혁신적 통합플랫폼으로
-              구현하는 “First Mover”</strong
+              >{
+                locale === "ko"
+                  ? "세계 최초로 암호화폐 거래소와 디지털뱅크간 혁신적 통합플랫폼으로 구현하는 “First Mover”"
+                  : "As a First Mover, we are building the world’s first innovative platform that seamlessly connects cryptocurrency exchanges with digital banking"
+              }</strong
             >
             <ul>
-              <li>은행업과 디지털 자산 관리를 단일 플랫폼으로 결합</li>
-              <li>고객의 편의성과 편익성을 극대화하는 혁신적인 금융서비스</li>
               <li>
-                형태 : 디지탈 오프쇼어 뱅크<br /><small
-                  class="ps-6 before:content-['*_']"
-                  >낮은 세율이 적용되는 국가에 설립, 국제 은행 라이선스 하에
-                  운영 및 규제</small
-                >
+                {
+                  locale === "ko"
+                    ? "은행업과 디지털 자산 관리를 단일 플랫폼으로 결합"
+                    : "Integrating banking and digital asset management within one unified platform"
+                }
               </li>
               <li>
-                본사 : 말레이시아 라부안<br /><small
-                  class="ps-6 before:content-['*_']"
-                  >Tax heaven 지역 이점, 자산보호 (이슬람금융의 익명성 보장),
-                  규제 유연성</small
-                >
+                {
+                  locale === "ko"
+                    ? "고객의 편의성과 편익성을 극대화하는 혁신적인 금융서비스"
+                    : "Innovative financial services that maximize customer convenience and benefits"
+                }
+              </li>
+              <li>
+                {
+                  locale === "ko"
+                    ? "형태 : 디지탈 오프쇼어 뱅크"
+                    : "Type: Digital Offshore Bank"
+                }
+                <br />
+                <small class="ps-6 before:content-['*_']">
+                  {
+                    locale === "ko"
+                      ? "낮은 세율이 적용되는 국가에 설립, 국제 은행 라이선스 하에 운영 및 규제"
+                      : "Established in a country with low tax rates, operated and regulated under international banking license"
+                  }
+                </small>
+              </li>
+              <li>
+                {
+                  locale === "ko"
+                    ? "본사 : 말레이시아 라부안"
+                    : "Headquarters: Labuan, Malaysia"
+                }
+                <br />
+                <small class="ps-6 before:content-['*_']">
+                  {
+                    locale === "ko"
+                      ? "Tax heaven 지역 이점, 자산보호 (이슬람금융의 익명성 보장), 규제 유연성"
+                      : "Tax haven region advantages, asset protection (anonymity guarantee in Islamic finance), regulatory flexibility"
+                  }
+                </small>
               </li>
             </ul>
           </li>
           <li>
             <strong
-              >고객은 단일 KYC로 은행과 크립토 거래소에 “로그인”하고, 단일
-              “계정”에서 모든 자산을 통합 관리 합니다. (Liquid Asset AI)</strong
+              >{
+                locale === "ko"
+                  ? '고객은 단일 KYC로 은행과 크립토 거래소에 "로그인"하고, 단일 "계정"에서 모든 자산을 통합 관리 합니다. (Liquid Asset AI)'
+                  : "With a single KYC process, customers can seamlessly access both banking and crypto exchange services, managing all their assets in one unified account through Liquid Asset AI"
+              }</strong
             ><ul>
-              <li>암호화폐와 법정화폐 간의 거래를 단순화</li>
-              <li>제3의 중개기관이나 그 관련 수수료, 시간을 혁신적으로 줄임</li>
+              <li>
+                {
+                  locale === "ko"
+                    ? "암호화폐와 법정화폐 간의 거래를 단순화"
+                    : "Simplify transactions between cryptocurrency and fiat currency"
+                }
+              </li>
+              <li>
+                {
+                  locale === "ko"
+                    ? "제3의 중개기관이나 그 관련 수수료, 시간을 혁신적으로 줄임"
+                    : "Innovate by minimizing the role of third-party intermediaries, significantly reducing related fees and processing time"
+                }
+              </li>
             </ul>
           </li>
           <li>
             <strong
-              >연중 무휴, 언제, 어느 곳에서나 접속하여 은행업무 처리 가능</strong
+              >{
+                locale === "ko"
+                  ? "연중 무휴, 언제, 어느 곳에서나 접속하여 은행업무 처리 가능"
+                  : "Available 24/7, 365 days a year - access and conduct banking services anytime, anywhere"
+              }</strong
             >
           </li>
-          <li><strong>전세계 은행과 암호화폐거래소 연결 추진</strong></li>
+          <li>
+            <strong>
+              {
+                locale === "ko"
+                  ? "전세계 은행과 암호화폐거래소 연결 추진"
+                  : "Promoting connections with banks and cryptocurrency exchanges worldwide"
+              }
+            </strong>
+          </li>
           <li>
             <strong
-              >기존 은행의 모습은 GGbank에서 고객중심의 프로세스로 새롭게 변신
-              합니다</strong
+              >{
+                locale === "ko"
+                  ? "기존 은행의 모습은 GGbank에서 고객중심의 프로세스로 새롭게 변신 합니다"
+                  : "Traditional banking appearance transforms into customer-centric processes at GGbank"
+              }</strong
             >
             <div
-              class="not-prose my-8 grid **:text-balance md:grid-cols-[auto_1fr_auto_1fr]"
+              class="not-prose my-8 grid **:text-balance md:grid-cols-[min-content_1fr_auto_1fr]"
             >
               <div
                 class="row-span-4 row-start-2 grid grid-cols-subgrid grid-rows-subgrid items-end *:border-b *:py-2 *:pe-2 max-md:hidden"
               >
-                <span>시장니즈<br />선도대응</span>
-                <span>사용자<br />편의</span>
-                <span>운영 효율성</span>
-                <span>지속가능<br />성장기반</span>
+                <span>
+                  {
+                    locale === "ko"
+                      ? "시장니즈 선도대응"
+                      : "Anticipated Market Needs"
+                  }
+                </span>
+                <span>
+                  {locale === "ko" ? "사용자 편의" : "User Convenience"}
+                </span>
+                <span>
+                  {locale === "ko" ? "운영 효율성" : "Operational Efficiency"}
+                </span>
+                <span>
+                  {
+                    locale === "ko"
+                      ? "지속가능 성장기반"
+                      : "Sustainable Growth Foundation"
+                  }
+                </span>
               </div>
               <div
                 class="rounded-t-box grid overflow-hidden bg-blue-100 text-center shadow-sm *:px-4 *:py-2 md:row-span-5 md:grid-cols-subgrid md:grid-rows-subgrid"
               >
-                <h3 class="bg-blue-500 text-2xl font-bold text-white">현 황</h3>
+                <h3 class="bg-blue-500 text-2xl font-bold text-white">
+                  {locale === "ko" ? "현 황" : "Current Status"}
+                </h3>
                 <div class="border-b border-white">
-                  <p>전통금융과 크림토금융 이원화</p>
+                  <p>
+                    {
+                      locale === "ko"
+                        ? "전통금융과 크림토금융 이원화"
+                        : "Dual financial system: Traditional and Crypto finance"
+                    }
+                  </p>
                   <p class="mt-2 rounded-full bg-white px-2 py-1 text-blue-700">
-                    암호화폐 현금화 애로,수수료 과다
+                    {
+                      locale === "ko"
+                        ? "암호화폐 현금화 애로,수수료 과다"
+                        : "Cryptocurrency cashing difficulties, excessive fees"
+                    }
                   </p>
                 </div>
                 <div class="border-b border-white">
                   <p>
-                    은행과 크립토거래소 등 복수계좌, 복수의 KYC, 복합적 규제
+                    {
+                      locale === "ko"
+                        ? "은행과 크립토거래소 등 복수계좌, 복수의 KYC, 복합적 규제"
+                        : "Multi-account, multi-KYC, complex regulations"
+                    }
                   </p>
                   <p class="mt-2 rounded-full bg-white px-2 py-1 text-blue-700">
-                    사용자 고통, 시장성장 한계
+                    {
+                      locale === "ko"
+                        ? "사용자 고통, 시장성장 한계"
+                        : "Pain points & growth limits"
+                    }
                   </p>
                 </div>
                 <div class="border-b border-white">
-                  <p>규제 대응 최적화 & 인프라 통합</p>
+                  <p>
+                    {
+                      locale === "ko"
+                        ? "규제 대응 최적화 & 인프라 통합"
+                        : "Regulatory compliance optimization & infrastructure integration"
+                    }
+                  </p>
                   <p class="mt-2 rounded-full bg-white px-2 py-1 text-blue-700">
-                    비용 절감 & 확장 용이
+                    {
+                      locale === "ko"
+                        ? "비용 절감 & 확장 용이"
+                        : "Cost reduction & easy expansion"
+                    }
                   </p>
                 </div>
                 <div class="border-b border-white">
-                  <p>은행+거래소 통합</p>
+                  <p>
+                    {
+                      locale === "ko"
+                        ? "은행+거래소 통합"
+                        : "Bank + Exchange Integration"
+                    }
+                  </p>
                   <p class="mt-2 rounded-full bg-white px-2 py-1 text-blue-700">
-                    즉시 환전·결제·대출 가능
+                    {
+                      locale === "ko"
+                        ? "즉시 환전·결제·대출 가능"
+                        : "Instant exchange, payment, and lending"
+                    }
                   </p>
                 </div>
               </div>
@@ -144,25 +261,44 @@ const ggexScreenshots = import.meta.glob<ImageMetadata>(
                 class="rounded-t-box grid overflow-hidden bg-purple-200 text-center shadow-sm *:grid *:content-center *:px-4 *:py-2 md:row-span-5 md:grid-cols-subgrid md:grid-rows-subgrid"
               >
                 <h3 class="bg-purple-700 text-2xl font-bold text-white">
-                  솔루션
+                  {locale === "ko" ? "솔루션" : "Solution"}
                 </h3>
                 <p class="border-b border-white">
-                  암호화폐 실시간 현금화, 단일 수수료
+                  {
+                    locale === "ko"
+                      ? "암호화폐 실시간 현금화, 단일 수수료"
+                      : "Real-time cryptocurrency conversion, single fee"
+                  }
                 </p>
                 <p class="border-b border-white">
                   Single Account, single KYC, single regulatory authority
                 </p>
                 <p class="border-b border-white">
-                  Fin-tech 및 Operation Company 설립, 스테이블코인생태계
-                  선도백화점 상품권 RWA확보
+                  {
+                    locale === "ko"
+                      ? "Fin-tech 및 Operation Company 설립, 스테이블코인생태계 선도백화점 상품권 RWA확보"
+                      : "Leading stablecoin ecosystem with FinTech and RWAs"
+                  }
                 </p>
                 <p class="border-b border-white">
-                  고객 신뢰 확보 & 금융 서비스 매출 증가
+                  {
+                    locale === "ko"
+                      ? "고객 신뢰 확보 & 금융 서비스 매출 증가"
+                      : "Customer trust building & increased financial services revenue"
+                  }
                 </p>
               </div>
             </div>
           </li>
-          <li><strong>은행업무를 쉽게 처리할 수 있는 UI/UX 사용</strong></li>
+          <li>
+            <strong>
+              {
+                locale === "ko"
+                  ? "은행업무를 쉽게 처리할 수 있는 UI/UX 사용"
+                  : "User-friendly UI/UX to perform banking operations"
+              }
+            </strong>
+          </li>
           {/* TODO: add app download links */}
         </ul>
       </div>
