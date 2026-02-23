@@ -7,6 +7,7 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://gg56.com",
   i18n: {
     defaultLocale: "ko",
     locales: ["en", "ko"],
