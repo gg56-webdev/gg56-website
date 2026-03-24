@@ -9,8 +9,8 @@ import icon from "astro-icon";
 export default defineConfig({
   site: "https://gg56.com",
   i18n: {
-    defaultLocale: "ko",
-    locales: ["en", "ko"],
+    defaultLocale: "en",
+    locales: ["en"],
     routing: {
       prefixDefaultLocale: true,
     },
