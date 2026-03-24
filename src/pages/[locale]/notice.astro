@@ -8,9 +8,17 @@ export function getStaticPaths() {
 const locale = Astro.currentLocale!;
 const t = translations[locale as keyof typeof translations] || translations.en;
 
-const docs = [
+const enDocs = [
   {
-    title: "디지털 뱅킹과 암호화폐 거래소간 혁신적인 통합 플랫폼 GxB",
+    title: "An Innovative Integrated Platform Between Digital Banking and Cryptocurrency Exchanges, GxB",
+    date: "2026-03-24",
+    link: "/docs/en/GxBTeaser_IR.pdf",
+  },
+];
+
+const koDocs = [
+  {
+    title: "디지털 뱅킹과 암호화폐 거래소 간의 혁신적인 통합 플랫폼, GxB",
     date: "2025-09-01",
     link: "/docs/ko/GxBTeaser_IR.pdf",
   },
@@ -39,7 +47,7 @@ const docs = [
           </thead>
           <tbody>
             {
-              docs.map(({ date, link, title }, id) => (
+              (locale === "ko" ? koDocs : enDocs).map(({ date, link, title }, id) => (
                 <tr>
                   <th>{id + 1}</th>
                   <td>
