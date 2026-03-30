@@ -1,5 +1,6 @@
 import { glob } from "astro/loaders";
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
 
 export const people = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/people" }),
@@ -11,7 +12,7 @@ export const people = defineCollection({
       photo: image(),
       subtitle: z.string().optional(),
       positions: z.array(z.string()).optional(),
-      socials: z.array(z.string().url()).optional(),
+      socials: z.array(z.url()).optional(),
     });
   },
 });

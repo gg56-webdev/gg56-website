@@ -1,9 +1,9 @@
 ---
-import "@fontsource-variable/noto-sans-kr";
 import Footer from "@/components/Footer.astro";
 import Head from "@/components/Head.astro";
 import Header from "@/components/Header.astro";
 import "@/styles/global.css";
+import { Font } from "astro:assets";
 import type { ComponentProps } from "astro/types";
 import LangSelect from "@/components/LangSelect.astro";
 type Props = ComponentProps<typeof Head>;
@@ -18,6 +18,7 @@ const isIndexPage = (() => {
 <html lang={Astro.currentLocale}>
   <head>
     <Head {...Astro.props} />
+    <Font cssVariable="--font-noto-sans-kr" />
     <slot name="head" />
   </head>
   <body class="relative flex min-h-screen flex-col">

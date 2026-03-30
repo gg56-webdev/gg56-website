@@ -4,8 +4,8 @@
   themes: light --default;
 }
 
-@theme {
-  --font-sans: "Noto Sans KR Variable", sans-serif;
+@theme inline {
+  --font-sans: var(--font-noto-sans-kr);
 }
 
 @layer base {
