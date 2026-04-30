@@ -8,5 +8,3 @@ export const COMPANY_ADDRESS = {
 } as const;
 export const LINKEDIN_URL = "https://www.linkedin.com/company/gg56";
 export const FACEBOOK_URL = "https://www.facebook.com/gg56global";
-
-export const ADVISORY_BOARD_LINK = "/advisory-board";
