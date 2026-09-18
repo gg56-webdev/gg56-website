@@ -1,3 +1,10 @@
+# Redirect before serving Astro's generated root redirect page.
+[[redirects]]
+  from = "/"
+  to = "/en"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/wp-json"
   to = "https://old.gg56.com/wp-json"
